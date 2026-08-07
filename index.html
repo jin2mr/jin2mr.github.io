@@ -20,7 +20,6 @@
       width: 100%;
       min-height: 100%;
       overflow-x: hidden;
-
       font-family: Arial, sans-serif;
       color: white;
     }
@@ -28,7 +27,6 @@
     body {
       background: #071426;
     }
-
 
     /* =====================================
        ページ全体
@@ -39,10 +37,8 @@
       height: 300vh;
     }
 
-
     /* =====================================
        空
-       3枚を重ねて切り替える
     ===================================== */
 
     .sky-layer {
@@ -53,7 +49,6 @@
 
       transition: opacity 0.05s linear;
     }
-
 
     /* 昼 */
 
@@ -69,7 +64,6 @@
 
       opacity: 1;
     }
-
 
     /* 夕方 */
 
@@ -87,7 +81,6 @@
       opacity: 0;
     }
 
-
     /* 夜 */
 
     .sky-night {
@@ -102,7 +95,6 @@
 
       opacity: 0;
     }
-
 
     /* =====================================
        太陽
@@ -129,9 +121,10 @@
 
       pointer-events: none;
 
-      will-change: transform, opacity;
+      will-change:
+        transform,
+        opacity;
     }
-
 
     /* =====================================
        月
@@ -151,7 +144,7 @@
       background: #fffde8;
 
       box-shadow:
-        0 0 30px rgba(255,255,220,0.8);
+        0 0 30px rgba(255, 255, 220, 0.8);
 
       opacity: 0;
 
@@ -159,7 +152,6 @@
 
       pointer-events: none;
     }
-
 
     /* =====================================
        星
@@ -184,7 +176,6 @@
       pointer-events: none;
     }
 
-
     /* =====================================
        雲
     ===================================== */
@@ -204,7 +195,10 @@
 
       pointer-events: none;
 
-      will-change: transform, opacity, filter;
+      will-change:
+        transform,
+        opacity,
+        filter;
     }
 
     .clouds {
@@ -215,6 +209,38 @@
       display: block;
     }
 
+    /* =====================================
+       遠景
+    ===================================== */
+
+    .background-wrapper {
+      position: fixed;
+
+      left: 0;
+      right: 0;
+
+      bottom: 5%;
+
+      display: flex;
+      justify-content: center;
+
+      z-index: 3;
+
+      pointer-events: none;
+
+      will-change:
+        transform,
+        opacity,
+        filter;
+    }
+
+    .festival-background {
+      width: 115%;
+      max-width: 1700px;
+      height: auto;
+
+      display: block;
+    }
 
     /* =====================================
        ステージ
@@ -230,7 +256,7 @@
       display: flex;
       justify-content: center;
 
-      z-index: 3;
+      z-index: 4;
 
       pointer-events: none;
 
@@ -243,7 +269,6 @@
 
       display: block;
     }
-
 
     /* =====================================
        各セクション
@@ -260,9 +285,8 @@
 
       text-align: center;
 
-      z-index: 5;
+      z-index: 6;
     }
-
 
     /* =====================================
        文字
@@ -271,7 +295,7 @@
     .content {
       position: relative;
 
-      z-index: 6;
+      z-index: 7;
 
       padding: 30px;
     }
@@ -293,7 +317,7 @@
       letter-spacing: 5px;
 
       text-shadow:
-        0 5px 20px rgba(0,0,0,0.3);
+        0 5px 20px rgba(0, 0, 0, 0.3);
     }
 
     p {
@@ -304,7 +328,6 @@
       opacity: 0.9;
     }
 
-
     /* =====================================
        SCROLL
     ===================================== */
@@ -314,14 +337,13 @@
 
       bottom: 25px;
 
-      z-index: 7;
+      z-index: 8;
 
       font-size: 12px;
       letter-spacing: 4px;
 
       opacity: 0.75;
     }
-
 
     /* =====================================
        スマホ
@@ -332,6 +354,15 @@
       .stage {
         width: 118%;
         max-width: none;
+      }
+
+      .festival-background {
+        width: 165%;
+        max-width: none;
+      }
+
+      .background-wrapper {
+        bottom: 16%;
       }
 
       .clouds {
@@ -400,6 +431,21 @@
       src="clouds.png"
       class="clouds"
       alt="Clouds"
+    >
+
+  </div>
+
+
+  <!-- =====================================
+       遠景
+  ====================================== -->
+
+  <div class="background-wrapper">
+
+    <img
+      src="festival-background.png"
+      class="festival-background"
+      alt="Festival Background"
     >
 
   </div>
@@ -525,6 +571,9 @@
     const cloudsWrapper =
       document.querySelector('.clouds-wrapper');
 
+    const backgroundWrapper =
+      document.querySelector('.background-wrapper');
+
     const stageWrapper =
       document.querySelector('.stage-wrapper');
 
@@ -538,7 +587,11 @@
       document.querySelector('.stars');
 
 
-    function clamp(value, min, max) {
+    function clamp(
+      value,
+      min,
+      max
+    ) {
 
       return Math.min(
         Math.max(value, min),
@@ -568,16 +621,8 @@
 
 
       /* =====================================
-         空の切り替え
+         空
       ====================================== */
-
-
-      /*
-        DAY → SUNSET
-
-        progress
-        0.00 ～ 0.50
-      */
 
       const sunsetAmount =
         clamp(
@@ -586,13 +631,6 @@
           1
         );
 
-
-      /*
-        SUNSET → NIGHT
-
-        progress
-        0.50 ～ 1.00
-      */
 
       const nightAmount =
         clamp(
@@ -619,8 +657,8 @@
 
       /* =====================================
          雲
+         一番ゆっくり
       ====================================== */
-
 
       const cloudMove =
         scrollY * -0.08;
@@ -629,10 +667,6 @@
       cloudsWrapper.style.transform =
         `translateY(${cloudMove}px)`;
 
-
-      /*
-        夜になるにつれて暗くする
-      */
 
       const cloudBrightness =
         1 - (nightAmount * 0.55);
@@ -645,19 +679,40 @@
         `;
 
 
-      /*
-        夜になると少し薄く
-      */
-
       cloudsWrapper.style.opacity =
         1 - (nightAmount * 0.65);
 
 
 
       /* =====================================
-         ステージ
+         遠景
+         雲より速く
+         ステージより遅く
       ====================================== */
 
+      const backgroundMove =
+        scrollY * -0.14;
+
+
+      backgroundWrapper.style.transform =
+        `translateY(${backgroundMove}px)`;
+
+
+      const backgroundBrightness =
+        1 - (nightAmount * 0.50);
+
+
+      backgroundWrapper.style.filter =
+        `
+          brightness(${backgroundBrightness})
+          saturate(${1 - nightAmount * 0.15})
+        `;
+
+
+
+      /* =====================================
+         ステージ
+      ====================================== */
 
       const stageMove =
         scrollY * -0.25;
@@ -671,7 +726,6 @@
       /* =====================================
          太陽
       ====================================== */
-
 
       const sunMove =
         scrollY * 0.12;
@@ -698,7 +752,6 @@
          月
       ====================================== */
 
-
       const moonOpacity =
         clamp(
           (progress - 0.55) / 0.25,
@@ -715,7 +768,6 @@
       /* =====================================
          星
       ====================================== */
-
 
       const starsOpacity =
         clamp(
