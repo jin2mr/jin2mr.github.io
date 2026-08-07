@@ -12,52 +12,154 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html,
     body {
       margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
       font-family: Arial, sans-serif;
       color: white;
       overflow-x: hidden;
     }
 
-    /* =====================================
-       空全体
-    ===================================== */
+    body {
+      background: #071426;
+    }
+
+    /* =========================
+       ページ全体
+    ========================= */
+
+    .page {
+      position: relative;
+      height: 300vh;
+    }
+
+    /* =========================
+       固定される空
+    ========================= */
 
     .sky {
+      position: fixed;
+      inset: 0;
+
+      z-index: 0;
+
       background: linear-gradient(
         to bottom,
 
-        /* 昼 */
+        /* DAY */
         #159ee9 0%,
         #55c8f5 18%,
         #b8e8f7 30%,
 
-        /* 夕方 */
+        /* SUNSET */
         #ffd38a 40%,
         #ff9b6a 48%,
         #e96d86 55%,
         #855d9f 64%,
 
-        /* 夜 */
+        /* NIGHT */
         #384879 74%,
         #17294f 86%,
         #071426 100%
       );
+
+      background-size: 100% 300vh;
+
+      transition: background-position 0.1s linear;
     }
 
-    /* =====================================
-       各セクション
-    ===================================== */
+    /* =========================
+       太陽
+    ========================= */
+
+    .sun {
+      position: fixed;
+
+      width: 120px;
+      height: 120px;
+
+      top: 8%;
+      right: 10%;
+
+      border-radius: 50%;
+
+      background: #fff4b0;
+
+      box-shadow:
+        0 0 40px #ffd76a,
+        0 0 100px rgba(255, 215, 106, 0.7);
+
+      z-index: 1;
+
+      transition:
+        transform 0.1s linear,
+        opacity 0.1s linear;
+    }
+
+    /* =========================
+       月
+    ========================= */
+
+    .moon {
+      position: fixed;
+
+      width: 90px;
+      height: 90px;
+
+      top: 12%;
+      left: 12%;
+
+      border-radius: 50%;
+
+      background: #fffde8;
+
+      box-shadow:
+        0 0 30px rgba(255, 255, 220, 0.8);
+
+      opacity: 0;
+
+      z-index: 1;
+
+      transition: opacity 0.1s linear;
+    }
+
+    /* =========================
+       星
+    ========================= */
+
+    .stars {
+      position: fixed;
+
+      inset: 0;
+
+      background-image:
+        radial-gradient(
+          white 1px,
+          transparent 1px
+        );
+
+      background-size: 70px 70px;
+
+      opacity: 0;
+
+      z-index: 1;
+
+      pointer-events: none;
+
+      transition: opacity 0.1s linear;
+    }
+
+    /* =========================
+       セクション
+    ========================= */
 
     .section {
       position: relative;
 
-      width: 100%;
-      min-height: 100vh;
+      height: 100vh;
 
       display: flex;
       justify-content: center;
@@ -65,15 +167,16 @@
 
       text-align: center;
 
-      overflow: hidden;
+      z-index: 3;
     }
 
-    /* =====================================
+    /* =========================
        文字
-    ===================================== */
+    ========================= */
 
     .content {
       position: relative;
+
       z-index: 5;
 
       padding: 30px;
@@ -107,105 +210,44 @@
       opacity: 0.9;
     }
 
-    /* =====================================
-       太陽
-    ===================================== */
+    /* =========================
+       ステージ
+    ========================= */
 
-    .sun {
-      position: absolute;
+    .stage-wrapper {
+      position: fixed;
 
-      width: 120px;
-      height: 120px;
+      left: 0;
+      right: 0;
+      bottom: -20px;
 
-      top: 8%;
-      right: 12%;
+      display: flex;
+      justify-content: center;
 
-      border-radius: 50%;
+      z-index: 2;
 
-      background: #fff4b0;
+      pointer-events: none;
 
-      box-shadow:
-        0 0 40px #ffd76a,
-        0 0 100px rgba(255, 215, 106, 0.7);
+      transform: translateY(0);
 
-      z-index: 1;
+      will-change: transform;
     }
 
-    /* =====================================
-       ステージ
-    ===================================== */
-
     .stage {
-      position: absolute;
-
-      left: 50%;
-      bottom: 0;
-
       width: 95%;
       max-width: 1300px;
 
-      transform: translateX(-50%);
-
-      z-index: 3;
-
-      pointer-events: none;
+      display: block;
     }
 
-    /* =====================================
-       夜の月
-    ===================================== */
-
-    .moon {
-      position: absolute;
-
-      width: 90px;
-      height: 90px;
-
-      top: 10%;
-      left: 15%;
-
-      border-radius: 50%;
-
-      background: #fffde8;
-
-      box-shadow:
-        0 0 30px rgba(255, 255, 220, 0.8);
-
-      z-index: 2;
-    }
-
-    /* =====================================
-       星
-    ===================================== */
-
-    .stars {
-      position: absolute;
-
-      inset: 0;
-
-      background-image:
-        radial-gradient(
-          white 1px,
-          transparent 1px
-        );
-
-      background-size: 70px 70px;
-
-      opacity: 0.6;
-
-      z-index: 1;
-    }
-
-    /* =====================================
-       スクロール案内
-    ===================================== */
+    /* =========================
+       スクロール表示
+    ========================= */
 
     .scroll {
       position: absolute;
 
       bottom: 25px;
-
-      z-index: 6;
 
       font-size: 12px;
       letter-spacing: 4px;
@@ -213,14 +255,14 @@
       opacity: 0.75;
     }
 
-    /* =====================================
+    /* =========================
        スマホ調整
-    ===================================== */
+    ========================= */
 
     @media (max-width: 768px) {
 
       .stage {
-        width: 110%;
+        width: 118%;
         max-width: none;
       }
 
@@ -239,31 +281,52 @@
       }
 
       .content {
-        transform: translateY(-80px);
+        transform: translateY(-90px);
       }
     }
-
   </style>
 </head>
 
 
 <body>
 
-  <div class="sky">
+  <!-- =========================
+       固定背景
+  ========================== -->
 
-    <!-- =====================================
-         DAY
-    ====================================== -->
+  <div class="sky"></div>
+
+  <div class="sun"></div>
+
+  <div class="moon"></div>
+
+  <div class="stars"></div>
+
+
+  <!-- =========================
+       ステージ
+  ========================== -->
+
+  <div class="stage-wrapper">
+
+    <img
+      src="stage-main.png"
+      class="stage"
+      alt="Summer Festival Stage"
+    >
+
+  </div>
+
+
+  <!-- =========================
+       ページ
+  ========================== -->
+
+  <main class="page">
+
+    <!-- DAY -->
 
     <section class="section">
-
-      <div class="sun"></div>
-
-      <img
-        src="stage-main.png"
-        class="stage"
-        alt="Summer Festival Stage"
-      >
 
       <div class="content">
 
@@ -288,9 +351,7 @@
     </section>
 
 
-    <!-- =====================================
-         SUNSET
-    ====================================== -->
+    <!-- SUNSET -->
 
     <section class="section">
 
@@ -317,15 +378,9 @@
     </section>
 
 
-    <!-- =====================================
-         NIGHT
-    ====================================== -->
+    <!-- NIGHT -->
 
     <section class="section">
-
-      <div class="stars"></div>
-
-      <div class="moon"></div>
 
       <div class="content">
 
@@ -345,7 +400,174 @@
 
     </section>
 
-  </div>
+  </main>
+
+
+  <!-- =========================
+       JavaScript
+       パララックス処理
+  ========================== -->
+
+  <script>
+
+    const sky =
+      document.querySelector('.sky');
+
+    const stageWrapper =
+      document.querySelector('.stage-wrapper');
+
+    const sun =
+      document.querySelector('.sun');
+
+    const moon =
+      document.querySelector('.moon');
+
+    const stars =
+      document.querySelector('.stars');
+
+
+    function updateParallax() {
+
+      const scrollY =
+        window.scrollY;
+
+      const maxScroll =
+        document.documentElement.scrollHeight
+        - window.innerHeight;
+
+      const progress =
+        maxScroll > 0
+          ? scrollY / maxScroll
+          : 0;
+
+
+      /*
+        =========================
+        空の時間変化
+        =========================
+      */
+
+      const skyMove =
+        progress * 200;
+
+      sky.style.backgroundPosition =
+        `center ${skyMove}%`;
+
+
+      /*
+        =========================
+        ステージ移動
+        =========================
+
+        スクロール量の約25%だけ動かす
+      */
+
+      const stageMove =
+        scrollY * -0.25;
+
+      stageWrapper.style.transform =
+        `translateY(${stageMove}px)`;
+
+
+      /*
+        =========================
+        太陽
+        =========================
+
+        少しずつ下に沈む
+      */
+
+      const sunMove =
+        scrollY * 0.12;
+
+      sun.style.transform =
+        `translateY(${sunMove}px)`;
+
+
+      /*
+        夕方を超えたら
+        太陽を薄くする
+      */
+
+      if (progress > 0.45) {
+
+        const sunOpacity =
+          Math.max(
+            0,
+            1 - ((progress - 0.45) / 0.25)
+          );
+
+        sun.style.opacity =
+          sunOpacity;
+
+      } else {
+
+        sun.style.opacity = 1;
+
+      }
+
+
+      /*
+        =========================
+        月
+        =========================
+      */
+
+      if (progress > 0.55) {
+
+        const moonOpacity =
+          Math.min(
+            1,
+            (progress - 0.55) / 0.25
+          );
+
+        moon.style.opacity =
+          moonOpacity;
+
+      } else {
+
+        moon.style.opacity = 0;
+
+      }
+
+
+      /*
+        =========================
+        星
+        =========================
+      */
+
+      if (progress > 0.6) {
+
+        const starsOpacity =
+          Math.min(
+            0.65,
+            (progress - 0.6) * 1.8
+          );
+
+        stars.style.opacity =
+          starsOpacity;
+
+      } else {
+
+        stars.style.opacity = 0;
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      'scroll',
+      updateParallax,
+      { passive: true }
+    );
+
+
+    updateParallax();
+
+  </script>
+
 
 </body>
 
