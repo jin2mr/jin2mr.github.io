@@ -288,6 +288,26 @@
     }
 
     /* =====================================
+       SUMMER FES ロゴ
+    ===================================== */
+
+    .festival-logo {
+      display: block;
+
+      width: 80%;
+      max-width: 500px;
+
+      height: auto;
+
+      margin: 10px auto 20px;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(0 5px 12px rgba(0,0,0,0.25));
+    }
+
+    /* =====================================
        ARTISTS
     ===================================== */
 
@@ -318,8 +338,6 @@
       letter-spacing: 5px;
     }
 
-    /* 2列 */
-
     .artists-grid {
       display: grid;
 
@@ -335,10 +353,6 @@
       margin: 0 auto;
     }
 
-    /* =====================================
-       アーティストカード
-    ===================================== */
-
     .artist-card {
       min-width: 0;
       cursor: pointer;
@@ -349,7 +363,6 @@
 
       width: 100%;
 
-      /* 16:10 */
       aspect-ratio: 16 / 10;
 
       border-radius: 10px;
@@ -408,6 +421,11 @@
         font-size: 15px;
       }
 
+      .festival-logo {
+        width: 92%;
+        max-width: 420px;
+      }
+
     }
 
   </style>
@@ -422,9 +440,7 @@
   ====================================== -->
 
   <div class="sky-layer sky-day"></div>
-
   <div class="sky-layer sky-sunset"></div>
-
   <div class="sky-layer sky-night"></div>
 
 
@@ -433,9 +449,7 @@
   ====================================== -->
 
   <div class="sun"></div>
-
   <div class="moon"></div>
-
   <div class="stars"></div>
 
 
@@ -501,9 +515,11 @@
           12:00
         </div>
 
-        <h1>
-          DAY
-        </h1>
+        <img
+          src="Summerfes.png"
+          class="festival-logo"
+          alt="SUMMER FES"
+        >
 
         <p>
           SUMMER FESTIVAL START
@@ -577,17 +593,10 @@
     <div class="artists-grid">
 
 
-      <!-- ARTIST 01 -->
-
       <div class="artist-card">
 
         <div class="artist-image">
-
-          <img
-            src="artist-01.png"
-            alt="Artist 01"
-          >
-
+          <img src="artist-01.png" alt="Artist 01">
         </div>
 
         <div class="artist-name">
@@ -597,17 +606,10 @@
       </div>
 
 
-      <!-- ARTIST 02 -->
-
       <div class="artist-card">
 
         <div class="artist-image">
-
-          <img
-            src="artist-02.png"
-            alt="Artist 02"
-          >
-
+          <img src="artist-02.png" alt="Artist 02">
         </div>
 
         <div class="artist-name">
@@ -617,17 +619,10 @@
       </div>
 
 
-      <!-- ARTIST 03 -->
-
       <div class="artist-card">
 
         <div class="artist-image">
-
-          <img
-            src="artist-03.png"
-            alt="Artist 03"
-          >
-
+          <img src="artist-03.png" alt="Artist 03">
         </div>
 
         <div class="artist-name">
@@ -637,17 +632,10 @@
       </div>
 
 
-      <!-- ARTIST 04 -->
-
       <div class="artist-card">
 
         <div class="artist-image">
-
-          <img
-            src="artist-04.png"
-            alt="Artist 04"
-          >
-
+          <img src="artist-04.png" alt="Artist 04">
         </div>
 
         <div class="artist-name">
@@ -657,17 +645,10 @@
       </div>
 
 
-      <!-- ARTIST 05 -->
-
       <div class="artist-card">
 
         <div class="artist-image">
-
-          <img
-            src="artist-05.png"
-            alt="Artist 05"
-          >
-
+          <img src="artist-05.png" alt="Artist 05">
         </div>
 
         <div class="artist-name">
@@ -677,17 +658,10 @@
       </div>
 
 
-      <!-- ARTIST 06 -->
-
       <div class="artist-card">
 
         <div class="artist-image">
-
-          <img
-            src="artist-06.png"
-            alt="Artist 06"
-          >
-
+          <img src="artist-06.png" alt="Artist 06">
         </div>
 
         <div class="artist-name">
@@ -759,10 +733,6 @@
       const scrollY =
         window.scrollY;
 
-
-      /* =====================================
-         パララックス進行度
-      ====================================== */
 
       const parallaxHeight =
         parallaxArea.offsetHeight;
@@ -873,8 +843,6 @@
         `translateY(${stageMove}px)`;
 
 
-      /* 最後は画面上端で止める */
-
       if (
         scrollY >= maxParallaxScroll
       ) {
@@ -937,15 +905,10 @@
       ) {
 
         stageWrapper.style.opacity = 0;
-
         cloudsWrapper.style.opacity = 0;
-
         backgroundWrapper.style.opacity = 0;
-
         sun.style.opacity = 0;
-
         moon.style.opacity = 0;
-
         stars.style.opacity = 0;
 
       } else {
