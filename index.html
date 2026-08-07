@@ -2,12 +2,22 @@
 <html lang="ja">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>SUMMER FESTIVAL</title>
 
+
   <style>
+
+    /* ==============================
+       基本設定
+    ============================== */
 
     * {
       box-sizing: border-box;
@@ -17,80 +27,113 @@
     body {
       margin: 0;
       padding: 0;
+
       width: 100%;
+
       overflow-x: hidden;
-      font-family: Arial, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       color: white;
+
       background: #071426;
     }
 
 
-    /* =====================================
-       パララックス部分
-    ===================================== */
+    /* ==============================
+       パララックスエリア
+    ============================== */
 
     .parallax-area {
+
       position: relative;
+
       height: 300vh;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        空
-    ===================================== */
+    ============================== */
 
     .sky-layer {
+
       position: fixed;
+
       inset: 0;
 
       pointer-events: none;
 
       z-index: 0;
+
     }
 
+
+    /* 昼 */
 
     .sky-day {
-      background: linear-gradient(
-        to bottom,
-        #159ee9,
-        #55c8f5,
-        #b8e8f7
-      );
+
+      background:
+        linear-gradient(
+          to bottom,
+
+          #159ee9 0%,
+          #55c8f5 55%,
+          #b8e8f7 100%
+        );
 
       opacity: 1;
+
     }
 
+
+    /* 夕方 */
 
     .sky-sunset {
-      background: linear-gradient(
-        to bottom,
-        #5367a8,
-        #b46f9f,
-        #ff8d6d,
-        #ffd38a
-      );
+
+      background:
+        linear-gradient(
+          to bottom,
+
+          #5367a8 0%,
+          #b46f9f 40%,
+          #ff8d6d 70%,
+          #ffd38a 100%
+        );
 
       opacity: 0;
+
     }
 
+
+    /* 夜 */
 
     .sky-night {
-      background: linear-gradient(
-        to bottom,
-        #071426,
-        #10264c,
-        #263b68
-      );
+
+      background:
+        linear-gradient(
+          to bottom,
+
+          #071426 0%,
+          #10264c 55%,
+          #263b68 100%
+        );
 
       opacity: 0;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        太陽
-    ===================================== */
+    ============================== */
 
     .sun {
+
       position: fixed;
 
       width: 110px;
@@ -110,14 +153,16 @@
       z-index: 1;
 
       pointer-events: none;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        月
-    ===================================== */
+    ============================== */
 
     .moon {
+
       position: fixed;
 
       width: 85px;
@@ -131,22 +176,25 @@
       background: #fffde8;
 
       box-shadow:
-        0 0 30px rgba(255,255,220,0.8);
+        0 0 30px rgba(255, 255, 220, 0.8);
 
       opacity: 0;
 
       z-index: 1;
 
       pointer-events: none;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        星
-    ===================================== */
+    ============================== */
 
     .stars {
+
       position: fixed;
+
       inset: 0;
 
       background-image:
@@ -155,50 +203,60 @@
           transparent 1px
         );
 
-      background-size: 70px 70px;
+      background-size:
+        70px 70px;
 
       opacity: 0;
 
       z-index: 1;
 
       pointer-events: none;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        雲
-    ===================================== */
+    ============================== */
 
     .clouds-wrapper {
+
       position: fixed;
 
       top: 5%;
+
       left: 0;
 
       width: 100%;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 2;
 
       pointer-events: none;
+
     }
 
 
     .clouds {
-      width: 150%;
-      max-width: none;
 
       display: block;
+
+      width: 150%;
+
+      max-width: none;
+
     }
 
 
-    /* =====================================
-       遠景
-    ===================================== */
+    /* ==============================
+       フェス遠景
+    ============================== */
 
     .background-wrapper {
+
       position: fixed;
 
       left: 0;
@@ -207,27 +265,33 @@
       bottom: 16%;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 3;
 
       pointer-events: none;
+
     }
 
 
     .festival-background {
-      width: 165%;
-      max-width: none;
 
       display: block;
+
+      width: 165%;
+
+      max-width: none;
+
     }
 
 
-    /* =====================================
-       ステージ
-    ===================================== */
+    /* ==============================
+       メインステージ
+    ============================== */
 
     .stage-wrapper {
+
       position: fixed;
 
       left: 0;
@@ -236,6 +300,7 @@
       bottom: -20px;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 4;
@@ -243,86 +308,112 @@
       pointer-events: none;
 
       will-change: transform;
+
     }
 
 
     .stage {
-      width: 118%;
-      max-width: none;
 
       display: block;
+
+      width: 118%;
+
+      max-width: none;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        DAY / SUNSET / NIGHT
-    ===================================== */
+    ============================== */
 
     .section {
+
       position: relative;
 
       height: 100vh;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
       text-align: center;
 
       z-index: 6;
+
     }
 
 
     .content {
+
       position: relative;
 
       z-index: 7;
 
-      transform: translateY(-90px);
+      transform:
+        translateY(-90px);
 
       padding: 30px;
+
     }
 
 
     .time {
+
       margin-bottom: 10px;
 
       font-size: 14px;
+
       letter-spacing: 6px;
 
       opacity: 0.85;
+
     }
 
 
     h1 {
+
       margin: 0;
 
-      font-size: clamp(52px, 12vw, 120px);
+      font-size:
+        clamp(
+          52px,
+          12vw,
+          120px
+        );
 
       letter-spacing: 5px;
 
       text-shadow:
-        0 5px 20px rgba(0,0,0,0.3);
+        0 5px 20px
+        rgba(0, 0, 0, 0.3);
+
     }
 
 
     p {
+
       margin-top: 15px;
 
       font-size: 18px;
 
       opacity: 0.9;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        SUMMER FES ロゴ
-    ===================================== */
+    ============================== */
 
     .festival-logo {
+
       display: block;
 
       width: 80%;
+
       max-width: 500px;
 
       height: auto;
@@ -333,16 +424,19 @@
 
       filter:
         drop-shadow(
-          0 5px 12px rgba(0,0,0,0.25)
+          0 5px 12px
+          rgba(0, 0, 0, 0.25)
         );
+
     }
 
 
-    /* =====================================
-       ARTISTS
-    ===================================== */
+    /* ==============================
+       ARTISTS セクション
+    ============================== */
 
     .artists-section {
+
       position: relative;
 
       z-index: 10;
@@ -352,58 +446,72 @@
       background:
         linear-gradient(
           to bottom,
+
           #132750 0%,
           #071426 100%
         );
 
       padding:
         40px 18px 100px;
+
     }
 
 
     .artists-title {
+
       margin:
         0 0 30px;
 
       text-align: center;
 
       font-size: 30px;
-      letter-spacing: 5px;
+
+      letter-spacing: 8px;
+
     }
 
 
-    /* =====================================
-       アーティスト2列
-    ===================================== */
+    /* ==============================
+       2列グリッド
+    ============================== */
 
     .artists-grid {
+
       display: grid;
 
       grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(
+          2,
+          minmax(0, 1fr)
+        );
 
       gap:
         28px 14px;
 
       width: 100%;
+
       max-width: 900px;
 
       margin: 0 auto;
+
     }
 
 
-    /* =====================================
+    /* ==============================
        アーティストカード
-    ===================================== */
+    ============================== */
 
     .artist-card {
+
       min-width: 0;
 
       cursor: pointer;
+
     }
 
 
     .artist-image {
+
       position: relative;
 
       width: 100%;
@@ -417,106 +525,217 @@
       background: #111;
 
       border:
-        1px solid rgba(255,255,255,0.65);
+        1px solid
+        rgba(
+          255,
+          255,
+          255,
+          0.65
+        );
+
     }
 
 
     .artist-image img {
+
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
     }
 
 
     .artist-name {
+
       margin-top: 9px;
 
       font-size: 17px;
+
       font-weight: bold;
 
       letter-spacing: 1px;
 
       color: white;
+
     }
 
 
-    /* =====================================
-       スマホ
-    ===================================== */
+    /* ==============================
+       タップ時の軽い演出
+    ============================== */
 
-    @media (max-width: 768px) {
+    .artist-card {
+
+      transition:
+        transform 0.2s ease;
+
+    }
+
+
+    .artist-card:active {
+
+      transform:
+        scale(0.97);
+
+    }
+
+
+    /* ==============================
+       スマホ
+    ============================== */
+
+    @media
+    (max-width: 768px) {
+
 
       .artists-section {
+
         padding:
-          32px 14px 80px;
+          32px
+          14px
+          80px;
+
       }
 
 
       .artists-title {
-        margin-bottom: 25px;
 
-        font-size: 26px;
+        margin-bottom:
+          25px;
+
+        font-size:
+          26px;
+
       }
 
 
       .artists-grid {
+
         gap:
-          25px 12px;
+          25px
+          12px;
+
       }
 
 
       .artist-name {
-        font-size: 15px;
+
+        font-size:
+          15px;
+
       }
 
 
       .festival-logo {
-        width: 92%;
-        max-width: 420px;
+
+        width:
+          92%;
+
+        max-width:
+          420px;
+
+      }
+
+
+      .stage {
+
+        width:
+          118%;
+
+      }
+
+
+      .festival-background {
+
+        width:
+          165%;
+
+      }
+
+
+      .clouds {
+
+        width:
+          150%;
+
       }
 
     }
 
+
   </style>
+
 </head>
+
 
 
 <body>
 
 
-  <!-- =====================================
-       空
-  ====================================== -->
+  <!-- ==============================
+       昼の空
+  =============================== -->
 
-  <div class="sky-layer sky-day"></div>
-
-  <div class="sky-layer sky-sunset"></div>
-
-  <div class="sky-layer sky-night"></div>
+  <div
+    class="sky-layer sky-day">
+  </div>
 
 
-  <!-- =====================================
-       太陽・月・星
-  ====================================== -->
+  <!-- ==============================
+       夕方の空
+  =============================== -->
+
+  <div
+    class="sky-layer sky-sunset">
+  </div>
+
+
+  <!-- ==============================
+       夜の空
+  =============================== -->
+
+  <div
+    class="sky-layer sky-night">
+  </div>
+
+
+
+  <!-- ==============================
+       太陽
+  =============================== -->
 
   <div class="sun"></div>
 
+
+
+  <!-- ==============================
+       月
+  =============================== -->
+
   <div class="moon"></div>
+
+
+
+  <!-- ==============================
+       星
+  =============================== -->
 
   <div class="stars"></div>
 
 
-  <!-- =====================================
+
+  <!-- ==============================
        雲
-  ====================================== -->
+  =============================== -->
 
   <div class="clouds-wrapper">
 
     <img
-      src="image/clouds.png"
+      src="images/clouds.png"
       class="clouds"
       alt="Clouds"
     >
@@ -524,14 +743,15 @@
   </div>
 
 
-  <!-- =====================================
+
+  <!-- ==============================
        遠景
-  ====================================== -->
+  =============================== -->
 
   <div class="background-wrapper">
 
     <img
-      src="image/festival-background.png"
+      src="images/festival-background.png"
       class="festival-background"
       alt="Festival Background"
     >
@@ -539,14 +759,15 @@
   </div>
 
 
-  <!-- =====================================
+
+  <!-- ==============================
        ステージ
-  ====================================== -->
+  =============================== -->
 
   <div class="stage-wrapper">
 
     <img
-      src="image/stage-main.png"
+      src="images/stage-main.png"
       class="stage"
       alt="Summer Festival Stage"
     >
@@ -554,24 +775,26 @@
   </div>
 
 
-  <!-- =====================================
-       DAY / SUNSET / NIGHT
-  ====================================== -->
+
+  <!-- ==============================
+       パララックス本体
+  =============================== -->
 
   <main class="parallax-area">
 
 
-    <!-- =====================================
+
+    <!-- ============================
          DAY
-         ロゴのみ
-    ====================================== -->
+         ロゴ表示
+    ============================= -->
 
     <section class="section">
 
       <div class="content">
 
         <img
-          src="image/summerfes.png"
+          src="images/summerfes.png"
           class="festival-logo"
           alt="SUMMER FES"
         >
@@ -581,9 +804,10 @@
     </section>
 
 
-    <!-- =====================================
+
+    <!-- ============================
          SUNSET
-    ====================================== -->
+    ============================= -->
 
     <section class="section">
 
@@ -606,9 +830,10 @@
     </section>
 
 
-    <!-- =====================================
+
+    <!-- ============================
          NIGHT
-    ====================================== -->
+    ============================= -->
 
     <section class="section">
 
@@ -634,136 +859,173 @@
   </main>
 
 
-  <!-- =====================================
-       ARTISTS
-  ====================================== -->
 
-  <section class="artists-section">
+  <!-- ==============================
+       ARTISTS
+  =============================== -->
+
+  <section
+    class="artists-section"
+    id="artists"
+  >
 
 
     <h2 class="artists-title">
+
       ARTISTS
+
     </h2>
+
 
 
     <div class="artists-grid">
 
 
-      <!-- ARTIST 01 -->
+
+      <!-- ==========================
+           ARTIST 01
+      =========================== -->
 
       <div class="artist-card">
 
         <div class="artist-image">
 
           <img
-            src="image/artist-01.png"
+            src="images/artist-01.png"
             alt="Artist 01"
           >
 
         </div>
 
         <div class="artist-name">
+
           ARTIST 01
+
         </div>
 
       </div>
 
 
-      <!-- ARTIST 02 -->
+
+      <!-- ==========================
+           ARTIST 02
+      =========================== -->
 
       <div class="artist-card">
 
         <div class="artist-image">
 
           <img
-            src="image/artist-02.png"
+            src="images/artist-02.png"
             alt="Artist 02"
           >
 
         </div>
 
         <div class="artist-name">
+
           ARTIST 02
+
         </div>
 
       </div>
 
 
-      <!-- ARTIST 03 -->
+
+      <!-- ==========================
+           ARTIST 03
+      =========================== -->
 
       <div class="artist-card">
 
         <div class="artist-image">
 
           <img
-            src="image/artist-03.png"
+            src="images/artist-03.png"
             alt="Artist 03"
           >
 
         </div>
 
         <div class="artist-name">
+
           ARTIST 03
+
         </div>
 
       </div>
 
 
-      <!-- ARTIST 04 -->
+
+      <!-- ==========================
+           ARTIST 04
+      =========================== -->
 
       <div class="artist-card">
 
         <div class="artist-image">
 
           <img
-            src="image/artist-04.png"
+            src="images/artist-04.png"
             alt="Artist 04"
           >
 
         </div>
 
         <div class="artist-name">
+
           ARTIST 04
+
         </div>
 
       </div>
 
 
-      <!-- ARTIST 05 -->
+
+      <!-- ==========================
+           ARTIST 05
+      =========================== -->
 
       <div class="artist-card">
 
         <div class="artist-image">
 
           <img
-            src="image/artist-05.png"
+            src="images/artist-05.png"
             alt="Artist 05"
           >
 
         </div>
 
         <div class="artist-name">
+
           ARTIST 05
+
         </div>
 
       </div>
 
 
-      <!-- ARTIST 06 -->
+
+      <!-- ==========================
+           ARTIST 06
+      =========================== -->
 
       <div class="artist-card">
 
         <div class="artist-image">
 
           <img
-            src="image/artist-06.png"
+            src="images/artist-06.png"
             alt="Artist 06"
           >
 
         </div>
 
         <div class="artist-name">
+
           ARTIST 06
+
         </div>
 
       </div>
@@ -774,43 +1036,83 @@
   </section>
 
 
-  <!-- =====================================
+
+  <!-- ==============================
        JavaScript
-       パララックス
-  ====================================== -->
+       パララックス処理
+  =============================== -->
 
   <script>
 
+
+    /* ==============================
+       各要素取得
+    ============================== */
+
     const skyDay =
-      document.querySelector('.sky-day');
+      document.querySelector(
+        '.sky-day'
+      );
+
 
     const skySunset =
-      document.querySelector('.sky-sunset');
+      document.querySelector(
+        '.sky-sunset'
+      );
+
 
     const skyNight =
-      document.querySelector('.sky-night');
+      document.querySelector(
+        '.sky-night'
+      );
+
 
     const cloudsWrapper =
-      document.querySelector('.clouds-wrapper');
+      document.querySelector(
+        '.clouds-wrapper'
+      );
+
 
     const backgroundWrapper =
-      document.querySelector('.background-wrapper');
+      document.querySelector(
+        '.background-wrapper'
+      );
+
 
     const stageWrapper =
-      document.querySelector('.stage-wrapper');
+      document.querySelector(
+        '.stage-wrapper'
+      );
+
 
     const sun =
-      document.querySelector('.sun');
+      document.querySelector(
+        '.sun'
+      );
+
 
     const moon =
-      document.querySelector('.moon');
+      document.querySelector(
+        '.moon'
+      );
+
 
     const stars =
-      document.querySelector('.stars');
+      document.querySelector(
+        '.stars'
+      );
+
 
     const parallaxArea =
-      document.querySelector('.parallax-area');
+      document.querySelector(
+        '.parallax-area'
+      );
 
+
+
+    /* ==============================
+       数値制限
+    ============================== */
 
     function clamp(
       value,
@@ -819,12 +1121,20 @@
     ) {
 
       return Math.min(
-        Math.max(value, min),
+        Math.max(
+          value,
+          min
+        ),
         max
       );
 
     }
 
+
+
+    /* ==============================
+       パララックス更新
+    ============================== */
 
     function updateParallax() {
 
@@ -833,12 +1143,14 @@
         window.scrollY;
 
 
-      /* =====================================
-         パララックス進行度
-      ====================================== */
+
+      /* ============================
+         パララックスの高さ
+      ============================ */
 
       const parallaxHeight =
         parallaxArea.offsetHeight;
+
 
 
       const maxParallaxScroll =
@@ -846,82 +1158,149 @@
         - window.innerHeight;
 
 
+
+      /* ============================
+         0～1の進行度
+      ============================ */
+
       const progress =
         clamp(
-          scrollY / maxParallaxScroll,
+
+          scrollY /
+          maxParallaxScroll,
+
           0,
+
           1
+
         );
 
 
-      /* =====================================
-         空
-      ====================================== */
+
+      /* ============================
+         昼 → 夕方
+      ============================ */
 
       const sunsetAmount =
         clamp(
+
           progress / 0.5,
+
           0,
+
           1
+
         );
 
+
+
+      /* ============================
+         夕方 → 夜
+      ============================ */
 
       const nightAmount =
         clamp(
-          (progress - 0.5) / 0.5,
+
+          (progress - 0.5)
+          / 0.5,
+
           0,
+
           1
+
         );
 
+
+
+      /* ============================
+         空の透明度
+      ============================ */
 
       skyDay.style.opacity =
         1 - sunsetAmount;
 
 
+
       skySunset.style.opacity =
+
         progress < 0.5
+
           ? sunsetAmount
+
           : 1 - nightAmount;
+
 
 
       skyNight.style.opacity =
         nightAmount;
 
 
-      /* =====================================
+
+      /* ============================
          雲
-      ====================================== */
+      ============================ */
 
       cloudsWrapper.style.transform =
-        `translateY(${scrollY * -0.08}px)`;
+
+        `translateY(
+          ${scrollY * -0.08}px
+        )`;
+
 
 
       cloudsWrapper.style.opacity =
-        1 - (nightAmount * 0.65);
+
+        1
+        - (
+          nightAmount
+          * 0.65
+        );
+
 
 
       cloudsWrapper.style.filter =
-        `brightness(${1 - nightAmount * 0.55})`;
+
+        `brightness(
+          ${
+            1
+            - nightAmount
+            * 0.55
+          }
+        )`;
 
 
-      /* =====================================
+
+      /* ============================
          遠景
-      ====================================== */
+      ============================ */
 
       backgroundWrapper.style.transform =
-        `translateY(${scrollY * -0.14}px)`;
+
+        `translateY(
+          ${scrollY * -0.14}px
+        )`;
+
 
 
       backgroundWrapper.style.filter =
-        `brightness(${1 - nightAmount * 0.5})`;
+
+        `brightness(
+          ${
+            1
+            - nightAmount
+            * 0.5
+          }
+        )`;
 
 
-      /* =====================================
+
+      /* ============================
          ステージ
-      ====================================== */
+      ============================ */
 
       const stageHeight =
         stageWrapper.offsetHeight;
+
 
 
       const initialTop =
@@ -929,8 +1308,10 @@
         - stageHeight;
 
 
+
       const targetTop =
         0;
+
 
 
       const moveDistance =
@@ -938,114 +1319,203 @@
         - initialTop;
 
 
+
       const stageMove =
-        moveDistance * progress;
+        moveDistance
+        * progress;
+
 
 
       stageWrapper.style.transform =
-        `translateY(${stageMove}px)`;
+
+        `translateY(
+          ${stageMove}px
+        )`;
 
 
-      /*
-        最後は画面上端で止める
-      */
+
+      /* ============================
+         NIGHT到達時
+         ステージ上端を画面上端へ
+      ============================ */
 
       if (
-        scrollY >= maxParallaxScroll
+        scrollY
+        >= maxParallaxScroll
       ) {
 
         stageWrapper.style.transform =
-          `translateY(${moveDistance}px)`;
+
+          `translateY(
+            ${moveDistance}px
+          )`;
 
       }
 
 
-      /* =====================================
+
+      /* ============================
          太陽
-      ====================================== */
+      ============================ */
 
       sun.style.transform =
-        `translateY(${scrollY * 0.12}px)`;
+
+        `translateY(
+          ${scrollY * 0.12}px
+        )`;
+
 
 
       sun.style.opacity =
+
         clamp(
-          1 - ((progress - 0.3) / 0.3),
-          0,
+
           1
+          - (
+            (progress - 0.3)
+            / 0.3
+          ),
+
+          0,
+
+          1
+
         );
 
 
-      /* =====================================
+
+      /* ============================
          月
-      ====================================== */
+      ============================ */
 
       moon.style.opacity =
+
         clamp(
-          (progress - 0.55) / 0.25,
+
+          (progress - 0.55)
+          / 0.25,
+
           0,
+
           1
+
         );
 
 
-      /* =====================================
+
+      /* ============================
          星
-      ====================================== */
+      ============================ */
 
       stars.style.opacity =
+
         clamp(
-          (progress - 0.6) / 0.3,
+
+          (progress - 0.6)
+          / 0.3,
+
           0,
+
           0.7
+
         );
 
 
-      /* =====================================
+
+      /* ============================
          ARTISTSまで進んだら
-         パララックス素材を非表示
-      ====================================== */
+         パララックス素材を消す
+      ============================ */
 
       if (
+
         scrollY >
+
         maxParallaxScroll
-        + window.innerHeight * 0.7
+        + window.innerHeight
+        * 0.7
+
       ) {
 
-        stageWrapper.style.opacity = 0;
 
-        cloudsWrapper.style.opacity = 0;
+        stageWrapper.style.opacity =
+          0;
 
-        backgroundWrapper.style.opacity = 0;
 
-        sun.style.opacity = 0;
+        cloudsWrapper.style.opacity =
+          0;
 
-        moon.style.opacity = 0;
 
-        stars.style.opacity = 0;
+        backgroundWrapper.style.opacity =
+          0;
 
-      } else {
 
-        stageWrapper.style.opacity = 1;
+        sun.style.opacity =
+          0;
+
+
+        moon.style.opacity =
+          0;
+
+
+        stars.style.opacity =
+          0;
+
 
       }
+
+      else {
+
+
+        stageWrapper.style.opacity =
+          1;
+
+
+      }
+
 
     }
 
 
+
+    /* ==============================
+       スクロール
+    ============================== */
+
     window.addEventListener(
+
       'scroll',
+
       updateParallax,
-      { passive: true }
+
+      {
+        passive: true
+      }
+
     );
 
+
+
+    /* ==============================
+       画面サイズ変更
+    ============================== */
 
     window.addEventListener(
+
       'resize',
+
       updateParallax
+
     );
 
+
+
+    /* ==============================
+       初回実行
+    ============================== */
 
     updateParallax();
+
 
   </script>
 
