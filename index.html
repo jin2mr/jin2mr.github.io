@@ -18,21 +18,17 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      min-height: 100%;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
       color: white;
-    }
-
-    body {
       background: #071426;
     }
 
     /* =====================================
-       ページ全体
+       パララックス部分
     ===================================== */
 
-    .page {
+    .parallax-area {
       position: relative;
       height: 300vh;
     }
@@ -44,55 +40,38 @@
     .sky-layer {
       position: fixed;
       inset: 0;
-
       pointer-events: none;
-
-      transition: opacity 0.05s linear;
+      z-index: 0;
     }
 
-    /* 昼 */
-
     .sky-day {
-      z-index: 0;
-
       background: linear-gradient(
         to bottom,
-        #159ee9 0%,
-        #55c8f5 55%,
-        #b8e8f7 100%
+        #159ee9,
+        #55c8f5,
+        #b8e8f7
       );
-
       opacity: 1;
     }
 
-    /* 夕方 */
-
     .sky-sunset {
-      z-index: 0;
-
       background: linear-gradient(
         to bottom,
-        #5367a8 0%,
-        #b46f9f 30%,
-        #ff8d6d 58%,
-        #ffd38a 100%
+        #5367a8,
+        #b46f9f,
+        #ff8d6d,
+        #ffd38a
       );
-
       opacity: 0;
     }
 
-    /* 夜 */
-
     .sky-night {
-      z-index: 0;
-
       background: linear-gradient(
         to bottom,
-        #071426 0%,
-        #10264c 50%,
-        #263b68 100%
+        #071426,
+        #10264c,
+        #263b68
       );
-
       opacity: 0;
     }
 
@@ -103,11 +82,11 @@
     .sun {
       position: fixed;
 
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
 
       top: 8%;
-      right: 10%;
+      right: 9%;
 
       border-radius: 50%;
 
@@ -120,10 +99,6 @@
       z-index: 1;
 
       pointer-events: none;
-
-      will-change:
-        transform,
-        opacity;
     }
 
     /* =====================================
@@ -133,18 +108,18 @@
     .moon {
       position: fixed;
 
-      width: 90px;
-      height: 90px;
+      width: 85px;
+      height: 85px;
 
       top: 12%;
-      left: 12%;
+      left: 10%;
 
       border-radius: 50%;
 
       background: #fffde8;
 
       box-shadow:
-        0 0 30px rgba(255, 255, 220, 0.8);
+        0 0 30px rgba(255,255,220,0.8);
 
       opacity: 0;
 
@@ -194,18 +169,11 @@
       z-index: 2;
 
       pointer-events: none;
-
-      will-change:
-        transform,
-        opacity,
-        filter;
     }
 
     .clouds {
-      width: 115%;
-      max-width: 1600px;
-      height: auto;
-
+      width: 150%;
+      max-width: none;
       display: block;
     }
 
@@ -219,7 +187,7 @@
       left: 0;
       right: 0;
 
-      bottom: 5%;
+      bottom: 16%;
 
       display: flex;
       justify-content: center;
@@ -227,18 +195,11 @@
       z-index: 3;
 
       pointer-events: none;
-
-      will-change:
-        transform,
-        opacity,
-        filter;
     }
 
     .festival-background {
-      width: 115%;
-      max-width: 1700px;
-      height: auto;
-
+      width: 165%;
+      max-width: none;
       display: block;
     }
 
@@ -251,6 +212,7 @@
 
       left: 0;
       right: 0;
+
       bottom: -20px;
 
       display: flex;
@@ -264,14 +226,13 @@
     }
 
     .stage {
-      width: 95%;
-      max-width: 1300px;
-
+      width: 118%;
+      max-width: none;
       display: block;
     }
 
     /* =====================================
-       各セクション
+       DAY / SUNSET / NIGHT
     ===================================== */
 
     .section {
@@ -288,14 +249,12 @@
       z-index: 6;
     }
 
-    /* =====================================
-       文字
-    ===================================== */
-
     .content {
       position: relative;
 
       z-index: 7;
+
+      transform: translateY(-90px);
 
       padding: 30px;
     }
@@ -317,7 +276,7 @@
       letter-spacing: 5px;
 
       text-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.3);
+        0 5px 20px rgba(0,0,0,0.3);
     }
 
     p {
@@ -329,20 +288,98 @@
     }
 
     /* =====================================
-       SCROLL
+       ARTISTS
     ===================================== */
 
-    .scroll {
-      position: absolute;
+    .artists-section {
+      position: relative;
 
-      bottom: 25px;
+      z-index: 10;
 
-      z-index: 8;
+      min-height: 100vh;
 
-      font-size: 12px;
-      letter-spacing: 4px;
+      background:
+        linear-gradient(
+          to bottom,
+          #132750 0%,
+          #071426 100%
+        );
 
-      opacity: 0.75;
+      padding:
+        40px 18px 100px;
+    }
+
+    .artists-title {
+      margin: 0 0 30px;
+
+      text-align: center;
+
+      font-size: 30px;
+      letter-spacing: 5px;
+    }
+
+    /* 2列 */
+
+    .artists-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap:
+        28px 14px;
+
+      width: 100%;
+      max-width: 900px;
+
+      margin: 0 auto;
+    }
+
+    /* =====================================
+       アーティストカード
+    ===================================== */
+
+    .artist-card {
+      min-width: 0;
+      cursor: pointer;
+    }
+
+    .artist-image {
+      position: relative;
+
+      width: 100%;
+
+      /* 16:10 */
+      aspect-ratio: 16 / 10;
+
+      border-radius: 10px;
+
+      overflow: hidden;
+
+      background: #111;
+
+      border:
+        1px solid rgba(255,255,255,0.65);
+    }
+
+    .artist-image img {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .artist-name {
+      margin-top: 9px;
+
+      font-size: 17px;
+      font-weight: bold;
+
+      letter-spacing: 1px;
+
+      color: white;
     }
 
     /* =====================================
@@ -351,41 +388,24 @@
 
     @media (max-width: 768px) {
 
-      .stage {
-        width: 118%;
-        max-width: none;
+      .artists-section {
+        padding:
+          32px 14px 80px;
       }
 
-      .festival-background {
-        width: 165%;
-        max-width: none;
+      .artists-title {
+        margin-bottom: 25px;
+
+        font-size: 26px;
       }
 
-      .background-wrapper {
-        bottom: 16%;
+      .artists-grid {
+        gap:
+          25px 12px;
       }
 
-      .clouds {
-        width: 150%;
-        max-width: none;
-      }
-
-      .sun {
-        width: 105px;
-        height: 105px;
-
-        right: 8%;
-      }
-
-      .moon {
-        width: 80px;
-        height: 80px;
-
-        left: 10%;
-      }
-
-      .content {
-        transform: translateY(-90px);
+      .artist-name {
+        font-size: 15px;
       }
 
     }
@@ -402,21 +422,19 @@
   ====================================== -->
 
   <div class="sky-layer sky-day"></div>
+
   <div class="sky-layer sky-sunset"></div>
+
   <div class="sky-layer sky-night"></div>
 
 
-  <!-- 太陽 -->
+  <!-- =====================================
+       太陽・月・星
+  ====================================== -->
 
   <div class="sun"></div>
 
-
-  <!-- 月 -->
-
   <div class="moon"></div>
-
-
-  <!-- 星 -->
 
   <div class="stars"></div>
 
@@ -467,10 +485,10 @@
 
 
   <!-- =====================================
-       ページ本体
+       DAY / SUNSET / NIGHT
   ====================================== -->
 
-  <main class="page">
+  <main class="parallax-area">
 
 
     <!-- DAY -->
@@ -491,10 +509,6 @@
           SUMMER FESTIVAL START
         </p>
 
-      </div>
-
-      <div class="scroll">
-        SCROLL ↓
       </div>
 
     </section>
@@ -518,10 +532,6 @@
           THE FESTIVAL CONTINUES
         </p>
 
-      </div>
-
-      <div class="scroll">
-        SCROLL ↓
       </div>
 
     </section>
@@ -551,6 +561,145 @@
 
 
   </main>
+
+
+  <!-- =====================================
+       ARTISTS
+  ====================================== -->
+
+  <section class="artists-section">
+
+    <h2 class="artists-title">
+      ARTISTS
+    </h2>
+
+
+    <div class="artists-grid">
+
+
+      <!-- ARTIST 01 -->
+
+      <div class="artist-card">
+
+        <div class="artist-image">
+
+          <img
+            src="artist-01.png"
+            alt="Artist 01"
+          >
+
+        </div>
+
+        <div class="artist-name">
+          ARTIST 01
+        </div>
+
+      </div>
+
+
+      <!-- ARTIST 02 -->
+
+      <div class="artist-card">
+
+        <div class="artist-image">
+
+          <img
+            src="artist-02.png"
+            alt="Artist 02"
+          >
+
+        </div>
+
+        <div class="artist-name">
+          ARTIST 02
+        </div>
+
+      </div>
+
+
+      <!-- ARTIST 03 -->
+
+      <div class="artist-card">
+
+        <div class="artist-image">
+
+          <img
+            src="artist-03.png"
+            alt="Artist 03"
+          >
+
+        </div>
+
+        <div class="artist-name">
+          ARTIST 03
+        </div>
+
+      </div>
+
+
+      <!-- ARTIST 04 -->
+
+      <div class="artist-card">
+
+        <div class="artist-image">
+
+          <img
+            src="artist-04.png"
+            alt="Artist 04"
+          >
+
+        </div>
+
+        <div class="artist-name">
+          ARTIST 04
+        </div>
+
+      </div>
+
+
+      <!-- ARTIST 05 -->
+
+      <div class="artist-card">
+
+        <div class="artist-image">
+
+          <img
+            src="artist-05.png"
+            alt="Artist 05"
+          >
+
+        </div>
+
+        <div class="artist-name">
+          ARTIST 05
+        </div>
+
+      </div>
+
+
+      <!-- ARTIST 06 -->
+
+      <div class="artist-card">
+
+        <div class="artist-image">
+
+          <img
+            src="artist-06.png"
+            alt="Artist 06"
+          >
+
+        </div>
+
+        <div class="artist-name">
+          ARTIST 06
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
 
 
   <!-- =====================================
@@ -586,6 +735,9 @@
     const stars =
       document.querySelector('.stars');
 
+    const parallaxArea =
+      document.querySelector('.parallax-area');
+
 
     function clamp(
       value,
@@ -608,16 +760,25 @@
         window.scrollY;
 
 
-      const maxScroll =
-        document.documentElement.scrollHeight
+      /* =====================================
+         パララックス進行度
+      ====================================== */
+
+      const parallaxHeight =
+        parallaxArea.offsetHeight;
+
+
+      const maxParallaxScroll =
+        parallaxHeight
         - window.innerHeight;
 
 
       const progress =
-        maxScroll > 0
-          ? scrollY / maxScroll
-          : 0;
-
+        clamp(
+          scrollY / maxParallaxScroll,
+          0,
+          1
+        );
 
 
       /* =====================================
@@ -626,7 +787,7 @@
 
       const sunsetAmount =
         clamp(
-          progress / 0.50,
+          progress / 0.5,
           0,
           1
         );
@@ -634,7 +795,7 @@
 
       const nightAmount =
         clamp(
-          (progress - 0.50) / 0.50,
+          (progress - 0.5) / 0.5,
           0,
           1
         );
@@ -654,105 +815,97 @@
         nightAmount;
 
 
-
       /* =====================================
          雲
-         一番ゆっくり
       ====================================== */
 
-      const cloudMove =
-        scrollY * -0.08;
-
-
       cloudsWrapper.style.transform =
-        `translateY(${cloudMove}px)`;
-
-
-      const cloudBrightness =
-        1 - (nightAmount * 0.55);
-
-
-      cloudsWrapper.style.filter =
-        `
-          brightness(${cloudBrightness})
-          saturate(${1 - nightAmount * 0.3})
-        `;
+        `translateY(${scrollY * -0.08}px)`;
 
 
       cloudsWrapper.style.opacity =
         1 - (nightAmount * 0.65);
 
 
+      cloudsWrapper.style.filter =
+        `brightness(${1 - nightAmount * 0.55})`;
+
 
       /* =====================================
          遠景
-         雲より速く
-         ステージより遅く
       ====================================== */
 
-      const backgroundMove =
-        scrollY * -0.14;
-
-
       backgroundWrapper.style.transform =
-        `translateY(${backgroundMove}px)`;
-
-
-      const backgroundBrightness =
-        1 - (nightAmount * 0.50);
+        `translateY(${scrollY * -0.14}px)`;
 
 
       backgroundWrapper.style.filter =
-        `
-          brightness(${backgroundBrightness})
-          saturate(${1 - nightAmount * 0.15})
-        `;
-
+        `brightness(${1 - nightAmount * 0.5})`;
 
 
       /* =====================================
          ステージ
       ====================================== */
 
+      const stageHeight =
+        stageWrapper.offsetHeight;
+
+
+      const initialTop =
+        window.innerHeight
+        - stageHeight;
+
+
+      const targetTop =
+        0;
+
+
+      const moveDistance =
+        targetTop
+        - initialTop;
+
+
       const stageMove =
-        scrollY * -0.25;
+        moveDistance * progress;
 
 
       stageWrapper.style.transform =
         `translateY(${stageMove}px)`;
 
 
+      /* 最後は画面上端で止める */
+
+      if (
+        scrollY >= maxParallaxScroll
+      ) {
+
+        stageWrapper.style.transform =
+          `translateY(${moveDistance}px)`;
+
+      }
+
 
       /* =====================================
          太陽
       ====================================== */
 
-      const sunMove =
-        scrollY * 0.12;
-
-
       sun.style.transform =
-        `translateY(${sunMove}px)`;
-
-
-      const sunOpacity =
-        clamp(
-          1 - ((progress - 0.30) / 0.30),
-          0,
-          1
-        );
+        `translateY(${scrollY * 0.12}px)`;
 
 
       sun.style.opacity =
-        sunOpacity;
-
+        clamp(
+          1 - ((progress - 0.3) / 0.3),
+          0,
+          1
+        );
 
 
       /* =====================================
          月
       ====================================== */
 
-      const moonOpacity =
+      moon.style.opacity =
         clamp(
           (progress - 0.55) / 0.25,
           0,
@@ -760,25 +913,46 @@
         );
 
 
-      moon.style.opacity =
-        moonOpacity;
-
-
-
       /* =====================================
          星
       ====================================== */
 
-      const starsOpacity =
+      stars.style.opacity =
         clamp(
-          (progress - 0.60) / 0.30,
+          (progress - 0.6) / 0.3,
           0,
           0.7
         );
 
 
-      stars.style.opacity =
-        starsOpacity;
+      /* =====================================
+         ARTISTSまで進んだら
+         パララックス素材を非表示
+      ====================================== */
+
+      if (
+        scrollY >
+        maxParallaxScroll
+        + window.innerHeight * 0.7
+      ) {
+
+        stageWrapper.style.opacity = 0;
+
+        cloudsWrapper.style.opacity = 0;
+
+        backgroundWrapper.style.opacity = 0;
+
+        sun.style.opacity = 0;
+
+        moon.style.opacity = 0;
+
+        stars.style.opacity = 0;
+
+      } else {
+
+        stageWrapper.style.opacity = 1;
+
+      }
 
     }
 
@@ -787,6 +961,12 @@
       'scroll',
       updateParallax,
       { passive: true }
+    );
+
+
+    window.addEventListener(
+      'resize',
+      updateParallax
     );
 
 
