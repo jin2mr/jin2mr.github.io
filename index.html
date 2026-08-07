@@ -1,40 +1,334 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>JIN Official Website</title>
+  <title>SUMMER FESTIVAL</title>
 
   <style>
+
+    /* =========================
+       基本設定
+    ========================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+
+    /* =========================
+       空全体
+    ========================= */
+
+    .sky {
+
+      /*
+        上から下へ
+
+        昼
+        ↓
+        夕方
+        ↓
+        夜
+
+        と変化する巨大な空
+      */
+
+      background: linear-gradient(
+        to bottom,
+
+        /* DAY */
+        #159ee9 0%,
+        #55c8f5 18%,
+        #b8e8f7 30%,
+
+        /* SUNSET */
+        #ffd38a 40%,
+        #ff9b6a 48%,
+        #e96d86 55%,
+        #855d9f 64%,
+
+        /* NIGHT */
+        #384879 74%,
+        #17294f 86%,
+        #071426 100%
+      );
+
+    }
+
+
+    /* =========================
+       各セクション
+    ========================= */
+
+    .section {
+
+      height: 100vh;
+
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
+
       text-align: center;
+
+      position: relative;
+
+    }
+
+
+    /* =========================
+       文字
+    ========================= */
+
+    .content {
+
+      padding: 30px;
+
+    }
+
+    .time {
+
+      font-size: 14px;
+      letter-spacing: 6px;
+
+      opacity: 0.8;
+
+      margin-bottom: 10px;
+
     }
 
     h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+
+      font-size: clamp(50px, 10vw, 120px);
+
+      margin: 0;
+
+      letter-spacing: 5px;
+
+      text-shadow:
+        0 5px 20px rgba(0,0,0,0.25);
+
     }
 
     p {
-      color: #bbb;
+
       font-size: 18px;
+
+      margin-top: 15px;
+
+      opacity: 0.9;
+
     }
+
+
+    /* =========================
+       太陽
+    ========================= */
+
+    .sun {
+
+      position: absolute;
+
+      width: 120px;
+      height: 120px;
+
+      border-radius: 50%;
+
+      background: #fff4b0;
+
+      top: 10%;
+      right: 15%;
+
+      box-shadow:
+        0 0 40px #ffd76a,
+        0 0 100px rgba(255,215,106,0.7);
+
+    }
+
+
+    /* =========================
+       月
+    ========================= */
+
+    .moon {
+
+      position: absolute;
+
+      width: 90px;
+      height: 90px;
+
+      border-radius: 50%;
+
+      background: #fffde8;
+
+      top: 15%;
+      left: 15%;
+
+      box-shadow:
+        0 0 30px rgba(255,255,220,0.8);
+
+    }
+
+
+    /* =========================
+       星
+    ========================= */
+
+    .stars {
+
+      position: absolute;
+
+      inset: 0;
+
+      background-image:
+
+        radial-gradient(
+          white 1px,
+          transparent 1px
+        );
+
+      background-size: 70px 70px;
+
+      opacity: 0.6;
+
+    }
+
+
+    /* =========================
+       スクロール案内
+    ========================= */
+
+    .scroll {
+
+      position: absolute;
+
+      bottom: 30px;
+
+      font-size: 12px;
+
+      letter-spacing: 4px;
+
+      opacity: 0.7;
+
+    }
+
   </style>
+
 </head>
 
+
 <body>
-  <main>
-    <h1>JIN Official Website</h1>
-    <p>ホームページ公開テスト！</p>
-  </main>
+
+
+<div class="sky">
+
+
+  <!-- =====================
+       DAY
+  ====================== -->
+
+  <section class="section">
+
+    <div class="sun"></div>
+
+    <div class="content">
+
+      <div class="time">
+        12:00
+      </div>
+
+      <h1>
+        DAY
+      </h1>
+
+      <p>
+        SUMMER FESTIVAL START
+      </p>
+
+    </div>
+
+    <div class="scroll">
+      SCROLL ↓
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================
+       SUNSET
+  ====================== -->
+
+  <section class="section">
+
+    <div class="content">
+
+      <div class="time">
+        18:00
+      </div>
+
+      <h1>
+        SUNSET
+      </h1>
+
+      <p>
+        THE FESTIVAL CONTINUES
+      </p>
+
+    </div>
+
+    <div class="scroll">
+      SCROLL ↓
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================
+       NIGHT
+  ====================== -->
+
+  <section class="section">
+
+    <div class="stars"></div>
+
+    <div class="moon"></div>
+
+    <div class="content">
+
+      <div class="time">
+        21:00
+      </div>
+
+      <h1>
+        NIGHT
+      </h1>
+
+      <p>
+        SUMMER FESTIVAL FINALE
+      </p>
+
+    </div>
+
+  </section>
+
+
+</div>
+
+
 </body>
+
 </html>
