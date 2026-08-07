@@ -18,9 +18,9 @@
       padding: 0;
       width: 100%;
       min-height: 100%;
+      overflow-x: hidden;
       font-family: Arial, sans-serif;
       color: white;
-      overflow-x: hidden;
     }
 
     body {
@@ -37,7 +37,7 @@
     }
 
     /* =========================
-       固定される空
+       空
     ========================= */
 
     .sky {
@@ -68,7 +68,7 @@
 
       background-size: 100% 300vh;
 
-      transition: background-position 0.1s linear;
+      will-change: background-position;
     }
 
     /* =========================
@@ -94,9 +94,41 @@
 
       z-index: 1;
 
-      transition:
-        transform 0.1s linear,
-        opacity 0.1s linear;
+      will-change: transform, opacity;
+    }
+
+    /* =========================
+       雲
+    ========================= */
+
+    .clouds-wrapper {
+      position: fixed;
+
+      top: 4%;
+      left: 0;
+
+      width: 100%;
+      height: 55vh;
+
+      z-index: 2;
+
+      pointer-events: none;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      will-change: transform, opacity, filter;
+    }
+
+    .clouds {
+      width: 115%;
+      max-width: 1600px;
+      height: auto;
+
+      display: block;
+
+      opacity: 0.9;
     }
 
     /* =========================
@@ -123,7 +155,7 @@
 
       z-index: 1;
 
-      transition: opacity 0.1s linear;
+      will-change: opacity;
     }
 
     /* =========================
@@ -149,7 +181,35 @@
 
       pointer-events: none;
 
-      transition: opacity 0.1s linear;
+      will-change: opacity;
+    }
+
+    /* =========================
+       ステージ
+    ========================= */
+
+    .stage-wrapper {
+      position: fixed;
+
+      left: 0;
+      right: 0;
+      bottom: -20px;
+
+      display: flex;
+      justify-content: center;
+
+      z-index: 3;
+
+      pointer-events: none;
+
+      will-change: transform;
+    }
+
+    .stage {
+      width: 95%;
+      max-width: 1300px;
+
+      display: block;
     }
 
     /* =========================
@@ -167,7 +227,7 @@
 
       text-align: center;
 
-      z-index: 3;
+      z-index: 5;
     }
 
     /* =========================
@@ -177,7 +237,7 @@
     .content {
       position: relative;
 
-      z-index: 5;
+      z-index: 6;
 
       padding: 30px;
     }
@@ -211,36 +271,6 @@
     }
 
     /* =========================
-       ステージ
-    ========================= */
-
-    .stage-wrapper {
-      position: fixed;
-
-      left: 0;
-      right: 0;
-      bottom: -20px;
-
-      display: flex;
-      justify-content: center;
-
-      z-index: 2;
-
-      pointer-events: none;
-
-      transform: translateY(0);
-
-      will-change: transform;
-    }
-
-    .stage {
-      width: 95%;
-      max-width: 1300px;
-
-      display: block;
-    }
-
-    /* =========================
        スクロール表示
     ========================= */
 
@@ -253,6 +283,8 @@
       letter-spacing: 4px;
 
       opacity: 0.75;
+
+      z-index: 7;
     }
 
     /* =========================
@@ -264,6 +296,16 @@
       .stage {
         width: 118%;
         max-width: none;
+      }
+
+      .clouds {
+        width: 150%;
+        max-width: none;
+      }
+
+      .clouds-wrapper {
+        top: 8%;
+        height: 45vh;
       }
 
       .sun {
@@ -291,7 +333,7 @@
 <body>
 
   <!-- =========================
-       固定背景
+       背景
   ========================== -->
 
   <div class="sky"></div>
@@ -301,6 +343,21 @@
   <div class="moon"></div>
 
   <div class="stars"></div>
+
+
+  <!-- =========================
+       雲
+  ========================== -->
+
+  <div class="clouds-wrapper">
+
+    <img
+      src="clouds.png"
+      class="clouds"
+      alt="Clouds"
+    >
+
+  </div>
 
 
   <!-- =========================
@@ -416,6 +473,9 @@
     const stageWrapper =
       document.querySelector('.stage-wrapper');
 
+    const cloudsWrapper =
+      document.querySelector('.clouds-wrapper');
+
     const sun =
       document.querySelector('.sun');
 
@@ -441,11 +501,9 @@
           : 0;
 
 
-      /*
-        =========================
-        空の時間変化
-        =========================
-      */
+      /* =========================
+         空
+      ========================= */
 
       const skyMove =
         progress * 200;
@@ -454,13 +512,66 @@
         `center ${skyMove}%`;
 
 
-      /*
-        =========================
-        ステージ移動
-        =========================
+      /* =========================
+         雲
+         ステージよりかなりゆっくり
+      ========================= */
 
-        スクロール量の約25%だけ動かす
-      */
+      const cloudMove =
+        scrollY * -0.08;
+
+      cloudsWrapper.style.transform =
+        `translateY(${cloudMove}px)`;
+
+
+      /* =========================
+         雲の色
+         昼 → 夕方
+      ========================= */
+
+      if (progress < 0.5) {
+
+        const warm =
+          progress / 0.5;
+
+        cloudsWrapper.style.filter =
+          `sepia(${warm * 0.35})
+           saturate(${1 + warm * 0.5})
+           hue-rotate(${-warm * 15}deg)`;
+
+      } else {
+
+        cloudsWrapper.style.filter =
+          `sepia(0.35)
+           saturate(1.5)
+           hue-rotate(-15deg)`;
+      }
+
+
+      /* =========================
+         夜になると雲を薄くする
+      ========================= */
+
+      if (progress > 0.55) {
+
+        const cloudOpacity =
+          Math.max(
+            0,
+            1 - ((progress - 0.55) / 0.35)
+          );
+
+        cloudsWrapper.style.opacity =
+          cloudOpacity;
+
+      } else {
+
+        cloudsWrapper.style.opacity = 1;
+      }
+
+
+      /* =========================
+         ステージ
+      ========================= */
 
       const stageMove =
         scrollY * -0.25;
@@ -469,13 +580,9 @@
         `translateY(${stageMove}px)`;
 
 
-      /*
-        =========================
-        太陽
-        =========================
-
-        少しずつ下に沈む
-      */
+      /* =========================
+         太陽
+      ========================= */
 
       const sunMove =
         scrollY * 0.12;
@@ -483,11 +590,6 @@
       sun.style.transform =
         `translateY(${sunMove}px)`;
 
-
-      /*
-        夕方を超えたら
-        太陽を薄くする
-      */
 
       if (progress > 0.45) {
 
@@ -503,15 +605,12 @@
       } else {
 
         sun.style.opacity = 1;
-
       }
 
 
-      /*
-        =========================
-        月
-        =========================
-      */
+      /* =========================
+         月
+      ========================= */
 
       if (progress > 0.55) {
 
@@ -527,15 +626,12 @@
       } else {
 
         moon.style.opacity = 0;
-
       }
 
 
-      /*
-        =========================
-        星
-        =========================
-      */
+      /* =========================
+         星
+      ========================= */
 
       if (progress > 0.6) {
 
@@ -551,7 +647,6 @@
       } else {
 
         stars.style.opacity = 0;
-
       }
 
     }
@@ -567,7 +662,6 @@
     updateParallax();
 
   </script>
-
 
 </body>
 
