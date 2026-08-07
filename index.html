@@ -8,11 +8,6 @@
   <title>SUMMER FESTIVAL</title>
 
   <style>
-
-    /* =========================
-       基本設定
-    ========================= */
-
     * {
       box-sizing: border-box;
     }
@@ -25,57 +20,44 @@
       margin: 0;
       font-family: Arial, sans-serif;
       color: white;
+      overflow-x: hidden;
     }
 
-
-    /* =========================
+    /* =====================================
        空全体
-    ========================= */
+    ===================================== */
 
     .sky {
-
-      /*
-        上から下へ
-
-        昼
-        ↓
-        夕方
-        ↓
-        夜
-
-        と変化する巨大な空
-      */
-
       background: linear-gradient(
         to bottom,
 
-        /* DAY */
+        /* 昼 */
         #159ee9 0%,
         #55c8f5 18%,
         #b8e8f7 30%,
 
-        /* SUNSET */
+        /* 夕方 */
         #ffd38a 40%,
         #ff9b6a 48%,
         #e96d86 55%,
         #855d9f 64%,
 
-        /* NIGHT */
+        /* 夜 */
         #384879 74%,
         #17294f 86%,
         #071426 100%
       );
-
     }
 
-
-    /* =========================
+    /* =====================================
        各セクション
-    ========================= */
+    ===================================== */
 
     .section {
+      position: relative;
 
-      height: 100vh;
+      width: 100%;
+      min-height: 100vh;
 
       display: flex;
       justify-content: center;
@@ -83,117 +65,125 @@
 
       text-align: center;
 
-      position: relative;
-
+      overflow: hidden;
     }
 
-
-    /* =========================
+    /* =====================================
        文字
-    ========================= */
+    ===================================== */
 
     .content {
+      position: relative;
+      z-index: 5;
 
       padding: 30px;
-
     }
 
     .time {
-
       font-size: 14px;
       letter-spacing: 6px;
 
-      opacity: 0.8;
+      opacity: 0.85;
 
       margin-bottom: 10px;
-
     }
 
     h1 {
-
-      font-size: clamp(50px, 10vw, 120px);
-
       margin: 0;
+
+      font-size: clamp(52px, 12vw, 120px);
 
       letter-spacing: 5px;
 
       text-shadow:
-        0 5px 20px rgba(0,0,0,0.25);
-
+        0 5px 20px rgba(0, 0, 0, 0.3);
     }
 
     p {
+      margin-top: 15px;
 
       font-size: 18px;
 
-      margin-top: 15px;
-
       opacity: 0.9;
-
     }
 
-
-    /* =========================
+    /* =====================================
        太陽
-    ========================= */
+    ===================================== */
 
     .sun {
-
       position: absolute;
 
       width: 120px;
       height: 120px;
 
+      top: 8%;
+      right: 12%;
+
       border-radius: 50%;
 
       background: #fff4b0;
 
-      top: 10%;
-      right: 15%;
-
       box-shadow:
         0 0 40px #ffd76a,
-        0 0 100px rgba(255,215,106,0.7);
+        0 0 100px rgba(255, 215, 106, 0.7);
 
+      z-index: 1;
     }
 
+    /* =====================================
+       ステージ
+    ===================================== */
 
-    /* =========================
-       月
-    ========================= */
+    .stage {
+      position: absolute;
+
+      left: 50%;
+      bottom: 0;
+
+      width: 95%;
+      max-width: 1300px;
+
+      transform: translateX(-50%);
+
+      z-index: 3;
+
+      pointer-events: none;
+    }
+
+    /* =====================================
+       夜の月
+    ===================================== */
 
     .moon {
-
       position: absolute;
 
       width: 90px;
       height: 90px;
 
+      top: 10%;
+      left: 15%;
+
       border-radius: 50%;
 
       background: #fffde8;
 
-      top: 15%;
-      left: 15%;
-
       box-shadow:
-        0 0 30px rgba(255,255,220,0.8);
+        0 0 30px rgba(255, 255, 220, 0.8);
 
+      z-index: 2;
     }
 
-
-    /* =========================
+    /* =====================================
        星
-    ========================= */
+    ===================================== */
 
     .stars {
-
       position: absolute;
 
       inset: 0;
 
       background-image:
-
         radial-gradient(
           white 1px,
           transparent 1px
@@ -203,131 +193,159 @@
 
       opacity: 0.6;
 
+      z-index: 1;
     }
 
-
-    /* =========================
+    /* =====================================
        スクロール案内
-    ========================= */
+    ===================================== */
 
     .scroll {
-
       position: absolute;
 
-      bottom: 30px;
+      bottom: 25px;
+
+      z-index: 6;
 
       font-size: 12px;
-
       letter-spacing: 4px;
 
-      opacity: 0.7;
+      opacity: 0.75;
+    }
 
+    /* =====================================
+       スマホ調整
+    ===================================== */
+
+    @media (max-width: 768px) {
+
+      .stage {
+        width: 110%;
+        max-width: none;
+      }
+
+      .sun {
+        width: 105px;
+        height: 105px;
+
+        right: 8%;
+      }
+
+      .moon {
+        width: 80px;
+        height: 80px;
+
+        left: 10%;
+      }
+
+      .content {
+        transform: translateY(-80px);
+      }
     }
 
   </style>
-
 </head>
 
 
 <body>
 
+  <div class="sky">
 
-<div class="sky">
+    <!-- =====================================
+         DAY
+    ====================================== -->
 
+    <section class="section">
 
-  <!-- =====================
-       DAY
-  ====================== -->
+      <div class="sun"></div>
 
-  <section class="section">
+      <img
+        src="stage-main.png"
+        class="stage"
+        alt="Summer Festival Stage"
+      >
 
-    <div class="sun"></div>
+      <div class="content">
 
-    <div class="content">
+        <div class="time">
+          12:00
+        </div>
 
-      <div class="time">
-        12:00
+        <h1>
+          DAY
+        </h1>
+
+        <p>
+          SUMMER FESTIVAL START
+        </p>
+
       </div>
 
-      <h1>
-        DAY
-      </h1>
-
-      <p>
-        SUMMER FESTIVAL START
-      </p>
-
-    </div>
-
-    <div class="scroll">
-      SCROLL ↓
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================
-       SUNSET
-  ====================== -->
-
-  <section class="section">
-
-    <div class="content">
-
-      <div class="time">
-        18:00
+      <div class="scroll">
+        SCROLL ↓
       </div>
 
-      <h1>
-        SUNSET
-      </h1>
-
-      <p>
-        THE FESTIVAL CONTINUES
-      </p>
-
-    </div>
-
-    <div class="scroll">
-      SCROLL ↓
-    </div>
-
-  </section>
+    </section>
 
 
+    <!-- =====================================
+         SUNSET
+    ====================================== -->
 
-  <!-- =====================
-       NIGHT
-  ====================== -->
+    <section class="section">
 
-  <section class="section">
+      <div class="content">
 
-    <div class="stars"></div>
+        <div class="time">
+          18:00
+        </div>
 
-    <div class="moon"></div>
+        <h1>
+          SUNSET
+        </h1>
 
-    <div class="content">
+        <p>
+          THE FESTIVAL CONTINUES
+        </p>
 
-      <div class="time">
-        21:00
       </div>
 
-      <h1>
-        NIGHT
-      </h1>
+      <div class="scroll">
+        SCROLL ↓
+      </div>
 
-      <p>
-        SUMMER FESTIVAL FINALE
-      </p>
-
-    </div>
-
-  </section>
+    </section>
 
 
-</div>
+    <!-- =====================================
+         NIGHT
+    ====================================== -->
 
+    <section class="section">
+
+      <div class="stars"></div>
+
+      <div class="moon"></div>
+
+      <div class="content">
+
+        <div class="time">
+          21:00
+        </div>
+
+        <h1>
+          NIGHT
+        </h1>
+
+        <p>
+          SUMMER FESTIVAL FINALE
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
 
 </body>
 
