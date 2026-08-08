@@ -12,7 +12,12 @@
 
   <title>SUMMER FESTIVAL</title>
 
+
   <style>
+
+    /* =====================================
+       BASIC
+    ===================================== */
 
     * {
       box-sizing: border-box;
@@ -27,6 +32,7 @@
       margin: 0;
       padding: 0;
       width: 100%;
+
       overflow-x: hidden;
 
       font-family:
@@ -35,6 +41,7 @@
         sans-serif;
 
       color: white;
+
       background: #071426;
     }
 
@@ -44,27 +51,32 @@
 
 
     /* =====================================
-       パララックス
+       PARALLAX AREA
     ===================================== */
 
     .parallax-area {
       position: relative;
+
       height: 300vh;
     }
 
 
     /* =====================================
-       空
+       SKY
     ===================================== */
 
     .sky-layer {
       position: fixed;
+
       inset: 0;
+
       z-index: 0;
+
       pointer-events: none;
     }
 
     .sky-day {
+
       background:
         linear-gradient(
           to bottom,
@@ -77,6 +89,7 @@
     }
 
     .sky-sunset {
+
       background:
         linear-gradient(
           to bottom,
@@ -90,6 +103,7 @@
     }
 
     .sky-night {
+
       background:
         linear-gradient(
           to bottom,
@@ -103,17 +117,21 @@
 
 
     /* =====================================
-       太陽
+       SUN
     ===================================== */
 
     .sun {
+
       position: fixed;
 
       width: 240px;
+
       max-width: none;
+
       height: auto;
 
       top: 3%;
+
       right: -25px;
 
       z-index: 1;
@@ -135,17 +153,21 @@
 
 
     /* =====================================
-       月
+       MOON
     ===================================== */
 
     .moon {
+
       position: fixed;
 
       width: 210px;
+
       max-width: none;
+
       height: auto;
 
       top: 5%;
+
       left: -20px;
 
       opacity: 0;
@@ -169,10 +191,11 @@
 
 
     /* =====================================
-       星
+       STARS
     ===================================== */
 
     .stars {
+
       position: fixed;
 
       inset: 0;
@@ -195,13 +218,15 @@
 
 
     /* =====================================
-       雲
+       CLOUDS
     ===================================== */
 
     .clouds-wrapper {
+
       position: fixed;
 
       top: 5%;
+
       left: 0;
 
       width: 100%;
@@ -221,6 +246,7 @@
     }
 
     .clouds {
+
       display: block;
 
       width: 150%;
@@ -230,13 +256,15 @@
 
 
     /* =====================================
-       遠景
+       FESTIVAL BACKGROUND
     ===================================== */
 
     .background-wrapper {
+
       position: fixed;
 
       left: 0;
+
       right: 0;
 
       bottom: 16%;
@@ -256,6 +284,7 @@
     }
 
     .festival-background {
+
       display: block;
 
       width: 165%;
@@ -265,13 +294,15 @@
 
 
     /* =====================================
-       ステージ
+       STAGE
     ===================================== */
 
     .stage-wrapper {
+
       position: fixed;
 
       left: 0;
+
       right: 0;
 
       bottom: -20px;
@@ -290,6 +321,7 @@
     }
 
     .stage {
+
       display: block;
 
       width: 118%;
@@ -299,13 +331,15 @@
 
 
     /* =====================================
-       観客
+       AUDIENCE
     ===================================== */
 
     .audience-wrapper {
+
       position: fixed;
 
       left: 0;
+
       right: 0;
 
       bottom: 0;
@@ -327,6 +361,7 @@
     }
 
     .audience {
+
       display: block;
 
       width: 145%;
@@ -338,10 +373,11 @@
 
 
     /* =====================================
-       共通セクション
+       COMMON SECTION
     ===================================== */
 
     .section {
+
       position: relative;
 
       height: 100vh;
@@ -349,6 +385,7 @@
       display: flex;
 
       justify-content: center;
+
       align-items: center;
 
       text-align: center;
@@ -357,6 +394,7 @@
     }
 
     .content {
+
       position: relative;
 
       z-index: 9;
@@ -370,10 +408,11 @@
 
 
     /* =====================================
-       ロゴ
+       FESTIVAL LOGO
     ===================================== */
 
     .festival-logo {
+
       display: block;
 
       width: 80%;
@@ -399,6 +438,7 @@
     ===================================== */
 
     .timetable-content {
+
       position: relative;
 
       z-index: 9;
@@ -414,6 +454,7 @@
     }
 
     .section-eyebrow {
+
       margin-bottom: 7px;
 
       font-size: 12px;
@@ -426,6 +467,7 @@
     }
 
     .timetable-title {
+
       margin: 0;
 
       font-size:
@@ -441,6 +483,7 @@
     }
 
     .timetable-subtitle {
+
       margin:
         10px 0 22px;
 
@@ -452,6 +495,7 @@
     }
 
     .timetable {
+
       position: relative;
 
       width: 100%;
@@ -464,11 +508,13 @@
     }
 
     .timetable::before {
+
       content: "";
 
       position: absolute;
 
       top: 5px;
+
       bottom: 5px;
 
       left: 69px;
@@ -485,6 +531,7 @@
     }
 
     .schedule-item {
+
       position: relative;
 
       display: grid;
@@ -502,6 +549,7 @@
     }
 
     .schedule-time {
+
       text-align: right;
 
       font-size: 13px;
@@ -514,14 +562,17 @@
     }
 
     .schedule-item::after {
+
       content: "";
 
       position: absolute;
 
       left: 64px;
+
       top: 50%;
 
       width: 11px;
+
       height: 11px;
 
       transform:
@@ -537,6 +588,7 @@
     }
 
     .schedule-card {
+
       margin-left: 5px;
 
       padding:
@@ -564,6 +616,7 @@
     }
 
     .schedule-artist {
+
       font-size: 15px;
 
       font-weight: bold;
@@ -572,6 +625,7 @@
     }
 
     .schedule-track {
+
       margin-top: 3px;
 
       font-size: 11px;
@@ -591,6 +645,7 @@
     ===================================== */
 
     .headliner-content {
+
       position: relative;
 
       z-index: 9;
@@ -608,6 +663,7 @@
     }
 
     .headliner-small {
+
       margin-bottom: 10px;
 
       font-size: 12px;
@@ -620,6 +676,7 @@
     }
 
     .headliner-title {
+
       margin: 0;
 
       font-size:
@@ -639,6 +696,7 @@
     }
 
     .headliner-title span {
+
       background:
         linear-gradient(
           90deg,
@@ -681,6 +739,7 @@
     }
 
     .headliner-copy {
+
       margin:
         24px auto 0;
 
@@ -694,6 +753,7 @@
     }
 
     .headliner-stats {
+
       display: flex;
 
       justify-content: center;
@@ -704,6 +764,7 @@
     }
 
     .headliner-stat {
+
       flex: 1;
 
       max-width: 150px;
@@ -721,6 +782,7 @@
     }
 
     .stat-number {
+
       display: block;
 
       font-size: 24px;
@@ -729,6 +791,7 @@
     }
 
     .stat-label {
+
       display: block;
 
       margin-top: 4px;
@@ -742,13 +805,15 @@
 
 
     /* =====================================
-       ARTISTS ボタン
+       ARTISTS CTA
     ===================================== */
 
     .artists-cta {
+
       display: inline-flex;
 
       align-items: center;
+
       justify-content: center;
 
       gap: 13px;
@@ -782,11 +847,13 @@
     }
 
     .artists-cta:active {
+
       transform:
         scale(0.96);
     }
 
     .cta-arrow {
+
       display: inline-block;
 
       font-size: 18px;
@@ -802,11 +869,13 @@
 
       0%,
       100% {
+
         transform:
           translateY(-3px);
       }
 
       50% {
+
         transform:
           translateY(4px);
       }
@@ -815,10 +884,11 @@
 
 
     /* =====================================
-       ARTISTS
+       ARTISTS SECTION
     ===================================== */
 
     .artists-section {
+
       position: relative;
 
       z-index: 20;
@@ -837,6 +907,7 @@
     }
 
     .artists-title {
+
       margin:
         0 0 8px;
 
@@ -853,6 +924,7 @@
     }
 
     .artists-caption {
+
       margin:
         0 0 38px;
 
@@ -865,7 +937,13 @@
       opacity: 0.55;
     }
 
+
+    /* =====================================
+       ARTISTS GRID
+    ===================================== */
+
     .artists-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -887,9 +965,13 @@
 
     /* =====================================
        ARTIST CARD
+
+       初期状態は非表示
+       JSで reveal が付くと登場
     ===================================== */
 
     .artist-card {
+
       --accent:
         #ffffff;
 
@@ -921,48 +1003,114 @@
       backdrop-filter:
         blur(10px);
 
+
+      /* ★スクロール登場用 */
+
+      opacity: 0;
+
+      transform:
+        translateY(42px)
+        scale(0.96);
+
+      filter:
+        blur(5px);
+
+
       transition:
-        transform 0.25s ease,
+        opacity 0.75s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+
+        transform 0.75s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+
+        filter 0.75s ease,
+
         border-color 0.25s ease,
+
         box-shadow 0.25s ease;
     }
 
+
+    /* ★画面に入ると表示 */
+
+    .artist-card.reveal {
+
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+
+      filter:
+        blur(0);
+    }
+
+
+    /* 各カードを少しずつ遅らせる */
+
     .artist-card:nth-child(1) {
-      --accent:
-        #62ff9b;
+      --accent: #62ff9b;
+
+      transition-delay:
+        0.00s;
     }
 
     .artist-card:nth-child(2) {
-      --accent:
-        #73b7ff;
+      --accent: #73b7ff;
+
+      transition-delay:
+        0.10s;
     }
 
     .artist-card:nth-child(3) {
-      --accent:
-        #ff82d8;
+      --accent: #ff82d8;
+
+      transition-delay:
+        0.06s;
     }
 
     .artist-card:nth-child(4) {
-      --accent:
-        #c78cff;
+      --accent: #c78cff;
+
+      transition-delay:
+        0.16s;
     }
 
     .artist-card:nth-child(5) {
-      --accent:
-        #ff6f79;
+      --accent: #ff6f79;
+
+      transition-delay:
+        0.06s;
     }
 
     .artist-card:nth-child(6) {
-      --accent:
-        #89efff;
+      --accent: #89efff;
+
+      transition-delay:
+        0.16s;
     }
 
+
+    /* 下の発光ライン */
+
     .artist-card::before {
+
       content: "";
 
       position: absolute;
 
       left: 12%;
+
       right: 12%;
 
       bottom: 0;
@@ -983,7 +1131,11 @@
       opacity: 0.75;
     }
 
-    .artist-card:active {
+
+    /* タップ */
+
+    .artist-card.reveal:active {
+
       transform:
         scale(0.965);
 
@@ -1007,6 +1159,7 @@
     ===================================== */
 
     .artist-image {
+
       position: relative;
 
       width: 100%;
@@ -1020,15 +1173,36 @@
     }
 
     .artist-image img {
+
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
+      transition:
+        transform 0.45s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        );
     }
 
+
+    .artist-card:active
+    .artist-image img {
+
+      transform:
+        scale(1.035);
+    }
+
+
     .artist-image::after {
+
       content: "";
 
       position: absolute;
@@ -1046,10 +1220,17 @@
         );
     }
 
+
+    /* =====================================
+       ARTIST TIME
+    ===================================== */
+
     .artist-time {
+
       position: absolute;
 
       top: 10px;
+
       left: 10px;
 
       z-index: 3;
@@ -1079,10 +1260,17 @@
       color: white;
     }
 
+
+    /* =====================================
+       GENRE TAG
+    ===================================== */
+
     .artist-genre-tag {
+
       position: absolute;
 
       top: 10px;
+
       right: 10px;
 
       z-index: 3;
@@ -1128,10 +1316,17 @@
       text-overflow: ellipsis;
     }
 
+
+    /* =====================================
+       ARTIST OVERLAY
+    ===================================== */
+
     .artist-overlay {
+
       position: absolute;
 
       left: 12px;
+
       right: 12px;
 
       bottom: 11px;
@@ -1142,6 +1337,7 @@
     }
 
     .artist-name {
+
       margin: 0;
 
       font-size:
@@ -1164,7 +1360,13 @@
         rgba(0,0,0,0.75);
     }
 
+
+    /* =====================================
+       ARTIST INFO
+    ===================================== */
+
     .artist-info {
+
       position: relative;
 
       padding:
@@ -1174,6 +1376,7 @@
     }
 
     .artist-track-label {
+
       font-size: 8px;
 
       font-weight: bold;
@@ -1187,6 +1390,7 @@
     }
 
     .artist-track-name {
+
       margin-top: 5px;
 
       min-height: 30px;
@@ -1202,6 +1406,7 @@
     }
 
     .artist-open {
+
       display: flex;
 
       align-items: center;
@@ -1227,6 +1432,7 @@
     }
 
     .artist-open-arrow {
+
       color:
         var(--accent);
 
@@ -1237,10 +1443,11 @@
 
 
     /* =====================================
-       強化版モーダル
+       MODAL
     ===================================== */
 
     .artist-modal {
+
       --modal-accent:
         #89efff;
 
@@ -1275,22 +1482,25 @@
         touch;
     }
 
+
     .artist-modal.show {
+
       display: block;
     }
 
 
-    /* 上部発光 */
-
     .artist-modal::before {
+
       content: "";
 
       position: fixed;
 
       top: -180px;
+
       left: 50%;
 
       width: 420px;
+
       height: 420px;
 
       transform:
@@ -1311,6 +1521,7 @@
 
 
     .modal-inner {
+
       position: relative;
 
       width: 100%;
@@ -1326,17 +1537,235 @@
     }
 
 
-    /* 閉じる */
+    /* =====================================
+       ★ MODAL OPEN ANIMATION
+    ===================================== */
+
+    .modal-hero,
+    .modal-kicker,
+    .modal-name,
+    .modal-alias,
+    .modal-meta-row,
+    .modal-story,
+    .track-area {
+
+      opacity: 0;
+
+      transform:
+        translateY(24px);
+
+      filter:
+        blur(7px);
+    }
+
+
+    /* IMAGE */
+
+    .artist-modal.show
+    .modal-hero {
+
+      animation:
+        modalReveal
+        0.85s
+        0.04s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    /* FEATURED ARTIST */
+
+    .artist-modal.show
+    .modal-kicker {
+
+      animation:
+        modalReveal
+        0.7s
+        0.18s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    /* NAME */
+
+    .artist-modal.show
+    .modal-name {
+
+      animation:
+        modalNameReveal
+        0.85s
+        0.24s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    /* ALIAS */
+
+    .artist-modal.show
+    .modal-alias {
+
+      animation:
+        modalReveal
+        0.7s
+        0.31s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    /* TAG */
+
+    .artist-modal.show
+    .modal-meta-row {
+
+      animation:
+        modalReveal
+        0.7s
+        0.37s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    /* STORY */
+
+    .artist-modal.show
+    .modal-story {
+
+      animation:
+        modalReveal
+        0.75s
+        0.44s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    /* MUSIC */
+
+    .artist-modal.show
+    .track-area {
+
+      animation:
+        modalReveal
+        0.75s
+        0.52s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        )
+        forwards;
+    }
+
+
+    @keyframes modalReveal {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translateY(24px);
+
+        filter:
+          blur(7px);
+      }
+
+
+      100% {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+        filter:
+          blur(0);
+      }
+
+    }
+
+
+    @keyframes modalNameReveal {
+
+      0% {
+
+        opacity: 0;
+
+        transform:
+          translateY(30px)
+          scale(0.97);
+
+        filter:
+          blur(8px);
+      }
+
+
+      100% {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+
+        filter:
+          blur(0);
+      }
+
+    }
+
+
+    /* =====================================
+       CLOSE
+    ===================================== */
 
     .modal-close {
+
       position: fixed;
 
       top: 18px;
+
       right: 18px;
 
       z-index: 1100;
 
       width: 48px;
+
       height: 48px;
 
       border:
@@ -1360,18 +1789,29 @@
       box-shadow:
         0 8px 25px
         rgba(0,0,0,0.30);
+
+      transition:
+        transform 0.2s ease;
+    }
+
+    .modal-close:active {
+
+      transform:
+        scale(0.90);
     }
 
 
     /* =====================================
-       モーダル画像
+       MODAL HERO
     ===================================== */
 
     .modal-hero {
+
       position: relative;
     }
 
     .modal-image-wrap {
+
       position: relative;
 
       width: 100%;
@@ -1392,6 +1832,7 @@
       box-shadow:
         0 24px 55px
         rgba(0,0,0,0.45),
+
         0 0 35px
         color-mix(
           in srgb,
@@ -1401,6 +1842,7 @@
     }
 
     .modal-image-wrap::after {
+
       content: "";
 
       position: absolute;
@@ -1419,21 +1861,46 @@
     }
 
     .modal-image {
+
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
+
+
+      /* 画像自体も軽くズーム */
+
+      transform:
+        scale(1.045);
+
+      transition:
+        transform 1.2s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        );
     }
 
 
-    /* HERO内ラベル */
+    .artist-modal.show
+    .modal-image {
+
+      transform:
+        scale(1);
+    }
+
 
     .modal-hero-label {
+
       position: absolute;
 
       left: 18px;
+
       bottom: 18px;
 
       z-index: 3;
@@ -1474,16 +1941,18 @@
 
 
     /* =====================================
-       モーダル情報
+       MODAL INFO
     ===================================== */
 
     .modal-info {
+
       position: relative;
 
       margin-top: 26px;
     }
 
     .modal-kicker {
+
       margin-bottom: 8px;
 
       font-size: 10px;
@@ -1495,10 +1964,11 @@
       color:
         var(--modal-accent);
 
-      opacity: 0.85;
+      opacity: 0;
     }
 
     .modal-name {
+
       margin: 0;
 
       font-size:
@@ -1518,6 +1988,7 @@
     }
 
     .modal-alias {
+
       margin-top: 11px;
 
       font-size: 12px;
@@ -1530,7 +2001,13 @@
         rgba(255,255,255,0.58);
     }
 
+
+    /* =====================================
+       META
+    ===================================== */
+
     .modal-meta-row {
+
       display: flex;
 
       flex-wrap: wrap;
@@ -1541,6 +2018,7 @@
     }
 
     .modal-genre {
+
       display: inline-flex;
 
       align-items: center;
@@ -1579,6 +2057,7 @@
     }
 
     .modal-time {
+
       display: inline-flex;
 
       align-items: center;
@@ -1614,6 +2093,7 @@
     ===================================== */
 
     .modal-story {
+
       margin-top: 28px;
 
       padding:
@@ -1637,6 +2117,7 @@
     }
 
     .modal-story-label {
+
       font-size: 9px;
 
       font-weight: bold;
@@ -1648,6 +2129,7 @@
     }
 
     .modal-description {
+
       margin-top: 13px;
 
       font-size: 15px;
@@ -1663,10 +2145,11 @@
 
 
     /* =====================================
-       音楽プレイヤー
+       MUSIC PLAYER
     ===================================== */
 
     .track-area {
+
       position: relative;
 
       margin-top: 26px;
@@ -1703,9 +2186,8 @@
     }
 
 
-    /* 再生中 */
-
     .track-area.playing {
+
       border-color:
         color-mix(
           in srgb,
@@ -1720,22 +2202,24 @@
           var(--modal-accent) 24%,
           transparent
         ),
+
         0 18px 40px
         rgba(0,0,0,0.35);
     }
 
 
-    /* 背景光 */
-
     .track-area::before {
+
       content: "";
 
       position: absolute;
 
       width: 150px;
+
       height: 150px;
 
       right: -55px;
+
       top: -60px;
 
       border-radius: 50%;
@@ -1753,6 +2237,7 @@
 
 
     .track-top-row {
+
       position: relative;
 
       z-index: 2;
@@ -1768,6 +2253,7 @@
     }
 
     .track-label {
+
       font-size: 9px;
 
       font-weight: bold;
@@ -1779,6 +2265,7 @@
     }
 
     .track-title {
+
       margin-top: 7px;
 
       font-size:
@@ -1794,9 +2281,12 @@
     }
 
 
-    /* 擬似イコライザー */
+    /* =====================================
+       EQUALIZER
+    ===================================== */
 
     .mini-eq {
+
       display: flex;
 
       align-items: flex-end;
@@ -1809,6 +2299,7 @@
     }
 
     .mini-eq span {
+
       display: block;
 
       width: 3px;
@@ -1825,6 +2316,7 @@
 
     .track-area.playing
     .mini-eq span:nth-child(1) {
+
       animation:
         eq1 0.7s
         ease-in-out infinite;
@@ -1832,6 +2324,7 @@
 
     .track-area.playing
     .mini-eq span:nth-child(2) {
+
       animation:
         eq2 0.55s
         ease-in-out infinite;
@@ -1839,6 +2332,7 @@
 
     .track-area.playing
     .mini-eq span:nth-child(3) {
+
       animation:
         eq3 0.8s
         ease-in-out infinite;
@@ -1846,6 +2340,7 @@
 
     .track-area.playing
     .mini-eq span:nth-child(4) {
+
       animation:
         eq2 0.65s
         ease-in-out infinite;
@@ -1853,10 +2348,12 @@
 
     .track-area.playing
     .mini-eq span:nth-child(5) {
+
       animation:
         eq1 0.6s
         ease-in-out infinite;
     }
+
 
     @keyframes eq1 {
 
@@ -1898,9 +2395,12 @@
     }
 
 
-    /* PLAY BUTTON */
+    /* =====================================
+       PLAY BUTTON
+    ===================================== */
 
     .play-button {
+
       position: relative;
 
       z-index: 2;
@@ -1941,12 +2441,14 @@
     }
 
     .play-button:active {
+
       transform:
         scale(0.97);
     }
 
     .track-area.playing
     .play-button {
+
       background:
         var(--modal-accent);
 
@@ -1963,9 +2465,12 @@
     }
 
 
-    /* PROGRESS */
+    /* =====================================
+       PROGRESS
+    ===================================== */
 
     .progress-wrap {
+
       position: relative;
 
       z-index: 2;
@@ -1974,6 +2479,7 @@
     }
 
     .progress-bar {
+
       width: 100%;
 
       accent-color:
@@ -1981,6 +2487,7 @@
     }
 
     .audio-time {
+
       position: relative;
 
       z-index: 2;
@@ -2002,12 +2509,14 @@
 
 
     /* =====================================
-       スマホ
+       MOBILE
     ===================================== */
 
-    @media (max-width: 768px) {
+    @media
+    (max-width: 768px) {
 
       .sun {
+
         width: 300px;
 
         top: 1%;
@@ -2016,6 +2525,7 @@
       }
 
       .moon {
+
         width: 260px;
 
         top: 3%;
@@ -2024,29 +2534,36 @@
       }
 
       .festival-logo {
+
         width: 92%;
       }
 
       .audience {
+
         width: 150%;
       }
 
       .artists-section {
+
         padding:
           42px 12px 90px;
       }
 
       .artists-grid {
+
         gap:
           18px 10px;
       }
 
       .artist-card {
+
         border-radius: 13px;
       }
 
       .artist-time {
+
         top: 7px;
+
         left: 7px;
 
         padding:
@@ -2056,7 +2573,9 @@
       }
 
       .artist-genre-tag {
+
         top: 7px;
+
         right: 7px;
 
         padding:
@@ -2066,65 +2585,129 @@
       }
 
       .artist-overlay {
+
         left: 9px;
+
         right: 9px;
 
         bottom: 8px;
       }
 
       .artist-name {
+
         font-size: 16px;
       }
 
       .artist-info {
+
         padding:
           9px 9px 12px;
       }
 
       .artist-track-name {
+
         font-size: 10px;
 
         min-height: 28px;
       }
 
       .artist-open {
+
         font-size: 7px;
       }
 
 
-      /* モーダルスマホ */
+      /* MODAL */
 
       .modal-inner {
+
         padding:
           64px 13px 70px;
       }
 
       .modal-image-wrap {
+
         border-radius: 17px;
       }
 
       .modal-name {
+
         font-size: 38px;
       }
 
       .modal-story {
+
         padding:
           18px 15px;
       }
 
       .modal-description {
+
         font-size: 14px;
 
         line-height: 1.9;
       }
 
       .track-area {
+
         padding:
           19px 15px 17px;
       }
 
       .track-title {
+
         font-size: 20px;
+      }
+
+    }
+
+
+    /* =====================================
+       動きを減らす設定の端末
+    ===================================== */
+
+    @media
+    (prefers-reduced-motion: reduce) {
+
+      .artist-card {
+
+        opacity: 1;
+
+        transform: none;
+
+        filter: none;
+
+        transition: none;
+      }
+
+      .artist-modal.show
+      .modal-hero,
+
+      .artist-modal.show
+      .modal-kicker,
+
+      .artist-modal.show
+      .modal-name,
+
+      .artist-modal.show
+      .modal-alias,
+
+      .artist-modal.show
+      .modal-meta-row,
+
+      .artist-modal.show
+      .modal-story,
+
+      .artist-modal.show
+      .track-area {
+
+        opacity: 1;
+
+        transform: none;
+
+        filter: none;
+
+        animation: none;
       }
 
     }
@@ -2137,14 +2720,16 @@
 <body>
 
 
-  <!-- 空 -->
+  <!-- SKY -->
 
   <div class="sky-layer sky-day"></div>
+
   <div class="sky-layer sky-sunset"></div>
+
   <div class="sky-layer sky-night"></div>
 
 
-  <!-- 太陽 -->
+  <!-- SUN -->
 
   <img
     src="images/sun.png"
@@ -2153,7 +2738,7 @@
   >
 
 
-  <!-- 月 -->
+  <!-- MOON -->
 
   <img
     src="images/moon.png"
@@ -2162,12 +2747,12 @@
   >
 
 
-  <!-- 星 -->
+  <!-- STARS -->
 
   <div class="stars"></div>
 
 
-  <!-- 雲 -->
+  <!-- CLOUDS -->
 
   <div class="clouds-wrapper">
 
@@ -2180,7 +2765,7 @@
   </div>
 
 
-  <!-- 遠景 -->
+  <!-- BACKGROUND -->
 
   <div class="background-wrapper">
 
@@ -2193,7 +2778,7 @@
   </div>
 
 
-  <!-- ステージ -->
+  <!-- STAGE -->
 
   <div class="stage-wrapper">
 
@@ -2206,7 +2791,7 @@
   </div>
 
 
-  <!-- 観客 -->
+  <!-- AUDIENCE -->
 
   <div class="audience-wrapper">
 
@@ -2253,9 +2838,11 @@
           SUNSET SESSION
         </div>
 
+
         <h2 class="timetable-title">
           TIMETABLE
         </h2>
+
 
         <div class="timetable-subtitle">
           MAIN STAGE · TODAY
@@ -2404,6 +2991,7 @@
 
       <div class="headliner-content">
 
+
         <div class="headliner-small">
           TONIGHT
         </div>
@@ -2428,6 +3016,7 @@
 
 
         <div class="headliner-stats">
+
 
           <div class="headliner-stat">
 
@@ -2467,6 +3056,7 @@
 
           </div>
 
+
         </div>
 
 
@@ -2500,6 +3090,7 @@
     class="artists-section"
     id="artists"
   >
+
 
     <h2 class="artists-title">
       ARTISTS
@@ -2868,13 +3459,14 @@
 
 
   <!-- =====================================
-       強化版 ARTIST MODAL
+       ARTIST MODAL
   ====================================== -->
 
   <div
     class="artist-modal"
     id="artistModal"
   >
+
 
     <button
       class="modal-close"
@@ -2910,7 +3502,7 @@
       </div>
 
 
-      <!-- ARTIST INFO -->
+      <!-- INFO -->
 
       <div class="modal-info">
 
@@ -2974,6 +3566,7 @@
 
         <div class="track-top-row">
 
+
           <div>
 
             <div class="track-label">
@@ -2991,12 +3584,17 @@
           <div class="mini-eq">
 
             <span></span>
+
             <span></span>
+
             <span></span>
+
             <span></span>
+
             <span></span>
 
           </div>
+
 
         </div>
 
@@ -3050,12 +3648,16 @@
   </div>
 
 
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
   <script>
 
 
     /* =====================================
        ARTIST DATA
-    ====================================== */
+    ===================================== */
 
     const artists = [
 
@@ -3256,78 +3858,92 @@
 
 
     /* =====================================
-       MODAL
-    ====================================== */
+       MODAL ELEMENTS
+    ===================================== */
 
     const artistModal =
       document.getElementById(
         "artistModal"
       );
 
+
     const modalClose =
       document.getElementById(
         "modalClose"
       );
+
 
     const modalImage =
       document.getElementById(
         "modalImage"
       );
 
+
     const modalName =
       document.getElementById(
         "modalName"
       );
+
 
     const modalAlias =
       document.getElementById(
         "modalAlias"
       );
 
+
     const modalGenre =
       document.getElementById(
         "modalGenre"
       );
+
 
     const modalTime =
       document.getElementById(
         "modalTime"
       );
 
+
     const modalDescription =
       document.getElementById(
         "modalDescription"
       );
+
 
     const modalTrack =
       document.getElementById(
         "modalTrack"
       );
 
+
     const trackArea =
       document.getElementById(
         "trackArea"
       );
+
 
     const playButton =
       document.getElementById(
         "playButton"
       );
 
+
     const audioPlayer =
       document.getElementById(
         "audioPlayer"
       );
+
 
     const progressBar =
       document.getElementById(
         "progressBar"
       );
 
+
     const currentTimeText =
       document.getElementById(
         "currentTime"
       );
+
 
     const durationText =
       document.getElementById(
@@ -3335,9 +3951,14 @@
       );
 
 
+    /* =====================================
+       TIME FORMAT
+    ===================================== */
+
     function formatTime(
       seconds
     ) {
+
 
       if (
         !Number.isFinite(
@@ -3349,15 +3970,18 @@
 
       }
 
+
       const minutes =
         Math.floor(
           seconds / 60
         );
 
+
       const secs =
         Math.floor(
           seconds % 60
         );
+
 
       return (
         minutes
@@ -3373,17 +3997,21 @@
     }
 
 
+    /* =====================================
+       OPEN MODAL
+    ===================================== */
+
     function openArtistModal(
       index
     ) {
+
 
       const artist =
         artists[index];
 
 
-      /* 音楽初期化 */
-
       audioPlayer.pause();
+
 
       audioPlayer.currentTime =
         0;
@@ -3410,7 +4038,7 @@
         "0:00";
 
 
-      /* アーティストカラー */
+      /* THEME COLOR */
 
       artistModal.style.setProperty(
         "--modal-accent",
@@ -3418,7 +4046,7 @@
       );
 
 
-      /* 情報 */
+      /* DATA */
 
       modalImage.src =
         artist.image;
@@ -3485,7 +4113,12 @@
     }
 
 
+    /* =====================================
+       CLOSE MODAL
+    ===================================== */
+
     function closeArtistModal() {
+
 
       audioPlayer.pause();
 
@@ -3515,6 +4148,10 @@
     }
 
 
+    /* =====================================
+       CARD CLICK
+    ===================================== */
+
     document
       .querySelectorAll(
         ".artist-card"
@@ -3522,9 +4159,11 @@
       .forEach(
         card => {
 
+
           card.addEventListener(
             "click",
             () => {
+
 
               openArtistModal(
                 Number(
@@ -3532,8 +4171,10 @@
                 )
               );
 
+
             }
           );
+
 
         }
       );
@@ -3546,18 +4187,21 @@
 
 
     /* =====================================
-       AUDIO
-    ====================================== */
+       PLAY / PAUSE
+    ===================================== */
 
     playButton.addEventListener(
       "click",
       async () => {
 
+
         if (
           audioPlayer.paused
         ) {
 
+
           try {
+
 
             await audioPlayer.play();
 
@@ -3570,21 +4214,26 @@
               "playing"
             );
 
+
           }
 
           catch (
             error
           ) {
 
+
             console.log(
               error
             );
 
+
           }
+
 
         }
 
         else {
+
 
           audioPlayer.pause();
 
@@ -3597,28 +4246,41 @@
             "playing"
           );
 
+
         }
+
 
       }
     );
 
 
+    /* =====================================
+       AUDIO METADATA
+    ===================================== */
+
     audioPlayer.addEventListener(
       "loadedmetadata",
       () => {
+
 
         durationText.textContent =
           formatTime(
             audioPlayer.duration
           );
 
+
       }
     );
 
 
+    /* =====================================
+       AUDIO TIME
+    ===================================== */
+
     audioPlayer.addEventListener(
       "timeupdate",
       () => {
+
 
         currentTimeText.textContent =
           formatTime(
@@ -3630,6 +4292,7 @@
           audioPlayer.duration
         ) {
 
+
           progressBar.value =
             (
               audioPlayer.currentTime
@@ -3639,19 +4302,27 @@
             *
             100;
 
+
         }
+
 
       }
     );
 
 
+    /* =====================================
+       SEEK
+    ===================================== */
+
     progressBar.addEventListener(
       "input",
       () => {
 
+
         if (
           audioPlayer.duration
         ) {
+
 
           audioPlayer.currentTime =
             (
@@ -3662,15 +4333,22 @@
             *
             audioPlayer.duration;
 
+
         }
+
 
       }
     );
 
 
+    /* =====================================
+       AUDIO END
+    ===================================== */
+
     audioPlayer.addEventListener(
       "ended",
       () => {
+
 
         playButton.textContent =
           "▶ PLAY";
@@ -3688,63 +4366,149 @@
         currentTimeText.textContent =
           "0:00";
 
+
+      }
+    );
+
+
+    /* =====================================
+       ★ ARTIST CARD
+       SCROLL REVEAL
+    ===================================== */
+
+    const artistCards =
+      document.querySelectorAll(
+        ".artist-card"
+      );
+
+
+    const cardObserver =
+      new IntersectionObserver(
+
+        entries => {
+
+
+          entries.forEach(
+            entry => {
+
+
+              if (
+                entry.isIntersecting
+              ) {
+
+
+                entry.target.classList.add(
+                  "reveal"
+                );
+
+
+                cardObserver.unobserve(
+                  entry.target
+                );
+
+
+              }
+
+
+            }
+          );
+
+
+        },
+
+        {
+
+          /*
+            画面下から15%ほど入ったら
+            アニメーション開始
+          */
+
+          threshold: 0.15,
+
+          rootMargin:
+            "0px 0px -4% 0px"
+
+        }
+
+      );
+
+
+    artistCards.forEach(
+      card => {
+
+
+        cardObserver.observe(
+          card
+        );
+
+
       }
     );
 
 
     /* =====================================
        PARALLAX
-    ====================================== */
+    ===================================== */
 
     const skyDay =
       document.querySelector(
         ".sky-day"
       );
 
+
     const skySunset =
       document.querySelector(
         ".sky-sunset"
       );
+
 
     const skyNight =
       document.querySelector(
         ".sky-night"
       );
 
+
     const cloudsWrapper =
       document.querySelector(
         ".clouds-wrapper"
       );
+
 
     const backgroundWrapper =
       document.querySelector(
         ".background-wrapper"
       );
 
+
     const stageWrapper =
       document.querySelector(
         ".stage-wrapper"
       );
+
 
     const audienceWrapper =
       document.querySelector(
         ".audience-wrapper"
       );
 
+
     const sun =
       document.querySelector(
         ".sun"
       );
+
 
     const moon =
       document.querySelector(
         ".moon"
       );
 
+
     const stars =
       document.querySelector(
         ".stars"
       );
+
 
     const parallaxArea =
       document.querySelector(
@@ -3758,18 +4522,24 @@
       max
     ) {
 
+
       return Math.min(
+
         Math.max(
           value,
           min
         ),
+
         max
+
       );
+
 
     }
 
 
     function updateParallax() {
+
 
       const scrollY =
         window.scrollY;
@@ -3791,11 +4561,15 @@
         );
 
 
-      /* 空 */
+      /* =====================================
+         SKY
+      ===================================== */
 
       const sunsetAmount =
         clamp(
-          progress / 0.5,
+          progress
+          /
+          0.5,
           0,
           1
         );
@@ -3831,7 +4605,9 @@
         nightAmount;
 
 
-      /* 雲 */
+      /* =====================================
+         CLOUDS
+      ===================================== */
 
       cloudsWrapper.style.transform =
         `translateY(
@@ -3859,7 +4635,9 @@
         )`;
 
 
-      /* 遠景 */
+      /* =====================================
+         BACKGROUND
+      ===================================== */
 
       backgroundWrapper.style.transform =
         `translateY(
@@ -3887,7 +4665,9 @@
         backgroundFade;
 
 
-      /* ステージ */
+      /* =====================================
+         STAGE
+      ===================================== */
 
       const stageHeight =
         stageWrapper.offsetHeight;
@@ -3915,7 +4695,9 @@
         )`;
 
 
-      /* 観客 */
+      /* =====================================
+         AUDIENCE
+      ===================================== */
 
       const audiencePhase =
         clamp(
@@ -3991,7 +4773,9 @@
         )`;
 
 
-      /* 太陽 */
+      /* =====================================
+         SUN
+      ===================================== */
 
       sun.style.transform =
         `translateY(
@@ -4017,7 +4801,9 @@
         );
 
 
-      /* 月 */
+      /* =====================================
+         MOON
+      ===================================== */
 
       moon.style.opacity =
         clamp(
@@ -4033,7 +4819,9 @@
         );
 
 
-      /* 星 */
+      /* =====================================
+         STARS
+      ===================================== */
 
       stars.style.opacity =
         clamp(
@@ -4049,7 +4837,9 @@
         );
 
 
-      /* ARTISTS以降 */
+      /* =====================================
+         ARTISTS以降
+      ===================================== */
 
       if (
         scrollY
@@ -4061,38 +4851,50 @@
         0.7
       ) {
 
+
         stageWrapper.style.opacity =
           0;
+
 
         audienceWrapper.style.opacity =
           0;
 
+
         cloudsWrapper.style.opacity =
           0;
+
 
         backgroundWrapper.style.opacity =
           0;
 
+
         sun.style.opacity =
           0;
+
 
         moon.style.opacity =
           0;
 
+
         stars.style.opacity =
           0;
+
 
       }
 
       else {
 
+
         stageWrapper.style.opacity =
           1;
+
 
         audienceWrapper.style.opacity =
           audienceFadeIn;
 
+
       }
+
 
     }
 
