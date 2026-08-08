@@ -116,6 +116,7 @@
       z-index: 1;
 
       pointer-events: none;
+
       object-fit: contain;
 
       filter:
@@ -149,6 +150,7 @@
       z-index: 1;
 
       pointer-events: none;
+
       object-fit: contain;
 
       filter:
@@ -215,7 +217,9 @@
 
     .clouds {
       display: block;
+
       width: 150%;
+
       max-width: none;
     }
 
@@ -247,7 +251,9 @@
 
     .festival-background {
       display: block;
+
       width: 165%;
+
       max-width: none;
     }
 
@@ -278,14 +284,15 @@
 
     .stage {
       display: block;
+
       width: 118%;
+
       max-width: none;
     }
 
 
     /* =====================================
        観客
-       ステージより手前
     ===================================== */
 
     .audience-wrapper {
@@ -294,7 +301,7 @@
       left: 0;
       right: 0;
 
-      bottom: -5%;
+      bottom: 0;
 
       display: flex;
       justify-content: center;
@@ -302,6 +309,8 @@
       z-index: 5;
 
       pointer-events: none;
+
+      opacity: 0;
 
       will-change:
         transform,
@@ -312,7 +321,7 @@
     .audience {
       display: block;
 
-      width: 135%;
+      width: 145%;
 
       max-width: none;
 
@@ -322,7 +331,6 @@
 
     /* =====================================
        ゲート
-       最前景
     ===================================== */
 
     .gate-wrapper {
@@ -331,7 +339,7 @@
       left: 0;
       right: 0;
 
-      bottom: -8%;
+      bottom: 0;
 
       display: flex;
       justify-content: center;
@@ -339,6 +347,8 @@
       z-index: 6;
 
       pointer-events: none;
+
+      opacity: 0;
 
       will-change:
         transform,
@@ -349,7 +359,7 @@
     .gate {
       display: block;
 
-      width: 145%;
+      width: 165%;
 
       max-width: none;
 
@@ -391,14 +401,13 @@
 
 
     /* =====================================
-       SUMMER FES ロゴ
+       ロゴ
     ===================================== */
 
     .festival-logo {
       display: block;
 
       width: 80%;
-
       max-width: 500px;
 
       height: auto;
@@ -420,25 +429,23 @@
     ===================================== */
 
     .timetable-content {
-      width: 100%;
+      position: relative;
 
+      z-index: 9;
+
+      width: 100%;
       max-width: 680px;
 
       margin: auto;
 
       padding:
         20px 16px;
-
-      position: relative;
-
-      z-index: 9;
     }
 
     .section-eyebrow {
       margin-bottom: 7px;
 
       font-size: 12px;
-
       font-weight: bold;
 
       letter-spacing: 6px;
@@ -457,6 +464,7 @@
         );
 
       letter-spacing: 5px;
+
       line-height: 1;
     }
 
@@ -613,6 +621,8 @@
     .headliner-content {
       position: relative;
 
+      z-index: 9;
+
       width: 100%;
 
       max-width: 700px;
@@ -623,8 +633,6 @@
         30px 20px;
 
       text-align: center;
-
-      z-index: 9;
     }
 
     .headliner-small {
@@ -760,7 +768,7 @@
 
 
     /* =====================================
-       ARTISTSボタン
+       ARTISTS ボタン
     ===================================== */
 
     .artists-cta {
@@ -798,10 +806,6 @@
 
       backdrop-filter:
         blur(8px);
-
-      transition:
-        background 0.25s ease,
-        transform 0.25s ease;
     }
 
     .artists-cta:active {
@@ -822,6 +826,7 @@
     }
 
     @keyframes arrowBounce {
+
       0%,
       100% {
         transform:
@@ -832,6 +837,7 @@
         transform:
           translateY(4px);
       }
+
     }
 
 
@@ -904,9 +910,6 @@
       min-width: 0;
 
       cursor: pointer;
-
-      transition:
-        transform 0.2s ease;
     }
 
     .artist-card:active {
@@ -920,8 +923,7 @@
       aspect-ratio:
         16 / 10;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
       overflow: hidden;
 
@@ -949,8 +951,6 @@
       font-weight: bold;
 
       letter-spacing: 1px;
-
-      color: white;
     }
 
 
@@ -969,9 +969,6 @@
 
       overflow-y: auto;
 
-      -webkit-overflow-scrolling:
-        touch;
-
       background:
         linear-gradient(
           to bottom,
@@ -988,7 +985,6 @@
       position: relative;
 
       width: 100%;
-
       min-height: 100vh;
 
       max-width: 900px;
@@ -1003,7 +999,6 @@
       position: fixed;
 
       top: 18px;
-
       right: 18px;
 
       z-index: 1100;
@@ -1021,11 +1016,6 @@
       color: white;
 
       font-size: 28px;
-
-      cursor: pointer;
-
-      backdrop-filter:
-        blur(8px);
     }
 
     .modal-image-wrap {
@@ -1039,10 +1029,6 @@
       border-radius: 18px;
 
       background: #111;
-
-      box-shadow:
-        0 18px 40px
-        rgba(0,0,0,0.35);
     }
 
     .modal-image {
@@ -1064,10 +1050,6 @@
           8vw,
           56px
         );
-
-      line-height: 1.1;
-
-      letter-spacing: 2px;
     }
 
     .modal-alias {
@@ -1095,8 +1077,6 @@
       border-radius: 999px;
 
       font-size: 13px;
-
-      letter-spacing: 2px;
     }
 
     .modal-description {
@@ -1106,17 +1086,9 @@
 
       line-height: 1.9;
 
-      color:
-        rgba(255,255,255,0.9);
-
       white-space:
         pre-line;
     }
-
-
-    /* =====================================
-       曲
-    ===================================== */
 
     .track-area {
       margin-top: 35px;
@@ -1128,10 +1100,6 @@
 
       background:
         rgba(255,255,255,0.06);
-
-      border:
-        1px solid
-        rgba(255,255,255,0.12);
     }
 
     .track-label {
@@ -1169,10 +1137,6 @@
       font-size: 16px;
 
       font-weight: bold;
-
-      letter-spacing: 3px;
-
-      cursor: pointer;
     }
 
     .progress-wrap {
@@ -1181,8 +1145,6 @@
 
     .progress-bar {
       width: 100%;
-
-      accent-color: white;
     }
 
     .audio-time {
@@ -1208,8 +1170,6 @@
       .sun {
         width: 300px;
 
-        max-width: none;
-
         top: 1%;
 
         right: -70px;
@@ -1218,8 +1178,6 @@
       .moon {
         width: 260px;
 
-        max-width: none;
-
         top: 3%;
 
         left: -55px;
@@ -1227,8 +1185,6 @@
 
       .festival-logo {
         width: 92%;
-
-        max-width: 420px;
       }
 
       .audience {
@@ -1236,15 +1192,7 @@
       }
 
       .gate {
-        width: 165%;
-      }
-
-      .audience-wrapper {
-        bottom: -4%;
-      }
-
-      .gate-wrapper {
-        bottom: -9%;
+        width: 175%;
       }
 
       .artists-section {
@@ -1261,27 +1209,9 @@
         font-size: 15px;
       }
 
-      .timetable-content {
-        transform:
-          translateY(-5px);
-      }
-
-      .headliner-content {
-        transform:
-          translateY(-20px);
-      }
-
       .modal-inner {
         padding:
           70px 14px 60px;
-      }
-
-      .modal-name {
-        font-size: 34px;
-      }
-
-      .modal-description {
-        font-size: 15px;
       }
 
     }
@@ -1294,16 +1224,10 @@
 <body>
 
 
-  <!-- 空 -->
-
   <div class="sky-layer sky-day"></div>
-
   <div class="sky-layer sky-sunset"></div>
-
   <div class="sky-layer sky-night"></div>
 
-
-  <!-- 太陽 -->
 
   <img
     src="images/sun.png"
@@ -1312,8 +1236,6 @@
   >
 
 
-  <!-- 月 -->
-
   <img
     src="images/moon.png"
     class="moon"
@@ -1321,53 +1243,43 @@
   >
 
 
-  <!-- 星 -->
-
   <div class="stars"></div>
 
-
-  <!-- 雲 -->
 
   <div class="clouds-wrapper">
 
     <img
       src="images/clouds.png"
       class="clouds"
-      alt="Clouds"
+      alt=""
     >
 
   </div>
 
-
-  <!-- 遠景 -->
 
   <div class="background-wrapper">
 
     <img
       src="images/festival-background.png"
       class="festival-background"
-      alt="Festival Background"
+      alt=""
     >
 
   </div>
 
-
-  <!-- ステージ -->
 
   <div class="stage-wrapper">
 
     <img
       src="images/stage-main.png"
       class="stage"
-      alt="Summer Festival Stage"
+      alt=""
     >
 
   </div>
 
 
-  <!-- =====================================
-       観客
-  ====================================== -->
+  <!-- 観客 -->
 
   <div class="audience-wrapper">
 
@@ -1380,9 +1292,7 @@
   </div>
 
 
-  <!-- =====================================
-       ゲート
-  ====================================== -->
+  <!-- ゲート -->
 
   <div class="gate-wrapper">
 
@@ -1396,7 +1306,7 @@
 
 
   <!-- =====================================
-       パララックス
+       PARALLAX
   ====================================== -->
 
   <main class="parallax-area">
@@ -1440,15 +1350,12 @@
 
         <div class="timetable">
 
-
           <div class="schedule-item">
-
             <div class="schedule-time">
               16:30
             </div>
 
             <div class="schedule-card">
-
               <div class="schedule-artist">
                 本屋敷 縁
               </div>
@@ -1456,20 +1363,16 @@
               <div class="schedule-track">
                 Green flame
               </div>
-
             </div>
-
           </div>
 
 
           <div class="schedule-item">
-
             <div class="schedule-time">
               17:15
             </div>
 
             <div class="schedule-card">
-
               <div class="schedule-artist">
                 田楽良介
               </div>
@@ -1477,20 +1380,16 @@
               <div class="schedule-track">
                 Run through the night
               </div>
-
             </div>
-
           </div>
 
 
           <div class="schedule-item">
-
             <div class="schedule-time">
               18:00
             </div>
 
             <div class="schedule-card">
-
               <div class="schedule-artist">
                 もぶうさ
               </div>
@@ -1498,20 +1397,16 @@
               <div class="schedule-track">
                 カートに乗って出発進行！
               </div>
-
             </div>
-
           </div>
 
 
           <div class="schedule-item">
-
             <div class="schedule-time">
               18:45
             </div>
 
             <div class="schedule-card">
-
               <div class="schedule-artist">
                 ヴェレーノ
               </div>
@@ -1519,20 +1414,16 @@
               <div class="schedule-track">
                 Veleno
               </div>
-
             </div>
-
           </div>
 
 
           <div class="schedule-item">
-
             <div class="schedule-time">
               19:30
             </div>
 
             <div class="schedule-card">
-
               <div class="schedule-artist">
                 田楽麻美
               </div>
@@ -1540,20 +1431,16 @@
               <div class="schedule-track">
                 クズな私の輪郭
               </div>
-
             </div>
-
           </div>
 
 
           <div class="schedule-item">
-
             <div class="schedule-time">
               20:30
             </div>
 
             <div class="schedule-card">
-
               <div class="schedule-artist">
                 サドキエル
               </div>
@@ -1561,11 +1448,8 @@
               <div class="schedule-track">
                 fake
               </div>
-
             </div>
-
           </div>
-
 
         </div>
 
@@ -1583,6 +1467,7 @@
         <div class="headliner-small">
           TONIGHT
         </div>
+
 
         <h2 class="headliner-title">
 
@@ -1604,9 +1489,7 @@
 
         <div class="headliner-stats">
 
-
           <div class="headliner-stat">
-
             <span class="stat-number">
               6
             </span>
@@ -1614,12 +1497,10 @@
             <span class="stat-label">
               ARTISTS
             </span>
-
           </div>
 
 
           <div class="headliner-stat">
-
             <span class="stat-number">
               6
             </span>
@@ -1627,12 +1508,10 @@
             <span class="stat-label">
               TRACKS
             </span>
-
           </div>
 
 
           <div class="headliner-stat">
-
             <span class="stat-number">
               1
             </span>
@@ -1640,9 +1519,7 @@
             <span class="stat-label">
               NIGHT
             </span>
-
           </div>
-
 
         </div>
 
@@ -1659,7 +1536,6 @@
           </span>
 
         </a>
-
 
       </div>
 
@@ -1682,6 +1558,7 @@
       ARTISTS
     </h2>
 
+
     <div class="artists-caption">
       TAP AN ARTIST TO DISCOVER THEIR STORY & MUSIC
     </div>
@@ -1689,132 +1566,64 @@
 
     <div class="artists-grid">
 
-
-      <div
-        class="artist-card"
-        data-artist="0"
-      >
-
+      <div class="artist-card" data-artist="0">
         <div class="artist-image">
-
-          <img
-            src="images/artist-01.png"
-            alt="本屋敷 縁"
-          >
-
+          <img src="images/artist-01.png" alt="本屋敷 縁">
         </div>
-
         <div class="artist-name">
           本屋敷 縁
         </div>
-
       </div>
 
 
-      <div
-        class="artist-card"
-        data-artist="1"
-      >
-
+      <div class="artist-card" data-artist="1">
         <div class="artist-image">
-
-          <img
-            src="images/artist-02.png"
-            alt="田楽良介"
-          >
-
+          <img src="images/artist-02.png" alt="田楽良介">
         </div>
-
         <div class="artist-name">
           田楽良介
         </div>
-
       </div>
 
 
-      <div
-        class="artist-card"
-        data-artist="2"
-      >
-
+      <div class="artist-card" data-artist="2">
         <div class="artist-image">
-
-          <img
-            src="images/artist-03.png"
-            alt="もぶうさ"
-          >
-
+          <img src="images/artist-03.png" alt="もぶうさ">
         </div>
-
         <div class="artist-name">
           もぶうさ
         </div>
-
       </div>
 
 
-      <div
-        class="artist-card"
-        data-artist="3"
-      >
-
+      <div class="artist-card" data-artist="3">
         <div class="artist-image">
-
-          <img
-            src="images/artist-04.png"
-            alt="ヴェレーノ"
-          >
-
+          <img src="images/artist-04.png" alt="ヴェレーノ">
         </div>
-
         <div class="artist-name">
           ヴェレーノ
         </div>
-
       </div>
 
 
-      <div
-        class="artist-card"
-        data-artist="4"
-      >
-
+      <div class="artist-card" data-artist="4">
         <div class="artist-image">
-
-          <img
-            src="images/artist-05.png"
-            alt="田楽麻美"
-          >
-
+          <img src="images/artist-05.png" alt="田楽麻美">
         </div>
-
         <div class="artist-name">
           田楽麻美
         </div>
-
       </div>
 
 
-      <div
-        class="artist-card"
-        data-artist="5"
-      >
-
+      <div class="artist-card" data-artist="5">
         <div class="artist-image">
-
-          <img
-            src="images/artist-06.png"
-            alt="サドキエル"
-          >
-
+          <img src="images/artist-06.png" alt="サドキエル">
         </div>
-
         <div class="artist-name">
           サドキエル
         </div>
-
       </div>
-
 
     </div>
 
@@ -1822,7 +1631,7 @@
 
 
   <!-- =====================================
-       モーダル
+       MODAL
   ====================================== -->
 
   <div
@@ -1833,7 +1642,6 @@
     <button
       class="modal-close"
       id="modalClose"
-      aria-label="閉じる"
     >
       ×
     </button>
@@ -1884,6 +1692,7 @@
           TRACK
         </div>
 
+
         <div
           class="track-title"
           id="modalTrack"
@@ -1924,7 +1733,6 @@
 
         </div>
 
-
       </div>
 
 
@@ -1933,24 +1741,21 @@
         preload="metadata"
       ></audio>
 
-
     </div>
 
   </div>
 
 
-  <!-- =====================================
-       JAVASCRIPT
-  ====================================== -->
-
   <script>
 
 
+    /* =====================================
+       ARTIST DATA
+    ====================================== */
+
     const artists = [
 
-
       {
-
         name:
           "本屋敷 縁",
 
@@ -1971,12 +1776,10 @@
 
         music:
           "music/artist-01.mp3"
-
       },
 
 
       {
-
         name:
           "田楽良介",
 
@@ -1997,12 +1800,10 @@
 
         music:
           "music/artist-02.mp3"
-
       },
 
 
       {
-
         name:
           "もぶうさ",
 
@@ -2023,12 +1824,10 @@
 
         music:
           "music/artist-03.mp3"
-
       },
 
 
       {
-
         name:
           "ヴェレーノ",
 
@@ -2049,12 +1848,10 @@
 
         music:
           "music/artist-04.mp3"
-
       },
 
 
       {
-
         name:
           "田楽麻美",
 
@@ -2075,12 +1872,10 @@
 
         music:
           "music/artist-05.mp3"
-
       },
 
 
       {
-
         name:
           "サドキエル",
 
@@ -2101,9 +1896,7 @@
 
         music:
           "music/artist-06.mp3"
-
       }
-
 
     ];
 
@@ -2178,7 +1971,6 @@
       const artist =
         artists[index];
 
-
       audioPlayer.pause();
 
       audioPlayer.currentTime =
@@ -2193,12 +1985,8 @@
       currentTimeText.textContent =
         "0:00";
 
-
       modalImage.src =
         artist.image;
-
-      modalImage.alt =
-        artist.name;
 
       modalName.textContent =
         artist.name;
@@ -2206,21 +1994,10 @@
       modalAlias.textContent =
         artist.alias;
 
-
-      if (artist.alias) {
-
-        modalAlias.style.display =
-          "block";
-
-      }
-
-      else {
-
-        modalAlias.style.display =
-          "none";
-
-      }
-
+      modalAlias.style.display =
+        artist.alias
+          ? "block"
+          : "none";
 
       modalGenre.textContent =
         artist.genre;
@@ -2235,7 +2012,6 @@
         artist.music;
 
       audioPlayer.load();
-
 
       artistModal.classList.add(
         "show"
@@ -2280,12 +2056,11 @@
           "click",
           () => {
 
-            const index =
+            openArtistModal(
               Number(
                 card.dataset.artist
-              );
-
-            openArtistModal(index);
+              )
+            );
 
           }
         );
@@ -2298,10 +2073,6 @@
       closeArtistModal
     );
 
-
-    /* =====================================
-       PLAY
-    ====================================== */
 
     playButton.addEventListener(
       "click",
@@ -2361,7 +2132,6 @@
             audioPlayer.currentTime
           );
 
-
         if (audioPlayer.duration) {
 
           progressBar.value =
@@ -2370,7 +2140,8 @@
               /
               audioPlayer.duration
             )
-            * 100;
+            *
+            100;
 
         }
 
@@ -2394,23 +2165,6 @@
             audioPlayer.duration;
 
         }
-
-      }
-    );
-
-
-    audioPlayer.addEventListener(
-      "ended",
-      () => {
-
-        playButton.textContent =
-          "▶ PLAY";
-
-        progressBar.value =
-          0;
-
-        currentTimeText.textContent =
-          "0:00";
 
       }
     );
@@ -2480,12 +2234,8 @@
         window.scrollY;
 
 
-      const parallaxHeight =
-        parallaxArea.offsetHeight;
-
-
       const maxParallaxScroll =
-        parallaxHeight
+        parallaxArea.offsetHeight
         -
         window.innerHeight;
 
@@ -2500,9 +2250,9 @@
         );
 
 
-      /* =================================
+      /* =====================================
          空
-      ================================= */
+      ====================================== */
 
       const sunsetAmount =
         clamp(
@@ -2542,9 +2292,9 @@
         nightAmount;
 
 
-      /* =================================
+      /* =====================================
          雲
-      ================================= */
+      ====================================== */
 
       cloudsWrapper.style.transform =
         `translateY(${scrollY * -0.08}px)`;
@@ -2553,11 +2303,9 @@
       cloudsWrapper.style.opacity =
         1
         -
-        (
-          nightAmount
-          *
-          0.65
-        );
+        nightAmount
+        *
+        0.65;
 
 
       cloudsWrapper.style.filter =
@@ -2570,22 +2318,12 @@
         })`;
 
 
-      /* =================================
+      /* =====================================
          遠景
-      ================================= */
+      ====================================== */
 
       backgroundWrapper.style.transform =
         `translateY(${scrollY * -0.14}px)`;
-
-
-      backgroundWrapper.style.filter =
-        `brightness(${
-          1
-          -
-          nightAmount
-          *
-          0.5
-        })`;
 
 
       const backgroundFade =
@@ -2608,9 +2346,9 @@
         backgroundFade;
 
 
-      /* =================================
+      /* =====================================
          ステージ
-      ================================= */
+      ====================================== */
 
       const stageHeight =
         stageWrapper.offsetHeight;
@@ -2623,9 +2361,7 @@
 
 
       const moveDistance =
-        0
-        -
-        initialTop;
+        -initialTop;
 
 
       const stageMove =
@@ -2638,84 +2374,183 @@
         `translateY(${stageMove}px)`;
 
 
-      if (
-        scrollY
-        >=
-        maxParallaxScroll
-      ) {
+      /* =====================================
+         ★ GATE
 
-        stageWrapper.style.transform =
-          `translateY(${moveDistance}px)`;
+         最初は画面下
+         10%あたりから登場
+         40%くらいで上へ抜ける
+      ====================================== */
 
-      }
-
-
-      /* =================================
-         観客
-         ステージより手前なので
-         少し大きく動かす
-      ================================= */
-
-      const audienceMove =
-        stageMove
-        -
-        (
-          progress
-          *
-          window.innerHeight
-          *
-          0.10
-        );
-
-
-      audienceWrapper.style.transform =
-        `translateY(${audienceMove}px)`;
-
-
-      audienceWrapper.style.filter =
-        `brightness(${
+      const gatePhase =
+        clamp(
+          (
+            progress
+            -
+            0.08
+          )
+          /
+          0.34,
+          0,
           1
-          -
-          nightAmount
-          *
-          0.35
-        })`;
-
-
-      /* =================================
-         ゲート
-         最前景なのでさらに大きく動かす
-      ================================= */
-
-      const gateMove =
-        stageMove
-        -
-        (
-          progress
-          *
-          window.innerHeight
-          *
-          0.18
         );
+
+
+      const gateStartY =
+        window.innerHeight
+        *
+        1.15;
+
+
+      const gateEndY =
+        -window.innerHeight
+        *
+        0.55;
+
+
+      const gateY =
+        gateStartY
+        +
+        (
+          gateEndY
+          -
+          gateStartY
+        )
+        *
+        gatePhase;
 
 
       gateWrapper.style.transform =
-        `translateY(${gateMove}px)`;
+        `translateY(${gateY}px)`;
 
 
-      gateWrapper.style.filter =
-        `brightness(${
+      const gateFadeIn =
+        clamp(
+          (
+            progress
+            -
+            0.08
+          )
+          /
+          0.08,
+          0,
+          1
+        );
+
+
+      const gateFadeOut =
+        clamp(
+          (
+            progress
+            -
+            0.36
+          )
+          /
+          0.10,
+          0,
+          1
+        );
+
+
+      gateWrapper.style.opacity =
+        gateFadeIn
+        *
+        (
           1
           -
-          nightAmount
-          *
-          0.40
-        })`;
+          gateFadeOut
+        );
 
 
-      /* =================================
+      /* =====================================
+         ★ AUDIENCE
+
+         ゲートより少し遅れて登場
+      ====================================== */
+
+      const audiencePhase =
+        clamp(
+          (
+            progress
+            -
+            0.22
+          )
+          /
+          0.46,
+          0,
+          1
+        );
+
+
+      const audienceStartY =
+        window.innerHeight
+        *
+        1.10;
+
+
+      const audienceEndY =
+        -window.innerHeight
+        *
+        0.18;
+
+
+      const audienceY =
+        audienceStartY
+        +
+        (
+          audienceEndY
+          -
+          audienceStartY
+        )
+        *
+        audiencePhase;
+
+
+      audienceWrapper.style.transform =
+        `translateY(${audienceY}px)`;
+
+
+      const audienceFadeIn =
+        clamp(
+          (
+            progress
+            -
+            0.22
+          )
+          /
+          0.10,
+          0,
+          1
+        );
+
+
+      const audienceFadeOut =
+        clamp(
+          (
+            progress
+            -
+            0.78
+          )
+          /
+          0.14,
+          0,
+          1
+        );
+
+
+      audienceWrapper.style.opacity =
+        audienceFadeIn
+        *
+        (
+          1
+          -
+          audienceFadeOut
+        );
+
+
+      /* =====================================
          太陽
-      ================================= */
+      ====================================== */
 
       sun.style.transform =
         `translateY(${scrollY * 0.12}px)`;
@@ -2739,9 +2574,9 @@
         );
 
 
-      /* =================================
+      /* =====================================
          月
-      ================================= */
+      ====================================== */
 
       moon.style.opacity =
         clamp(
@@ -2757,9 +2592,9 @@
         );
 
 
-      /* =================================
+      /* =====================================
          星
-      ================================= */
+      ====================================== */
 
       stars.style.opacity =
         clamp(
@@ -2775,9 +2610,9 @@
         );
 
 
-      /* =================================
-         ARTISTSに入ったら消す
-      ================================= */
+      /* =====================================
+         ARTISTS以降
+      ====================================== */
 
       if (
         scrollY
@@ -2820,12 +2655,6 @@
         stageWrapper.style.opacity =
           1;
 
-        audienceWrapper.style.opacity =
-          1;
-
-        gateWrapper.style.opacity =
-          1;
-
       }
 
     }
@@ -2854,4 +2683,4 @@
 
 </body>
 
-</html>
+  </html>
