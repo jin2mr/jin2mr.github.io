@@ -174,6 +174,7 @@
 
     .stars {
       position: fixed;
+
       inset: 0;
 
       background-image:
@@ -206,6 +207,7 @@
       width: 100%;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 2;
@@ -240,6 +242,7 @@
       bottom: 16%;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 3;
@@ -274,6 +277,7 @@
       bottom: -20px;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 4;
@@ -296,7 +300,6 @@
 
     /* =====================================
        観客
-       最前景
     ===================================== */
 
     .audience-wrapper {
@@ -308,6 +311,7 @@
       bottom: 0;
 
       display: flex;
+
       justify-content: center;
 
       z-index: 5;
@@ -358,6 +362,7 @@
       z-index: 9;
 
       width: 100%;
+
       max-width: 800px;
 
       padding: 25px;
@@ -591,6 +596,7 @@
       z-index: 9;
 
       width: 100%;
+
       max-width: 700px;
 
       margin: auto;
@@ -810,6 +816,7 @@
 
     /* =====================================
        ARTISTS
+       強化版
     ===================================== */
 
     .artists-section {
@@ -827,7 +834,7 @@
         );
 
       padding:
-        42px 18px 100px;
+        55px 18px 110px;
     }
 
     .artists-title {
@@ -836,14 +843,19 @@
 
       text-align: center;
 
-      font-size: 30px;
+      font-size:
+        clamp(
+          32px,
+          8vw,
+          52px
+        );
 
       letter-spacing: 8px;
     }
 
     .artists-caption {
       margin:
-        0 0 30px;
+        0 0 38px;
 
       text-align: center;
 
@@ -853,6 +865,11 @@
 
       opacity: 0.55;
     }
+
+
+    /* =====================================
+       2列グリッド
+    ===================================== */
 
     .artists-grid {
       display: grid;
@@ -864,7 +881,7 @@
         );
 
       gap:
-        28px 14px;
+        24px 14px;
 
       width: 100%;
 
@@ -873,52 +890,392 @@
       margin: 0 auto;
     }
 
+
+    /* =====================================
+       ARTIST CARD
+    ===================================== */
+
     .artist-card {
+      --accent:
+        #ffffff;
+
+      position: relative;
+
       min-width: 0;
 
+      overflow: hidden;
+
+      border-radius: 16px;
+
       cursor: pointer;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.10),
+          rgba(255,255,255,0.025)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+      box-shadow:
+        0 14px 30px
+        rgba(0,0,0,0.25);
+
+      backdrop-filter:
+        blur(10px);
+
+      transform:
+        translateZ(0);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
     }
+
+
+    /* カード別アクセント */
+
+    .artist-card:nth-child(1) {
+      --accent:
+        #62ff9b;
+    }
+
+    .artist-card:nth-child(2) {
+      --accent:
+        #73b7ff;
+    }
+
+    .artist-card:nth-child(3) {
+      --accent:
+        #ff82d8;
+    }
+
+    .artist-card:nth-child(4) {
+      --accent:
+        #c78cff;
+    }
+
+    .artist-card:nth-child(5) {
+      --accent:
+        #ff6f79;
+    }
+
+    .artist-card:nth-child(6) {
+      --accent:
+        #89efff;
+    }
+
+
+    /* 細い発光ライン */
+
+    .artist-card::before {
+      content: "";
+
+      position: absolute;
+
+      left: 12%;
+      right: 12%;
+
+      bottom: 0;
+
+      height: 2px;
+
+      z-index: 5;
+
+      border-radius: 999px;
+
+      background:
+        var(--accent);
+
+      box-shadow:
+        0 0 15px
+        var(--accent);
+
+      opacity: 0.75;
+    }
+
 
     .artist-card:active {
       transform:
-        scale(0.97);
+        scale(0.965);
+
+      border-color:
+        var(--accent);
+
+      box-shadow:
+        0 0 22px
+        color-mix(
+          in srgb,
+          var(--accent) 35%,
+          transparent
+        ),
+        0 12px 25px
+        rgba(0,0,0,0.30);
     }
 
+
+    /* =====================================
+       ARTIST IMAGE
+    ===================================== */
+
     .artist-image {
+      position: relative;
+
       width: 100%;
 
       aspect-ratio:
         16 / 10;
 
-      border-radius: 10px;
-
       overflow: hidden;
 
       background: #111;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.65);
     }
 
     .artist-image img {
       display: block;
 
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
+
+      transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
     }
 
-    .artist-name {
-      margin-top: 9px;
 
-      font-size: 17px;
+    /* 画像下部グラデーション */
+
+    .artist-image::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 35%,
+          rgba(4,10,25,0.10) 55%,
+          rgba(4,10,25,0.92) 100%
+        );
+    }
+
+
+    /* =====================================
+       出演時間
+    ===================================== */
+
+    .artist-time {
+      position: absolute;
+
+      top: 10px;
+      left: 10px;
+
+      z-index: 3;
+
+      padding:
+        6px 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(5,12,28,0.72);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+      backdrop-filter:
+        blur(8px);
+
+      font-size: 10px;
+
+      font-weight: bold;
+
+      letter-spacing: 1.5px;
+
+      color: white;
+    }
+
+
+    /* =====================================
+       ジャンルタグ
+    ===================================== */
+
+    .artist-genre-tag {
+      position: absolute;
+
+      top: 10px;
+      right: 10px;
+
+      z-index: 3;
+
+      max-width: 56%;
+
+      padding:
+        6px 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        color-mix(
+          in srgb,
+          var(--accent) 24%,
+          rgba(5,12,28,0.75)
+        );
+
+      border:
+        1px solid
+        color-mix(
+          in srgb,
+          var(--accent) 55%,
+          rgba(255,255,255,0.2)
+        );
+
+      backdrop-filter:
+        blur(8px);
+
+      font-size: 9px;
 
       font-weight: bold;
 
       letter-spacing: 1px;
+
+      color: white;
+
+      white-space: nowrap;
+
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+    }
+
+
+    /* =====================================
+       画像上の名前
+    ===================================== */
+
+    .artist-overlay {
+      position: absolute;
+
+      left: 12px;
+      right: 12px;
+
+      bottom: 11px;
+
+      z-index: 3;
+
+      text-align: left;
+    }
+
+    .artist-name {
+      margin: 0;
+
+      font-size:
+        clamp(
+          16px,
+          4vw,
+          24px
+        );
+
+      line-height: 1.1;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      color: white;
+
+      text-shadow:
+        0 3px 10px
+        rgba(0,0,0,0.75);
+    }
+
+
+    /* =====================================
+       カード下部情報
+    ===================================== */
+
+    .artist-info {
+      position: relative;
+
+      padding:
+        11px 12px 14px;
+
+      text-align: left;
+    }
+
+    .artist-track-label {
+      font-size: 8px;
+
+      font-weight: bold;
+
+      letter-spacing: 2.5px;
+
+      color:
+        var(--accent);
+
+      opacity: 0.9;
+    }
+
+    .artist-track-name {
+      margin-top: 5px;
+
+      min-height: 30px;
+
+      font-size: 12px;
+
+      line-height: 1.35;
+
+      font-weight: bold;
+
+      color:
+        rgba(255,255,255,0.90);
+    }
+
+    .artist-open {
+      display: flex;
+
+      align-items: center;
+
+      justify-content:
+        space-between;
+
+      margin-top: 10px;
+
+      padding-top: 9px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+      font-size: 8px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+      opacity: 0.55;
+    }
+
+    .artist-open-arrow {
+      color:
+        var(--accent);
+
+      font-size: 14px;
+
+      opacity: 1;
     }
 
 
@@ -985,6 +1342,8 @@
       color: white;
 
       font-size: 28px;
+
+      cursor: pointer;
     }
 
     .modal-image-wrap {
@@ -1004,7 +1363,6 @@
       display: block;
 
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
@@ -1163,16 +1521,62 @@
 
       .artists-section {
         padding:
-          35px 14px 80px;
+          42px 12px 90px;
       }
 
       .artists-grid {
         gap:
-          25px 12px;
+          18px 10px;
+      }
+
+      .artist-card {
+        border-radius: 13px;
+      }
+
+      .artist-time {
+        top: 7px;
+        left: 7px;
+
+        padding:
+          5px 7px;
+
+        font-size: 8px;
+      }
+
+      .artist-genre-tag {
+        top: 7px;
+        right: 7px;
+
+        padding:
+          5px 7px;
+
+        font-size: 7px;
+      }
+
+      .artist-overlay {
+        left: 9px;
+        right: 9px;
+
+        bottom: 8px;
       }
 
       .artist-name {
-        font-size: 15px;
+        font-size: 16px;
+      }
+
+      .artist-info {
+        padding:
+          9px 9px 12px;
+      }
+
+      .artist-track-name {
+        font-size: 10px;
+
+        min-height: 28px;
+      }
+
+      .artist-open {
+        font-size: 7px;
       }
 
       .modal-inner {
@@ -1567,6 +1971,8 @@
     <div class="artists-grid">
 
 
+      <!-- 01 -->
+
       <div
         class="artist-card"
         data-artist="0"
@@ -1579,14 +1985,51 @@
             alt="本屋敷 縁"
           >
 
+          <div class="artist-time">
+            16:30
+          </div>
+
+          <div class="artist-genre-tag">
+            DANCE POP
+          </div>
+
+          <div class="artist-overlay">
+
+            <h3 class="artist-name">
+              本屋敷 縁
+            </h3>
+
+          </div>
+
         </div>
 
-        <div class="artist-name">
-          本屋敷 縁
+
+        <div class="artist-info">
+
+          <div class="artist-track-label">
+            FEATURED TRACK
+          </div>
+
+          <div class="artist-track-name">
+            Green flame
+          </div>
+
+          <div class="artist-open">
+
+            DISCOVER
+
+            <span class="artist-open-arrow">
+              →
+            </span>
+
+          </div>
+
         </div>
 
       </div>
 
+
+      <!-- 02 -->
 
       <div
         class="artist-card"
@@ -1600,14 +2043,51 @@
             alt="田楽良介"
           >
 
+          <div class="artist-time">
+            17:15
+          </div>
+
+          <div class="artist-genre-tag">
+            DANCE POP
+          </div>
+
+          <div class="artist-overlay">
+
+            <h3 class="artist-name">
+              田楽良介
+            </h3>
+
+          </div>
+
         </div>
 
-        <div class="artist-name">
-          田楽良介
+
+        <div class="artist-info">
+
+          <div class="artist-track-label">
+            FEATURED TRACK
+          </div>
+
+          <div class="artist-track-name">
+            Run through the night
+          </div>
+
+          <div class="artist-open">
+
+            DISCOVER
+
+            <span class="artist-open-arrow">
+              →
+            </span>
+
+          </div>
+
         </div>
 
       </div>
 
+
+      <!-- 03 -->
 
       <div
         class="artist-card"
@@ -1621,14 +2101,51 @@
             alt="もぶうさ"
           >
 
+          <div class="artist-time">
+            18:00
+          </div>
+
+          <div class="artist-genre-tag">
+            J-POP IDOL
+          </div>
+
+          <div class="artist-overlay">
+
+            <h3 class="artist-name">
+              もぶうさ
+            </h3>
+
+          </div>
+
         </div>
 
-        <div class="artist-name">
-          もぶうさ
+
+        <div class="artist-info">
+
+          <div class="artist-track-label">
+            FEATURED TRACK
+          </div>
+
+          <div class="artist-track-name">
+            カートに乗って出発進行！
+          </div>
+
+          <div class="artist-open">
+
+            DISCOVER
+
+            <span class="artist-open-arrow">
+              →
+            </span>
+
+          </div>
+
         </div>
 
       </div>
 
+
+      <!-- 04 -->
 
       <div
         class="artist-card"
@@ -1642,14 +2159,51 @@
             alt="ヴェレーノ"
           >
 
+          <div class="artist-time">
+            18:45
+          </div>
+
+          <div class="artist-genre-tag">
+            UNKNOWN
+          </div>
+
+          <div class="artist-overlay">
+
+            <h3 class="artist-name">
+              ヴェレーノ
+            </h3>
+
+          </div>
+
         </div>
 
-        <div class="artist-name">
-          ヴェレーノ
+
+        <div class="artist-info">
+
+          <div class="artist-track-label">
+            FEATURED TRACK
+          </div>
+
+          <div class="artist-track-name">
+            Veleno
+          </div>
+
+          <div class="artist-open">
+
+            DISCOVER
+
+            <span class="artist-open-arrow">
+              →
+            </span>
+
+          </div>
+
         </div>
 
       </div>
 
+
+      <!-- 05 -->
 
       <div
         class="artist-card"
@@ -1663,14 +2217,51 @@
             alt="田楽麻美"
           >
 
+          <div class="artist-time">
+            19:30
+          </div>
+
+          <div class="artist-genre-tag">
+            PUNK ROCK
+          </div>
+
+          <div class="artist-overlay">
+
+            <h3 class="artist-name">
+              田楽麻美
+            </h3>
+
+          </div>
+
         </div>
 
-        <div class="artist-name">
-          田楽麻美
+
+        <div class="artist-info">
+
+          <div class="artist-track-label">
+            FEATURED TRACK
+          </div>
+
+          <div class="artist-track-name">
+            クズな私の輪郭
+          </div>
+
+          <div class="artist-open">
+
+            DISCOVER
+
+            <span class="artist-open-arrow">
+              →
+            </span>
+
+          </div>
+
         </div>
 
       </div>
 
+
+      <!-- 06 -->
 
       <div
         class="artist-card"
@@ -1684,10 +2275,45 @@
             alt="サドキエル"
           >
 
+          <div class="artist-time">
+            20:30
+          </div>
+
+          <div class="artist-genre-tag">
+            DANCE POP
+          </div>
+
+          <div class="artist-overlay">
+
+            <h3 class="artist-name">
+              サドキエル
+            </h3>
+
+          </div>
+
         </div>
 
-        <div class="artist-name">
-          サドキエル
+
+        <div class="artist-info">
+
+          <div class="artist-track-label">
+            FEATURED TRACK
+          </div>
+
+          <div class="artist-track-name">
+            fake
+          </div>
+
+          <div class="artist-open">
+
+            DISCOVER
+
+            <span class="artist-open-arrow">
+              →
+            </span>
+
+          </div>
+
         </div>
 
       </div>
@@ -2212,10 +2838,26 @@
             "click",
             () => {
 
-              openArtistModal(
-                Number(
-                  card.dataset.artist
-                )
+              card.classList.add(
+                "pressed"
+              );
+
+
+              setTimeout(
+                () => {
+
+                  card.classList.remove(
+                    "pressed"
+                  );
+
+                  openArtistModal(
+                    Number(
+                      card.dataset.artist
+                    )
+                  );
+
+                },
+                120
               );
 
             }
@@ -2438,7 +3080,6 @@
 
     function updateParallax() {
 
-
       const scrollY =
         window.scrollY;
 
@@ -2595,10 +3236,6 @@
 
       /* =====================================
          観客
-
-         以前より早く登場
-         ゆっくり上へ動く
-         最後まで残る
       ====================================== */
 
       const audiencePhase =
@@ -2645,11 +3282,6 @@
         )`;
 
 
-      /*
-        かなり早い段階から
-        フェードイン開始
-      */
-
       const audienceFadeIn =
         clamp(
           (
@@ -2667,11 +3299,6 @@
       audienceWrapper.style.opacity =
         audienceFadeIn;
 
-
-      /*
-        夜になるにつれて
-        少し暗くする
-      */
 
       audienceWrapper.style.filter =
         `brightness(
@@ -2750,8 +3377,7 @@
 
 
       /* =====================================
-         ARTISTSへ入ったら
-         ステージと観客を同時に消す
+         ARTISTS以降
       ====================================== */
 
       if (
@@ -2764,50 +3390,38 @@
         0.7
       ) {
 
-
         stageWrapper.style.opacity =
           0;
-
 
         audienceWrapper.style.opacity =
           0;
 
-
         cloudsWrapper.style.opacity =
           0;
-
 
         backgroundWrapper.style.opacity =
           0;
 
-
         sun.style.opacity =
           0;
-
 
         moon.style.opacity =
           0;
 
-
         stars.style.opacity =
           0;
-
 
       }
 
       else {
 
-
         stageWrapper.style.opacity =
           1;
-
 
         audienceWrapper.style.opacity =
           audienceFadeIn;
 
-
       }
-
 
     }
 
