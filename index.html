@@ -30,7 +30,9 @@
     body {
       margin: 0;
       padding: 0;
+
       width: 100%;
+
       overflow-x: hidden;
 
       font-family:
@@ -39,6 +41,7 @@
         sans-serif;
 
       color: white;
+
       background: #071426;
     }
 
@@ -53,6 +56,7 @@
 
     .parallax-area {
       position: relative;
+
       height: 300vh;
     }
 
@@ -63,12 +67,16 @@
 
     .sky-layer {
       position: fixed;
+
       inset: 0;
+
       z-index: 0;
+
       pointer-events: none;
     }
 
     .sky-day {
+
       background:
         linear-gradient(
           to bottom,
@@ -81,6 +89,7 @@
     }
 
     .sky-sunset {
+
       background:
         linear-gradient(
           to bottom,
@@ -94,6 +103,7 @@
     }
 
     .sky-night {
+
       background:
         linear-gradient(
           to bottom,
@@ -107,17 +117,21 @@
 
 
     /* =====================================
-       太陽画像
+       太陽
     ===================================== */
 
     .sun {
+
       position: fixed;
 
       width: 240px;
+
       max-width: none;
+
       height: auto;
 
       top: 3%;
+
       right: -25px;
 
       z-index: 1;
@@ -139,17 +153,21 @@
 
 
     /* =====================================
-       月画像
+       月
     ===================================== */
 
     .moon {
+
       position: fixed;
 
       width: 210px;
+
       max-width: none;
+
       height: auto;
 
       top: 5%;
+
       left: -20px;
 
       opacity: 0;
@@ -177,7 +195,9 @@
     ===================================== */
 
     .stars {
+
       position: fixed;
+
       inset: 0;
 
       background-image:
@@ -202,9 +222,11 @@
     ===================================== */
 
     .clouds-wrapper {
+
       position: fixed;
 
       top: 5%;
+
       left: 0;
 
       width: 100%;
@@ -216,9 +238,15 @@
       z-index: 2;
 
       pointer-events: none;
+
+      will-change:
+        transform,
+        opacity,
+        filter;
     }
 
     .clouds {
+
       display: block;
 
       width: 150%;
@@ -232,6 +260,7 @@
     ===================================== */
 
     .background-wrapper {
+
       position: fixed;
 
       left: 0;
@@ -246,9 +275,15 @@
       z-index: 3;
 
       pointer-events: none;
+
+      will-change:
+        transform,
+        opacity,
+        filter;
     }
 
     .festival-background {
+
       display: block;
 
       width: 165%;
@@ -262,6 +297,7 @@
     ===================================== */
 
     .stage-wrapper {
+
       position: fixed;
 
       left: 0;
@@ -277,10 +313,13 @@
 
       pointer-events: none;
 
-      will-change: transform;
+      will-change:
+        transform,
+        opacity;
     }
 
     .stage {
+
       display: block;
 
       width: 118%;
@@ -294,6 +333,7 @@
     ===================================== */
 
     .section {
+
       position: relative;
 
       height: 100vh;
@@ -310,6 +350,7 @@
     }
 
     .content {
+
       position: relative;
 
       z-index: 7;
@@ -323,10 +364,11 @@
 
 
     /* =====================================
-       最初のロゴ
+       SUMMER FES ロゴ
     ===================================== */
 
     .festival-logo {
+
       display: block;
 
       width: 80%;
@@ -352,7 +394,9 @@
     ===================================== */
 
     .timetable-content {
+
       width: 100%;
+
       max-width: 680px;
 
       margin: auto;
@@ -362,6 +406,7 @@
     }
 
     .section-eyebrow {
+
       margin-bottom: 7px;
 
       font-size: 12px;
@@ -374,6 +419,7 @@
     }
 
     .timetable-title {
+
       margin: 0;
 
       font-size:
@@ -389,6 +435,7 @@
     }
 
     .timetable-subtitle {
+
       margin:
         10px 0 22px;
 
@@ -399,7 +446,9 @@
       opacity: 0.75;
     }
 
+
     .timetable {
+
       position: relative;
 
       width: 100%;
@@ -411,12 +460,15 @@
       text-align: left;
     }
 
+
     .timetable::before {
+
       content: "";
 
       position: absolute;
 
       top: 5px;
+
       bottom: 5px;
 
       left: 69px;
@@ -432,7 +484,9 @@
         );
     }
 
+
     .schedule-item {
+
       position: relative;
 
       display: grid;
@@ -449,7 +503,9 @@
       min-height: 58px;
     }
 
+
     .schedule-time {
+
       text-align: right;
 
       font-size: 13px;
@@ -461,15 +517,19 @@
       opacity: 0.9;
     }
 
+
     .schedule-item::after {
+
       content: "";
 
       position: absolute;
 
       left: 64px;
+
       top: 50%;
 
       width: 11px;
+
       height: 11px;
 
       transform:
@@ -484,7 +544,9 @@
         rgba(255,255,255,0.8);
     }
 
+
     .schedule-card {
+
       margin-left: 5px;
 
       padding:
@@ -511,7 +573,9 @@
         rgba(0,0,0,0.12);
     }
 
+
     .schedule-artist {
+
       font-size: 15px;
 
       font-weight: bold;
@@ -519,7 +583,9 @@
       letter-spacing: 1px;
     }
 
+
     .schedule-track {
+
       margin-top: 3px;
 
       font-size: 11px;
@@ -539,6 +605,7 @@
     ===================================== */
 
     .headliner-content {
+
       position: relative;
 
       width: 100%;
@@ -553,7 +620,9 @@
       text-align: center;
     }
 
+
     .headliner-small {
+
       margin-bottom: 10px;
 
       font-size: 12px;
@@ -565,7 +634,9 @@
       opacity: 0.7;
     }
 
+
     .headliner-title {
+
       margin: 0;
 
       font-size:
@@ -584,7 +655,9 @@
         rgba(0,0,0,0.45);
     }
 
+
     .headliner-title span {
+
       background:
         linear-gradient(
           90deg,
@@ -606,22 +679,34 @@
       color: transparent;
 
       animation:
-        titleGlow 4s linear infinite;
+        titleGlow
+        4s
+        linear
+        infinite;
     }
+
 
     @keyframes titleGlow {
 
       from {
-        background-position: 0% center;
+
+        background-position:
+          0%
+          center;
       }
 
       to {
-        background-position: 200% center;
+
+        background-position:
+          200%
+          center;
       }
 
     }
 
+
     .headliner-copy {
+
       margin:
         24px auto 0;
 
@@ -634,7 +719,9 @@
       opacity: 0.85;
     }
 
+
     .headliner-stats {
+
       display: flex;
 
       justify-content: center;
@@ -644,7 +731,9 @@
       margin-top: 27px;
     }
 
+
     .headliner-stat {
+
       flex: 1;
 
       max-width: 150px;
@@ -661,7 +750,9 @@
         rgba(255,255,255,0.4);
     }
 
+
     .stat-number {
+
       display: block;
 
       font-size: 24px;
@@ -669,7 +760,9 @@
       font-weight: bold;
     }
 
+
     .stat-label {
+
       display: block;
 
       margin-top: 4px;
@@ -687,6 +780,7 @@
     ===================================== */
 
     .artists-cta {
+
       display: inline-flex;
 
       align-items: center;
@@ -727,30 +821,39 @@
         transform 0.25s ease;
     }
 
+
     .artists-cta:active {
+
       transform:
         scale(0.96);
     }
 
+
     .cta-arrow {
+
       display: inline-block;
 
       font-size: 18px;
 
       animation:
-        arrowBounce 1.2s
-        ease-in-out infinite;
+        arrowBounce
+        1.2s
+        ease-in-out
+        infinite;
     }
+
 
     @keyframes arrowBounce {
 
       0%,
       100% {
+
         transform:
           translateY(-3px);
       }
 
       50% {
+
         transform:
           translateY(4px);
       }
@@ -763,6 +866,7 @@
     ===================================== */
 
     .artists-section {
+
       position: relative;
 
       z-index: 10;
@@ -780,7 +884,9 @@
         42px 18px 100px;
     }
 
+
     .artists-title {
+
       margin:
         0 0 8px;
 
@@ -791,7 +897,9 @@
       letter-spacing: 8px;
     }
 
+
     .artists-caption {
+
       margin:
         0 0 30px;
 
@@ -805,11 +913,8 @@
     }
 
 
-    /* =====================================
-       アーティスト2列
-    ===================================== */
-
     .artists-grid {
+
       display: grid;
 
       grid-template-columns:
@@ -828,7 +933,9 @@
       margin: 0 auto;
     }
 
+
     .artist-card {
+
       min-width: 0;
 
       cursor: pointer;
@@ -837,19 +944,22 @@
         transform 0.2s ease;
     }
 
+
     .artist-card:active {
+
       transform:
         scale(0.97);
     }
 
+
     .artist-image {
+
       width: 100%;
 
       aspect-ratio:
         16 / 10;
 
-      border-radius:
-        10px;
+      border-radius: 10px;
 
       overflow: hidden;
 
@@ -860,16 +970,21 @@
         rgba(255,255,255,0.65);
     }
 
+
     .artist-image img {
+
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
     }
 
+
     .artist-name {
+
       margin-top: 9px;
 
       font-size: 17px;
@@ -887,6 +1002,7 @@
     ===================================== */
 
     .artist-modal {
+
       position: fixed;
 
       inset: 0;
@@ -908,11 +1024,15 @@
         );
     }
 
+
     .artist-modal.show {
+
       display: block;
     }
 
+
     .modal-inner {
+
       position: relative;
 
       width: 100%;
@@ -927,15 +1047,19 @@
         70px 18px 80px;
     }
 
+
     .modal-close {
+
       position: fixed;
 
       top: 18px;
+
       right: 18px;
 
       z-index: 1100;
 
       width: 48px;
+
       height: 48px;
 
       border: none;
@@ -955,7 +1079,9 @@
         blur(8px);
     }
 
+
     .modal-image-wrap {
+
       width: 100%;
 
       aspect-ratio:
@@ -972,16 +1098,21 @@
         rgba(0,0,0,0.35);
     }
 
+
     .modal-image {
+
       display: block;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
     }
 
+
     .modal-name {
+
       margin:
         28px 0 5px;
 
@@ -997,7 +1128,9 @@
       letter-spacing: 2px;
     }
 
+
     .modal-alias {
+
       margin-top: 8px;
 
       font-size: 14px;
@@ -1007,7 +1140,9 @@
       color: #9fd7ff;
     }
 
+
     .modal-genre {
+
       display: inline-block;
 
       margin-top: 20px;
@@ -1026,7 +1161,9 @@
       letter-spacing: 2px;
     }
 
+
     .modal-description {
+
       margin-top: 25px;
 
       font-size: 16px;
@@ -1036,7 +1173,8 @@
       color:
         rgba(255,255,255,0.9);
 
-      white-space: pre-line;
+      white-space:
+        pre-line;
     }
 
 
@@ -1045,6 +1183,7 @@
     ===================================== */
 
     .track-area {
+
       margin-top: 35px;
 
       padding:
@@ -1060,7 +1199,9 @@
         rgba(255,255,255,0.12);
     }
 
+
     .track-label {
+
       font-size: 11px;
 
       letter-spacing: 4px;
@@ -1068,7 +1209,9 @@
       opacity: 0.6;
     }
 
+
     .track-title {
+
       margin-top: 8px;
 
       font-size: 22px;
@@ -1076,7 +1219,9 @@
       font-weight: bold;
     }
 
+
     .play-button {
+
       width: 100%;
 
       margin-top: 20px;
@@ -1101,17 +1246,23 @@
       cursor: pointer;
     }
 
+
     .progress-wrap {
+
       margin-top: 15px;
     }
 
+
     .progress-bar {
+
       width: 100%;
 
       accent-color: white;
     }
 
+
     .audio-time {
+
       display: flex;
 
       justify-content:
@@ -1129,74 +1280,91 @@
        スマホ調整
     ===================================== */
 
-    @media (max-width: 768px) {
+    @media
+    (max-width: 768px) {
 
-      /*
-        ★ 太陽を大型化
-      */
 
       .sun {
+
         width: 300px;
+
         max-width: none;
 
         top: 1%;
+
         right: -70px;
       }
 
 
-      /*
-        ★ 月を大型化
-      */
-
       .moon {
+
         width: 260px;
+
         max-width: none;
 
         top: 3%;
+
         left: -55px;
       }
 
 
       .festival-logo {
+
         width: 92%;
 
         max-width: 420px;
       }
 
+
       .artists-section {
+
         padding:
           35px 14px 80px;
       }
 
+
       .artists-grid {
+
         gap:
           25px 12px;
       }
 
+
       .artist-name {
+
         font-size: 15px;
       }
 
+
       .timetable-content {
+
         transform:
           translateY(-5px);
       }
 
+
       .headliner-content {
+
         transform:
           translateY(-20px);
       }
 
+
       .modal-inner {
+
         padding:
           70px 14px 60px;
       }
 
+
       .modal-name {
+
         font-size: 34px;
       }
 
+
       .modal-description {
+
         font-size: 15px;
       }
 
@@ -1213,7 +1381,9 @@
   <!-- 空 -->
 
   <div class="sky-layer sky-day"></div>
+
   <div class="sky-layer sky-sunset"></div>
+
   <div class="sky-layer sky-night"></div>
 
 
@@ -1309,16 +1479,25 @@
 
       <div class="timetable-content">
 
+
         <div class="section-eyebrow">
+
           SUNSET SESSION
+
         </div>
 
+
         <h2 class="timetable-title">
+
           TIMETABLE
+
         </h2>
 
+
         <div class="timetable-subtitle">
+
           MAIN STAGE · TODAY
+
         </div>
 
 
@@ -1328,17 +1507,23 @@
           <div class="schedule-item">
 
             <div class="schedule-time">
+
               16:30
+
             </div>
 
             <div class="schedule-card">
 
               <div class="schedule-artist">
+
                 本屋敷 縁
+
               </div>
 
               <div class="schedule-track">
+
                 Green flame
+
               </div>
 
             </div>
@@ -1349,17 +1534,23 @@
           <div class="schedule-item">
 
             <div class="schedule-time">
+
               17:15
+
             </div>
 
             <div class="schedule-card">
 
               <div class="schedule-artist">
+
                 田楽良介
+
               </div>
 
               <div class="schedule-track">
+
                 Run through the night
+
               </div>
 
             </div>
@@ -1370,17 +1561,23 @@
           <div class="schedule-item">
 
             <div class="schedule-time">
+
               18:00
+
             </div>
 
             <div class="schedule-card">
 
               <div class="schedule-artist">
+
                 もぶうさ
+
               </div>
 
               <div class="schedule-track">
+
                 カートに乗って出発進行！
+
               </div>
 
             </div>
@@ -1391,17 +1588,23 @@
           <div class="schedule-item">
 
             <div class="schedule-time">
+
               18:45
+
             </div>
 
             <div class="schedule-card">
 
               <div class="schedule-artist">
+
                 ヴェレーノ
+
               </div>
 
               <div class="schedule-track">
+
                 Veleno
+
               </div>
 
             </div>
@@ -1412,17 +1615,23 @@
           <div class="schedule-item">
 
             <div class="schedule-time">
+
               19:30
+
             </div>
 
             <div class="schedule-card">
 
               <div class="schedule-artist">
+
                 田楽麻美
+
               </div>
 
               <div class="schedule-track">
+
                 クズな私の輪郭
+
               </div>
 
             </div>
@@ -1433,17 +1642,23 @@
           <div class="schedule-item">
 
             <div class="schedule-time">
+
               20:30
+
             </div>
 
             <div class="schedule-card">
 
               <div class="schedule-artist">
+
                 サドキエル
+
               </div>
 
               <div class="schedule-track">
+
                 fake
+
               </div>
 
             </div>
@@ -1464,14 +1679,20 @@
 
       <div class="headliner-content">
 
+
         <div class="headliner-small">
+
           TONIGHT
+
         </div>
+
 
         <h2 class="headliner-title">
 
           <span>
+
             HEADLINER
+
           </span>
 
         </h2>
@@ -1492,11 +1713,15 @@
           <div class="headliner-stat">
 
             <span class="stat-number">
+
               6
+
             </span>
 
             <span class="stat-label">
+
               ARTISTS
+
             </span>
 
           </div>
@@ -1505,11 +1730,15 @@
           <div class="headliner-stat">
 
             <span class="stat-number">
+
               6
+
             </span>
 
             <span class="stat-label">
+
               TRACKS
+
             </span>
 
           </div>
@@ -1518,11 +1747,15 @@
           <div class="headliner-stat">
 
             <span class="stat-number">
+
               1
+
             </span>
 
             <span class="stat-label">
+
               NIGHT
+
             </span>
 
           </div>
@@ -1539,7 +1772,9 @@
           MEET THE ARTISTS
 
           <span class="cta-arrow">
+
             ↓
+
           </span>
 
         </a>
@@ -1562,12 +1797,18 @@
     id="artists"
   >
 
+
     <h2 class="artists-title">
+
       ARTISTS
+
     </h2>
 
+
     <div class="artists-caption">
+
       TAP AN ARTIST TO DISCOVER THEIR STORY & MUSIC
+
     </div>
 
 
@@ -1589,7 +1830,9 @@
         </div>
 
         <div class="artist-name">
+
           本屋敷 縁
+
         </div>
 
       </div>
@@ -1610,7 +1853,9 @@
         </div>
 
         <div class="artist-name">
+
           田楽良介
+
         </div>
 
       </div>
@@ -1631,7 +1876,9 @@
         </div>
 
         <div class="artist-name">
+
           もぶうさ
+
         </div>
 
       </div>
@@ -1652,7 +1899,9 @@
         </div>
 
         <div class="artist-name">
+
           ヴェレーノ
+
         </div>
 
       </div>
@@ -1673,7 +1922,9 @@
         </div>
 
         <div class="artist-name">
+
           田楽麻美
+
         </div>
 
       </div>
@@ -1694,13 +1945,16 @@
         </div>
 
         <div class="artist-name">
+
           サドキエル
+
         </div>
 
       </div>
 
 
     </div>
+
 
   </section>
 
@@ -1714,12 +1968,15 @@
     id="artistModal"
   >
 
+
     <button
       class="modal-close"
       id="modalClose"
       aria-label="閉じる"
     >
+
       ×
+
     </button>
 
 
@@ -1741,44 +1998,55 @@
       <h2
         class="modal-name"
         id="modalName"
-      ></h2>
+      >
+      </h2>
 
 
       <div
         class="modal-alias"
         id="modalAlias"
-      ></div>
+      >
+      </div>
 
 
       <div
         class="modal-genre"
         id="modalGenre"
-      ></div>
+      >
+      </div>
 
 
       <div
         class="modal-description"
         id="modalDescription"
-      ></div>
+      >
+      </div>
 
 
       <div class="track-area">
 
+
         <div class="track-label">
+
           TRACK
+
         </div>
+
 
         <div
           class="track-title"
           id="modalTrack"
-        ></div>
+        >
+        </div>
 
 
         <button
           class="play-button"
           id="playButton"
         >
+
           ▶ PLAY
+
         </button>
 
 
@@ -1799,11 +2067,15 @@
         <div class="audio-time">
 
           <span id="currentTime">
+
             0:00
+
           </span>
 
           <span id="duration">
+
             0:00
+
           </span>
 
         </div>
@@ -1815,10 +2087,12 @@
       <audio
         id="audioPlayer"
         preload="metadata"
-      ></audio>
+      >
+      </audio>
 
 
     </div>
+
 
   </div>
 
@@ -1829,6 +2103,10 @@
 
   <script>
 
+
+    /* =====================================
+       アーティストデータ
+    ====================================== */
 
     const artists = [
 
@@ -1997,73 +2275,136 @@
     ====================================== */
 
     const artistModal =
-      document.getElementById("artistModal");
+      document.getElementById(
+        "artistModal"
+      );
+
 
     const modalClose =
-      document.getElementById("modalClose");
+      document.getElementById(
+        "modalClose"
+      );
+
 
     const modalImage =
-      document.getElementById("modalImage");
+      document.getElementById(
+        "modalImage"
+      );
+
 
     const modalName =
-      document.getElementById("modalName");
+      document.getElementById(
+        "modalName"
+      );
+
 
     const modalAlias =
-      document.getElementById("modalAlias");
+      document.getElementById(
+        "modalAlias"
+      );
+
 
     const modalGenre =
-      document.getElementById("modalGenre");
+      document.getElementById(
+        "modalGenre"
+      );
+
 
     const modalDescription =
-      document.getElementById("modalDescription");
+      document.getElementById(
+        "modalDescription"
+      );
+
 
     const modalTrack =
-      document.getElementById("modalTrack");
+      document.getElementById(
+        "modalTrack"
+      );
+
 
     const playButton =
-      document.getElementById("playButton");
+      document.getElementById(
+        "playButton"
+      );
+
 
     const audioPlayer =
-      document.getElementById("audioPlayer");
+      document.getElementById(
+        "audioPlayer"
+      );
+
 
     const progressBar =
-      document.getElementById("progressBar");
+      document.getElementById(
+        "progressBar"
+      );
+
 
     const currentTimeText =
-      document.getElementById("currentTime");
+      document.getElementById(
+        "currentTime"
+      );
+
 
     const durationText =
-      document.getElementById("duration");
+      document.getElementById(
+        "duration"
+      );
 
 
-    function formatTime(seconds) {
+    function formatTime(
+      seconds
+    ) {
 
-      if (!Number.isFinite(seconds)) {
+
+      if (
+        !Number.isFinite(
+          seconds
+        )
+      ) {
+
         return "0:00";
+
       }
 
+
       const minutes =
-        Math.floor(seconds / 60);
+        Math.floor(
+          seconds / 60
+        );
+
 
       const secs =
-        Math.floor(seconds % 60);
+        Math.floor(
+          seconds % 60
+        );
+
 
       return (
         minutes
         + ":"
-        + String(secs).padStart(2, "0")
+        + String(
+            secs
+          ).padStart(
+            2,
+            "0"
+          )
       );
 
     }
 
 
-    function openArtistModal(index) {
+    function openArtistModal(
+      index
+    ) {
+
 
       const artist =
         artists[index];
 
 
       audioPlayer.pause();
+
 
       audioPlayer.currentTime =
         0;
@@ -2084,27 +2425,36 @@
       modalImage.src =
         artist.image;
 
+
       modalImage.alt =
         artist.name;
 
+
       modalName.textContent =
         artist.name;
+
 
       modalAlias.textContent =
         artist.alias;
 
 
-      if (artist.alias) {
+      if (
+        artist.alias
+      ) {
+
 
         modalAlias.style.display =
           "block";
+
 
       }
 
       else {
 
+
         modalAlias.style.display =
           "none";
+
 
       }
 
@@ -2112,14 +2462,18 @@
       modalGenre.textContent =
         artist.genre;
 
+
       modalDescription.textContent =
         artist.description;
+
 
       modalTrack.textContent =
         artist.track;
 
+
       audioPlayer.src =
         artist.music;
+
 
       audioPlayer.load();
 
@@ -2128,9 +2482,11 @@
         "show"
       );
 
+
       document.body.classList.add(
         "modal-open"
       );
+
 
       artistModal.scrollTop =
         0;
@@ -2140,17 +2496,22 @@
 
     function closeArtistModal() {
 
+
       audioPlayer.pause();
+
 
       audioPlayer.currentTime =
         0;
 
+
       playButton.textContent =
         "▶ PLAY";
+
 
       artistModal.classList.remove(
         "show"
       );
+
 
       document.body.classList.remove(
         "modal-open"
@@ -2160,29 +2521,48 @@
 
 
     document
-      .querySelectorAll(".artist-card")
-      .forEach(card => {
+      .querySelectorAll(
+        ".artist-card"
+      )
+      .forEach(
 
-        card.addEventListener(
-          "click",
-          () => {
+        card => {
 
-            const index =
-              Number(
-                card.dataset.artist
+
+          card.addEventListener(
+
+            "click",
+
+            () => {
+
+
+              const index =
+                Number(
+                  card.dataset.artist
+                );
+
+
+              openArtistModal(
+                index
               );
 
-            openArtistModal(index);
 
-          }
-        );
+            }
 
-      });
+          );
+
+
+        }
+
+      );
 
 
     modalClose.addEventListener(
+
       "click",
+
       closeArtistModal
+
     );
 
 
@@ -2191,57 +2571,86 @@
     ====================================== */
 
     playButton.addEventListener(
+
       "click",
+
       async () => {
 
-        if (audioPlayer.paused) {
+
+        if (
+          audioPlayer.paused
+        ) {
+
 
           try {
 
+
             await audioPlayer.play();
+
 
             playButton.textContent =
               "❚❚ PAUSE";
 
-          }
-
-          catch (error) {
-
-            console.log(error);
 
           }
+
+          catch (
+            error
+          ) {
+
+
+            console.log(
+              error
+            );
+
+
+          }
+
 
         }
 
         else {
 
+
           audioPlayer.pause();
+
 
           playButton.textContent =
             "▶ PLAY";
 
+
         }
 
+
       }
+
     );
 
 
     audioPlayer.addEventListener(
+
       "loadedmetadata",
+
       () => {
+
 
         durationText.textContent =
           formatTime(
             audioPlayer.duration
           );
 
+
       }
+
     );
 
 
     audioPlayer.addEventListener(
+
       "timeupdate",
+
       () => {
+
 
         currentTimeText.textContent =
           formatTime(
@@ -2249,29 +2658,44 @@
           );
 
 
-        if (audioPlayer.duration) {
+        if (
+          audioPlayer.duration
+        ) {
+
 
           progressBar.value =
+
             (
               audioPlayer.currentTime
               /
               audioPlayer.duration
             )
-            * 100;
+            *
+            100;
+
 
         }
 
+
       }
+
     );
 
 
     progressBar.addEventListener(
+
       "input",
+
       () => {
 
-        if (audioPlayer.duration) {
+
+        if (
+          audioPlayer.duration
+        ) {
+
 
           audioPlayer.currentTime =
+
             (
               progressBar.value
               /
@@ -2280,26 +2704,36 @@
             *
             audioPlayer.duration;
 
+
         }
 
+
       }
+
     );
 
 
     audioPlayer.addEventListener(
+
       "ended",
+
       () => {
+
 
         playButton.textContent =
           "▶ PLAY";
 
+
         progressBar.value =
           0;
+
 
         currentTimeText.textContent =
           "0:00";
 
+
       }
+
     );
 
 
@@ -2308,34 +2742,63 @@
     ====================================== */
 
     const skyDay =
-      document.querySelector(".sky-day");
+      document.querySelector(
+        ".sky-day"
+      );
+
 
     const skySunset =
-      document.querySelector(".sky-sunset");
+      document.querySelector(
+        ".sky-sunset"
+      );
+
 
     const skyNight =
-      document.querySelector(".sky-night");
+      document.querySelector(
+        ".sky-night"
+      );
+
 
     const cloudsWrapper =
-      document.querySelector(".clouds-wrapper");
+      document.querySelector(
+        ".clouds-wrapper"
+      );
+
 
     const backgroundWrapper =
-      document.querySelector(".background-wrapper");
+      document.querySelector(
+        ".background-wrapper"
+      );
+
 
     const stageWrapper =
-      document.querySelector(".stage-wrapper");
+      document.querySelector(
+        ".stage-wrapper"
+      );
+
 
     const sun =
-      document.querySelector(".sun");
+      document.querySelector(
+        ".sun"
+      );
+
 
     const moon =
-      document.querySelector(".moon");
+      document.querySelector(
+        ".moon"
+      );
+
 
     const stars =
-      document.querySelector(".stars");
+      document.querySelector(
+        ".stars"
+      );
+
 
     const parallaxArea =
-      document.querySelector(".parallax-area");
+      document.querySelector(
+        ".parallax-area"
+      );
 
 
     function clamp(
@@ -2344,18 +2807,24 @@
       max
     ) {
 
+
       return Math.min(
+
         Math.max(
           value,
           min
         ),
+
         max
+
       );
+
 
     }
 
 
     function updateParallax() {
+
 
       const scrollY =
         window.scrollY;
@@ -2373,26 +2842,39 @@
 
       const progress =
         clamp(
+
           scrollY
           /
           maxParallaxScroll,
+
           0,
+
           1
+
         );
 
 
-      /* 空 */
+      /* =================================
+         空
+      ================================= */
 
       const sunsetAmount =
         clamp(
-          progress / 0.5,
+
+          progress
+          /
+          0.5,
+
           0,
+
           1
+
         );
 
 
       const nightAmount =
         clamp(
+
           (
             progress
             -
@@ -2400,8 +2882,11 @@
           )
           /
           0.5,
+
           0,
+
           1
+
         );
 
 
@@ -2412,8 +2897,11 @@
 
 
       skySunset.style.opacity =
+
         progress < 0.5
+
           ? sunsetAmount
+
           : 1 - nightAmount;
 
 
@@ -2421,13 +2909,19 @@
         nightAmount;
 
 
-      /* 雲 */
+      /* =================================
+         雲
+      ================================= */
 
       cloudsWrapper.style.transform =
-        `translateY(${scrollY * -0.08}px)`;
+
+        `translateY(
+          ${scrollY * -0.08}px
+        )`;
 
 
       cloudsWrapper.style.opacity =
+
         1
         -
         (
@@ -2438,32 +2932,82 @@
 
 
       cloudsWrapper.style.filter =
-        `brightness(${
-          1
-          -
-          nightAmount
-          *
-          0.55
-        })`;
+
+        `brightness(
+          ${
+            1
+            -
+            nightAmount
+            *
+            0.55
+          }
+        )`;
 
 
-      /* 遠景 */
+      /* =================================
+         遠景移動
+      ================================= */
 
       backgroundWrapper.style.transform =
-        `translateY(${scrollY * -0.14}px)`;
+
+        `translateY(
+          ${scrollY * -0.14}px
+        )`;
 
 
       backgroundWrapper.style.filter =
-        `brightness(${
+
+        `brightness(
+          ${
+            1
+            -
+            nightAmount
+            *
+            0.5
+          }
+        )`;
+
+
+      /* =================================
+         ★ 遠景フェードアウト
+
+         progress 0.68から薄くなり始める
+         progress 0.88で完全に消える
+      ================================= */
+
+      const backgroundFade =
+
+        clamp(
+
+          (
+            progress
+            -
+            0.68
+          )
+          /
+          0.20,
+
+          0,
+
           1
-          -
-          nightAmount
-          *
-          0.5
-        })`;
+
+        );
 
 
-      /* ステージ */
+      const backgroundOpacity =
+
+        1
+        -
+        backgroundFade;
+
+
+      backgroundWrapper.style.opacity =
+        backgroundOpacity;
+
+
+      /* =================================
+         ステージ
+      ================================= */
 
       const stageHeight =
         stageWrapper.offsetHeight;
@@ -2488,7 +3032,10 @@
 
 
       stageWrapper.style.transform =
-        `translateY(${stageMove}px)`;
+
+        `translateY(
+          ${stageMove}px
+        )`;
 
 
       if (
@@ -2497,22 +3044,32 @@
         maxParallaxScroll
       ) {
 
+
         stageWrapper.style.transform =
-          `translateY(${moveDistance}px)`;
+
+          `translateY(
+            ${moveDistance}px
+          )`;
+
 
       }
 
 
-      /* =====================================
+      /* =================================
          太陽
-      ====================================== */
+      ================================= */
 
       sun.style.transform =
-        `translateY(${scrollY * 0.12}px)`;
+
+        `translateY(
+          ${scrollY * 0.12}px
+        )`;
 
 
       sun.style.opacity =
+
         clamp(
+
           1
           -
           (
@@ -2524,17 +3081,22 @@
             /
             0.3
           ),
+
           0,
+
           1
+
         );
 
 
-      /* =====================================
+      /* =================================
          月
-      ====================================== */
+      ================================= */
 
       moon.style.opacity =
+
         clamp(
+
           (
             progress
             -
@@ -2542,15 +3104,22 @@
           )
           /
           0.25,
+
           0,
+
           1
+
         );
 
 
-      /* 星 */
+      /* =================================
+         星
+      ================================= */
 
       stars.style.opacity =
+
         clamp(
+
           (
             progress
             -
@@ -2558,14 +3127,21 @@
           )
           /
           0.3,
+
           0,
+
           0.7
+
         );
 
 
-      /* ARTISTSに入ったら消す */
+      /* =================================
+         ARTISTSに完全に入ったら
+         パララックス素材を消す
+      ================================= */
 
       if (
+
         scrollY
         >
         maxParallaxScroll
@@ -2573,50 +3149,68 @@
         window.innerHeight
         *
         0.7
+
       ) {
+
 
         stageWrapper.style.opacity =
           0;
 
+
         cloudsWrapper.style.opacity =
           0;
+
 
         backgroundWrapper.style.opacity =
           0;
 
+
         sun.style.opacity =
           0;
+
 
         moon.style.opacity =
           0;
 
+
         stars.style.opacity =
           0;
+
 
       }
 
       else {
 
+
         stageWrapper.style.opacity =
           1;
 
+
       }
+
 
     }
 
 
     window.addEventListener(
+
       "scroll",
+
       updateParallax,
+
       {
         passive: true
       }
+
     );
 
 
     window.addEventListener(
+
       "resize",
+
       updateParallax
+
     );
 
 
@@ -2628,4 +3222,4 @@
 
 </body>
 
-  </html>
+</html>
