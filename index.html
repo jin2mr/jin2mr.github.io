@@ -2,7 +2,6 @@
 <html lang="ja">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,12 +11,7 @@
 
   <title>SUMMER FESTIVAL</title>
 
-
   <style>
-
-    /* ==============================
-       基本設定
-    ============================== */
 
     * {
       box-sizing: border-box;
@@ -27,113 +21,76 @@
     body {
       margin: 0;
       padding: 0;
-
       width: 100%;
-
       overflow-x: hidden;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       color: white;
-
       background: #071426;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
 
-    /* ==============================
+
+    /* =====================================
        パララックスエリア
-    ============================== */
+    ===================================== */
 
     .parallax-area {
-
       position: relative;
-
       height: 300vh;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        空
-    ============================== */
+    ===================================== */
 
     .sky-layer {
-
       position: fixed;
-
       inset: 0;
-
       pointer-events: none;
-
       z-index: 0;
-
     }
-
-
-    /* 昼 */
 
     .sky-day {
-
-      background:
-        linear-gradient(
-          to bottom,
-
-          #159ee9 0%,
-          #55c8f5 55%,
-          #b8e8f7 100%
-        );
-
+      background: linear-gradient(
+        to bottom,
+        #159ee9 0%,
+        #55c8f5 55%,
+        #b8e8f7 100%
+      );
       opacity: 1;
-
     }
-
-
-    /* 夕方 */
 
     .sky-sunset {
-
-      background:
-        linear-gradient(
-          to bottom,
-
-          #5367a8 0%,
-          #b46f9f 40%,
-          #ff8d6d 70%,
-          #ffd38a 100%
-        );
-
+      background: linear-gradient(
+        to bottom,
+        #5367a8 0%,
+        #b46f9f 40%,
+        #ff8d6d 70%,
+        #ffd38a 100%
+      );
       opacity: 0;
-
     }
-
-
-    /* 夜 */
 
     .sky-night {
-
-      background:
-        linear-gradient(
-          to bottom,
-
-          #071426 0%,
-          #10264c 55%,
-          #263b68 100%
-        );
-
+      background: linear-gradient(
+        to bottom,
+        #071426 0%,
+        #10264c 55%,
+        #263b68 100%
+      );
       opacity: 0;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        太陽
-    ============================== */
+    ===================================== */
 
     .sun {
-
       position: fixed;
 
       width: 110px;
@@ -151,18 +108,15 @@
         0 0 100px rgba(255, 215, 106, 0.7);
 
       z-index: 1;
-
       pointer-events: none;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        月
-    ============================== */
+    ===================================== */
 
     .moon {
-
       position: fixed;
 
       width: 85px;
@@ -176,25 +130,21 @@
       background: #fffde8;
 
       box-shadow:
-        0 0 30px rgba(255, 255, 220, 0.8);
+        0 0 30px rgba(255,255,220,0.8);
 
       opacity: 0;
 
       z-index: 1;
-
       pointer-events: none;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        星
-    ============================== */
+    ===================================== */
 
     .stars {
-
       position: fixed;
-
       inset: 0;
 
       background-image:
@@ -203,104 +153,80 @@
           transparent 1px
         );
 
-      background-size:
-        70px 70px;
+      background-size: 70px 70px;
 
       opacity: 0;
 
       z-index: 1;
-
       pointer-events: none;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        雲
-    ============================== */
+    ===================================== */
 
     .clouds-wrapper {
-
       position: fixed;
 
       top: 5%;
-
       left: 0;
 
       width: 100%;
 
       display: flex;
-
       justify-content: center;
 
       z-index: 2;
 
       pointer-events: none;
-
     }
-
 
     .clouds {
-
       display: block;
-
       width: 150%;
-
       max-width: none;
-
     }
 
 
-    /* ==============================
-       フェス遠景
-    ============================== */
+    /* =====================================
+       遠景
+    ===================================== */
 
     .background-wrapper {
-
       position: fixed;
 
       left: 0;
       right: 0;
-
       bottom: 16%;
 
       display: flex;
-
       justify-content: center;
 
       z-index: 3;
 
       pointer-events: none;
-
     }
-
 
     .festival-background {
-
       display: block;
-
       width: 165%;
-
       max-width: none;
-
     }
 
 
-    /* ==============================
-       メインステージ
-    ============================== */
+    /* =====================================
+       ステージ
+    ===================================== */
 
     .stage-wrapper {
-
       position: fixed;
 
       left: 0;
       right: 0;
-
       bottom: -20px;
 
       display: flex;
-
       justify-content: center;
 
       z-index: 4;
@@ -308,112 +234,78 @@
       pointer-events: none;
 
       will-change: transform;
-
     }
-
 
     .stage {
-
       display: block;
-
       width: 118%;
-
       max-width: none;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        DAY / SUNSET / NIGHT
-    ============================== */
+    ===================================== */
 
     .section {
-
       position: relative;
 
       height: 100vh;
 
       display: flex;
-
       justify-content: center;
-
       align-items: center;
 
       text-align: center;
 
       z-index: 6;
-
     }
 
-
     .content {
-
       position: relative;
 
       z-index: 7;
 
-      transform:
-        translateY(-90px);
+      transform: translateY(-90px);
 
       padding: 30px;
-
     }
 
-
     .time {
-
       margin-bottom: 10px;
 
       font-size: 14px;
-
       letter-spacing: 6px;
 
       opacity: 0.85;
-
     }
 
-
     h1 {
-
       margin: 0;
 
-      font-size:
-        clamp(
-          52px,
-          12vw,
-          120px
-        );
+      font-size: clamp(52px, 12vw, 120px);
 
       letter-spacing: 5px;
 
       text-shadow:
-        0 5px 20px
-        rgba(0, 0, 0, 0.3);
-
+        0 5px 20px rgba(0,0,0,0.3);
     }
-
 
     p {
-
       margin-top: 15px;
-
       font-size: 18px;
-
       opacity: 0.9;
-
     }
 
 
-    /* ==============================
+    /* =====================================
        SUMMER FES ロゴ
-    ============================== */
+    ===================================== */
 
     .festival-logo {
-
       display: block;
 
       width: 80%;
-
       max-width: 500px;
 
       height: auto;
@@ -424,19 +316,16 @@
 
       filter:
         drop-shadow(
-          0 5px 12px
-          rgba(0, 0, 0, 0.25)
+          0 5px 12px rgba(0,0,0,0.25)
         );
-
     }
 
 
-    /* ==============================
-       ARTISTS セクション
-    ============================== */
+    /* =====================================
+       ARTISTS
+    ===================================== */
 
     .artists-section {
-
       position: relative;
 
       z-index: 10;
@@ -446,76 +335,55 @@
       background:
         linear-gradient(
           to bottom,
-
           #132750 0%,
           #071426 100%
         );
 
       padding:
         40px 18px 100px;
-
     }
 
-
     .artists-title {
-
-      margin:
-        0 0 30px;
+      margin: 0 0 30px;
 
       text-align: center;
 
       font-size: 30px;
-
       letter-spacing: 8px;
-
     }
 
-
-    /* ==============================
-       2列グリッド
-    ============================== */
-
     .artists-grid {
-
       display: grid;
 
       grid-template-columns:
-        repeat(
-          2,
-          minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
       gap:
         28px 14px;
 
       width: 100%;
-
       max-width: 900px;
 
       margin: 0 auto;
-
     }
 
-
-    /* ==============================
-       アーティストカード
-    ============================== */
-
     .artist-card {
-
       min-width: 0;
 
       cursor: pointer;
 
+      transition:
+        transform 0.2s ease;
     }
 
+    .artist-card:active {
+      transform: scale(0.97);
+    }
 
     .artist-image {
-
       position: relative;
 
       width: 100%;
-
       aspect-ratio: 16 / 10;
 
       border-radius: 10px;
@@ -525,212 +393,392 @@
       background: #111;
 
       border:
-        1px solid
-        rgba(
-          255,
-          255,
-          255,
-          0.65
-        );
-
+        1px solid rgba(255,255,255,0.65);
     }
 
-
     .artist-image img {
-
       display: block;
 
       width: 100%;
-
       height: 100%;
 
       object-fit: cover;
-
     }
 
-
     .artist-name {
-
       margin-top: 9px;
 
       font-size: 17px;
-
       font-weight: bold;
 
       letter-spacing: 1px;
 
       color: white;
-
     }
 
 
-    /* ==============================
-       タップ時の軽い演出
-    ============================== */
+    /* =====================================
+       モーダル
+    ===================================== */
 
-    .artist-card {
+    .artist-modal {
+      position: fixed;
 
-      transition:
-        transform 0.2s ease;
+      inset: 0;
 
+      z-index: 1000;
+
+      display: none;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #0e1e3f 0%,
+          #071426 100%
+        );
+
+      overflow-y: auto;
+
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .artist-modal.show {
+      display: block;
     }
 
 
-    .artist-card:active {
+    /* =====================================
+       モーダル内部
+    ===================================== */
 
-      transform:
-        scale(0.97);
+    .modal-inner {
+      position: relative;
 
+      width: 100%;
+      min-height: 100vh;
+
+      max-width: 900px;
+
+      margin: 0 auto;
+
+      padding:
+        70px 18px 80px;
     }
 
 
-    /* ==============================
+    /* =====================================
+       閉じるボタン
+    ===================================== */
+
+    .modal-close {
+      position: fixed;
+
+      top: 18px;
+      right: 18px;
+
+      z-index: 1100;
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background:
+        rgba(0,0,0,0.55);
+
+      color: white;
+
+      font-size: 28px;
+
+      line-height: 48px;
+
+      text-align: center;
+
+      cursor: pointer;
+
+      backdrop-filter:
+        blur(8px);
+    }
+
+
+    /* =====================================
+       モーダル大画像
+    ===================================== */
+
+    .modal-image-wrap {
+      width: 100%;
+
+      aspect-ratio: 3 / 2;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      background: #111;
+
+      box-shadow:
+        0 18px 40px
+        rgba(0,0,0,0.35);
+    }
+
+    .modal-image {
+      display: block;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+
+    /* =====================================
+       モーダル文字
+    ===================================== */
+
+    .modal-name {
+      margin:
+        28px 0 5px;
+
+      font-size:
+        clamp(
+          32px,
+          8vw,
+          56px
+        );
+
+      line-height: 1.1;
+
+      letter-spacing: 2px;
+    }
+
+    .modal-alias {
+      margin-top: 8px;
+
+      font-size: 14px;
+
+      letter-spacing: 4px;
+
+      color: #9fd7ff;
+    }
+
+    .modal-genre {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      padding:
+        7px 12px;
+
+      border:
+        1px solid rgba(255,255,255,0.55);
+
+      border-radius: 999px;
+
+      font-size: 13px;
+
+      letter-spacing: 2px;
+
+      color: #dcecff;
+    }
+
+    .modal-description {
+      margin-top: 25px;
+
+      font-size: 16px;
+
+      line-height: 1.9;
+
+      color:
+        rgba(255,255,255,0.9);
+
+      white-space: pre-line;
+    }
+
+
+    /* =====================================
+       曲情報
+    ===================================== */
+
+    .track-area {
+      margin-top: 35px;
+
+      padding:
+        22px 18px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(255,255,255,0.06);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.12);
+    }
+
+    .track-label {
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      opacity: 0.6;
+    }
+
+    .track-title {
+      margin-top: 8px;
+
+      font-size: 22px;
+
+      font-weight: bold;
+
+      line-height: 1.3;
+    }
+
+
+    /* =====================================
+       PLAYボタン
+    ===================================== */
+
+    .play-button {
+      width: 100%;
+
+      margin-top: 20px;
+
+      padding:
+        16px 20px;
+
+      border: none;
+
+      border-radius: 999px;
+
+      background: white;
+
+      color: #071426;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      cursor: pointer;
+    }
+
+    .play-button:active {
+      transform: scale(0.98);
+    }
+
+
+    /* =====================================
+       時間表示
+    ===================================== */
+
+    .audio-time {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      margin-top: 12px;
+
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+      opacity: 0.65;
+    }
+
+
+    /* =====================================
+       再生バー
+    ===================================== */
+
+    .progress-wrap {
+      margin-top: 15px;
+    }
+
+    .progress-bar {
+      width: 100%;
+
+      accent-color: white;
+    }
+
+
+    /* =====================================
        スマホ
-    ============================== */
+    ===================================== */
 
-    @media
-    (max-width: 768px) {
-
+    @media (max-width: 768px) {
 
       .artists-section {
-
         padding:
-          32px
-          14px
-          80px;
-
+          32px 14px 80px;
       }
-
 
       .artists-title {
+        margin-bottom: 25px;
 
-        margin-bottom:
-          25px;
-
-        font-size:
-          26px;
-
+        font-size: 26px;
       }
-
 
       .artists-grid {
-
         gap:
-          25px
-          12px;
-
+          25px 12px;
       }
-
 
       .artist-name {
-
-        font-size:
-          15px;
-
+        font-size: 15px;
       }
-
 
       .festival-logo {
-
-        width:
-          92%;
-
-        max-width:
-          420px;
-
+        width: 92%;
+        max-width: 420px;
       }
 
-
-      .stage {
-
-        width:
-          118%;
-
+      .modal-inner {
+        padding:
+          70px 14px 60px;
       }
 
-
-      .festival-background {
-
-        width:
-          165%;
-
+      .modal-name {
+        font-size: 34px;
       }
 
-
-      .clouds {
-
-        width:
-          150%;
-
+      .modal-description {
+        font-size: 15px;
       }
 
     }
 
-
   </style>
-
 </head>
-
 
 
 <body>
 
 
-  <!-- ==============================
-       昼の空
-  =============================== -->
+  <!-- =====================================
+       空
+  ====================================== -->
 
-  <div
-    class="sky-layer sky-day">
-  </div>
-
-
-  <!-- ==============================
-       夕方の空
-  =============================== -->
-
-  <div
-    class="sky-layer sky-sunset">
-  </div>
+  <div class="sky-layer sky-day"></div>
+  <div class="sky-layer sky-sunset"></div>
+  <div class="sky-layer sky-night"></div>
 
 
-  <!-- ==============================
-       夜の空
-  =============================== -->
-
-  <div
-    class="sky-layer sky-night">
-  </div>
-
-
-
-  <!-- ==============================
-       太陽
-  =============================== -->
+  <!-- =====================================
+       太陽・月・星
+  ====================================== -->
 
   <div class="sun"></div>
-
-
-
-  <!-- ==============================
-       月
-  =============================== -->
-
   <div class="moon"></div>
-
-
-
-  <!-- ==============================
-       星
-  =============================== -->
-
   <div class="stars"></div>
 
 
-
-  <!-- ==============================
+  <!-- =====================================
        雲
-  =============================== -->
+  ====================================== -->
 
   <div class="clouds-wrapper">
 
@@ -743,10 +791,9 @@
   </div>
 
 
-
-  <!-- ==============================
+  <!-- =====================================
        遠景
-  =============================== -->
+  ====================================== -->
 
   <div class="background-wrapper">
 
@@ -759,10 +806,9 @@
   </div>
 
 
-
-  <!-- ==============================
+  <!-- =====================================
        ステージ
-  =============================== -->
+  ====================================== -->
 
   <div class="stage-wrapper">
 
@@ -775,19 +821,14 @@
   </div>
 
 
-
-  <!-- ==============================
+  <!-- =====================================
        パララックス本体
-  =============================== -->
+  ====================================== -->
 
   <main class="parallax-area">
 
 
-
-    <!-- ============================
-         DAY
-         ロゴ表示
-    ============================= -->
+    <!-- DAY -->
 
     <section class="section">
 
@@ -804,10 +845,7 @@
     </section>
 
 
-
-    <!-- ============================
-         SUNSET
-    ============================= -->
+    <!-- SUNSET -->
 
     <section class="section">
 
@@ -830,10 +868,7 @@
     </section>
 
 
-
-    <!-- ============================
-         NIGHT
-    ============================= -->
+    <!-- NIGHT -->
 
     <section class="section">
 
@@ -859,173 +894,156 @@
   </main>
 
 
-
-  <!-- ==============================
+  <!-- =====================================
        ARTISTS
-  =============================== -->
+  ====================================== -->
 
   <section
     class="artists-section"
     id="artists"
   >
 
-
     <h2 class="artists-title">
-
       ARTISTS
-
     </h2>
-
 
 
     <div class="artists-grid">
 
 
+      <!-- 01 -->
 
-      <!-- ==========================
-           ARTIST 01
-      =========================== -->
-
-      <div class="artist-card">
+      <div
+        class="artist-card"
+        data-artist="0"
+      >
 
         <div class="artist-image">
 
           <img
             src="images/artist-01.png"
-            alt="Artist 01"
+            alt="本屋敷 縁"
           >
 
         </div>
 
         <div class="artist-name">
-
-          ARTIST 01
-
+          本屋敷 縁
         </div>
 
       </div>
 
 
+      <!-- 02 -->
 
-      <!-- ==========================
-           ARTIST 02
-      =========================== -->
-
-      <div class="artist-card">
+      <div
+        class="artist-card"
+        data-artist="1"
+      >
 
         <div class="artist-image">
 
           <img
             src="images/artist-02.png"
-            alt="Artist 02"
+            alt="田楽良介"
           >
 
         </div>
 
         <div class="artist-name">
-
-          ARTIST 02
-
+          田楽良介
         </div>
 
       </div>
 
 
+      <!-- 03 -->
 
-      <!-- ==========================
-           ARTIST 03
-      =========================== -->
-
-      <div class="artist-card">
+      <div
+        class="artist-card"
+        data-artist="2"
+      >
 
         <div class="artist-image">
 
           <img
             src="images/artist-03.png"
-            alt="Artist 03"
+            alt="もぶうさ"
           >
 
         </div>
 
         <div class="artist-name">
-
-          ARTIST 03
-
+          もぶうさ
         </div>
 
       </div>
 
 
+      <!-- 04 -->
 
-      <!-- ==========================
-           ARTIST 04
-      =========================== -->
-
-      <div class="artist-card">
+      <div
+        class="artist-card"
+        data-artist="3"
+      >
 
         <div class="artist-image">
 
           <img
             src="images/artist-04.png"
-            alt="Artist 04"
+            alt="ヴェレーノ"
           >
 
         </div>
 
         <div class="artist-name">
-
-          ARTIST 04
-
+          ヴェレーノ
         </div>
 
       </div>
 
 
+      <!-- 05 -->
 
-      <!-- ==========================
-           ARTIST 05
-      =========================== -->
-
-      <div class="artist-card">
+      <div
+        class="artist-card"
+        data-artist="4"
+      >
 
         <div class="artist-image">
 
           <img
             src="images/artist-05.png"
-            alt="Artist 05"
+            alt="田楽麻美"
           >
 
         </div>
 
         <div class="artist-name">
-
-          ARTIST 05
-
+          田楽麻美
         </div>
 
       </div>
 
 
+      <!-- 06 -->
 
-      <!-- ==========================
-           ARTIST 06
-      =========================== -->
-
-      <div class="artist-card">
+      <div
+        class="artist-card"
+        data-artist="5"
+      >
 
         <div class="artist-image">
 
           <img
             src="images/artist-06.png"
-            alt="Artist 06"
+            alt="サドキエル"
           >
 
         </div>
 
         <div class="artist-name">
-
-          ARTIST 06
-
+          サドキエル
         </div>
 
       </div>
@@ -1036,83 +1054,768 @@
   </section>
 
 
+  <!-- =====================================
+       モーダル
+  ====================================== -->
 
-  <!-- ==============================
+  <div
+    class="artist-modal"
+    id="artistModal"
+  >
+
+    <button
+      class="modal-close"
+      id="modalClose"
+      aria-label="閉じる"
+    >
+      ×
+    </button>
+
+
+    <div class="modal-inner">
+
+
+      <!-- 大画像 -->
+
+      <div class="modal-image-wrap">
+
+        <img
+          id="modalImage"
+          class="modal-image"
+          src=""
+          alt=""
+        >
+
+      </div>
+
+
+      <!-- 名前 -->
+
+      <h2
+        class="modal-name"
+        id="modalName"
+      >
+      </h2>
+
+
+      <!-- 通称 -->
+
+      <div
+        class="modal-alias"
+        id="modalAlias"
+      >
+      </div>
+
+
+      <!-- ジャンル -->
+
+      <div
+        class="modal-genre"
+        id="modalGenre"
+      >
+      </div>
+
+
+      <!-- 紹介文 -->
+
+      <div
+        class="modal-description"
+        id="modalDescription"
+      >
+      </div>
+
+
+      <!-- 曲 -->
+
+      <div class="track-area">
+
+        <div class="track-label">
+          TRACK
+        </div>
+
+        <div
+          class="track-title"
+          id="modalTrack"
+        >
+        </div>
+
+
+        <button
+          class="play-button"
+          id="playButton"
+        >
+          ▶ PLAY
+        </button>
+
+
+        <div class="progress-wrap">
+
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            class="progress-bar"
+            id="progressBar"
+          >
+
+        </div>
+
+
+        <div class="audio-time">
+
+          <span id="currentTime">
+            0:00
+          </span>
+
+          <span id="duration">
+            0:00
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- Audio -->
+
+      <audio
+        id="audioPlayer"
+        preload="metadata"
+      >
+      </audio>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================
        JavaScript
-       パララックス処理
-  =============================== -->
+  ====================================== -->
 
   <script>
 
 
-    /* ==============================
-       各要素取得
-    ============================== */
+    /* =====================================
+       アーティスト情報
+    ====================================== */
+
+    const artists = [
+
+      {
+        name:
+          "本屋敷 縁",
+
+        alias:
+          "BOOKMAN / ブックマン",
+
+        genre:
+          "DANCE POP",
+
+        description:
+          "広島県の不良高校生、幼いころ両親が離婚し、母親に育てられるが、家庭環境は荒れ気味。高校に入るとモンスターとして有名だった田楽良介（でんがく りょうすけ）と出会い、何度かの衝突の後に意気投合する。",
+
+        track:
+          "Green flame",
+
+        image:
+          "images/artist-01-main.png",
+
+        music:
+          "music/artist-01.mp3"
+      },
+
+
+      {
+        name:
+          "田楽良介",
+
+        alias:
+          "DENSUKE / デンスケ",
+
+        genre:
+          "DANCE POP",
+
+        description:
+          "広島県の不良高校生、無口で無愛想、喧嘩は無敗。両親は良介が産まれてすぐに離婚、父親は母親と良介を残して姿を消した。母親は寂しさからか知らない男をよく家に呼び度々トラブルとなる。腹違いの妹と弟を守るためにDV義父を意識不明にさせて警察沙汰になる。その頃から父親殺しやモンスターなどの異名が付く。",
+
+        track:
+          "Run through the night",
+
+        image:
+          "images/artist-02-main.png",
+
+        music:
+          "music/artist-02.mp3"
+      },
+
+
+      {
+        name:
+          "もぶうさ",
+
+        alias:
+          "",
+
+        genre:
+          "J-POP IDOL SONG",
+
+        description:
+          "ピンク色のツインテールに、ウサ耳が特徴的な女の子。発言は小馬鹿にするような言葉遣いが多く、生意気だが少し寂しがりやな一面もある。高飛車に見える態度は、かまってほしいという気持ちの裏返し……かも？",
+
+        track:
+          "カートに乗って出発進行！",
+
+        image:
+          "images/artist-03-main.png",
+
+        music:
+          "music/artist-03.mp3"
+      },
+
+
+      {
+        name:
+          "ヴェレーノ",
+
+        alias:
+          "",
+
+        genre:
+          "UNKNOWN",
+
+        description:
+          "厳しい環境で競争率の高いお受験を乗り越えて来たインテリ系お嬢様。大学を卒業するまでは全てが順位！順位！順位！高い成績を取る事だけが評価を受ける人生だった。\n\n“人は順位の檻に飼われる家畜”\n“努力は美徳ではない、ただの飢えた競争”\n“笑顔は虚飾、正しさは毒”\n\nいつしか彼女の思考は毒に染まっていく。",
+
+        track:
+          "Veleno",
+
+        image:
+          "images/artist-04-main.png",
+
+        music:
+          "music/artist-04.mp3"
+      },
+
+
+      {
+        name:
+          "田楽麻美",
+
+        alias:
+          "",
+
+        genre:
+          "PUNK ROCK",
+
+        description:
+          "物心付く前から家族はバラバラ。福太という腹違いの兄と母親の3人暮らしで育つ。実はもう一人兄が居るのだが、母親と福太はその事を話してはくれなかった。家にも何処にも居場所が無く、いつしかギターは麻美の“逃げ場所”になった。",
+
+        track:
+          "クズな私の輪郭",
+
+        image:
+          "images/artist-05-main.png",
+
+        music:
+          "music/artist-05.mp3"
+      },
+
+
+      {
+        name:
+          "サドキエル",
+
+        alias:
+          "",
+
+        genre:
+          "DANCE POP",
+
+        description:
+          "SECRET",
+
+        track:
+          "fake",
+
+        image:
+          "images/artist-06-main.png",
+
+        music:
+          "music/artist-06.mp3"
+      }
+
+    ];
+
+
+    /* =====================================
+       モーダル要素
+    ====================================== */
+
+    const artistModal =
+      document.getElementById(
+        'artistModal'
+      );
+
+    const modalClose =
+      document.getElementById(
+        'modalClose'
+      );
+
+    const modalImage =
+      document.getElementById(
+        'modalImage'
+      );
+
+    const modalName =
+      document.getElementById(
+        'modalName'
+      );
+
+    const modalAlias =
+      document.getElementById(
+        'modalAlias'
+      );
+
+    const modalGenre =
+      document.getElementById(
+        'modalGenre'
+      );
+
+    const modalDescription =
+      document.getElementById(
+        'modalDescription'
+      );
+
+    const modalTrack =
+      document.getElementById(
+        'modalTrack'
+      );
+
+    const playButton =
+      document.getElementById(
+        'playButton'
+      );
+
+    const audioPlayer =
+      document.getElementById(
+        'audioPlayer'
+      );
+
+    const progressBar =
+      document.getElementById(
+        'progressBar'
+      );
+
+    const currentTimeText =
+      document.getElementById(
+        'currentTime'
+      );
+
+    const durationText =
+      document.getElementById(
+        'duration'
+      );
+
+
+    /* =====================================
+       時間表示
+    ====================================== */
+
+    function formatTime(seconds) {
+
+      if (
+        !Number.isFinite(seconds)
+      ) {
+
+        return "0:00";
+
+      }
+
+      const minutes =
+        Math.floor(
+          seconds / 60
+        );
+
+      const secs =
+        Math.floor(
+          seconds % 60
+        );
+
+      return (
+        minutes
+        + ":"
+        + String(secs).padStart(
+            2,
+            "0"
+          )
+      );
+
+    }
+
+
+    /* =====================================
+       モーダルを開く
+    ====================================== */
+
+    function openArtistModal(index) {
+
+      const artist =
+        artists[index];
+
+
+      /* 前の曲を停止 */
+
+      audioPlayer.pause();
+
+      audioPlayer.currentTime =
+        0;
+
+
+      playButton.textContent =
+        "▶ PLAY";
+
+
+      progressBar.value =
+        0;
+
+
+      currentTimeText.textContent =
+        "0:00";
+
+
+      /* 情報反映 */
+
+      modalImage.src =
+        artist.image;
+
+
+      modalImage.alt =
+        artist.name;
+
+
+      modalName.textContent =
+        artist.name;
+
+
+      modalAlias.textContent =
+        artist.alias;
+
+
+      if (
+        artist.alias
+      ) {
+
+        modalAlias.style.display =
+          "block";
+
+      } else {
+
+        modalAlias.style.display =
+          "none";
+
+      }
+
+
+      modalGenre.textContent =
+        artist.genre;
+
+
+      modalDescription.textContent =
+        artist.description;
+
+
+      modalTrack.textContent =
+        artist.track;
+
+
+      audioPlayer.src =
+        artist.music;
+
+
+      audioPlayer.load();
+
+
+      artistModal.classList.add(
+        "show"
+      );
+
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+
+      artistModal.scrollTop =
+        0;
+
+    }
+
+
+    /* =====================================
+       モーダルを閉じる
+    ====================================== */
+
+    function closeArtistModal() {
+
+      audioPlayer.pause();
+
+      audioPlayer.currentTime =
+        0;
+
+
+      playButton.textContent =
+        "▶ PLAY";
+
+
+      artistModal.classList.remove(
+        "show"
+      );
+
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
+
+
+    /* =====================================
+       カードクリック
+    ====================================== */
+
+    document
+      .querySelectorAll(
+        ".artist-card"
+      )
+      .forEach(
+        card => {
+
+          card.addEventListener(
+            "click",
+            () => {
+
+              const index =
+                Number(
+                  card.dataset.artist
+                );
+
+              openArtistModal(
+                index
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================
+       閉じる
+    ====================================== */
+
+    modalClose.addEventListener(
+      "click",
+      closeArtistModal
+    );
+
+
+    /* =====================================
+       PLAY / PAUSE
+    ====================================== */
+
+    playButton.addEventListener(
+      "click",
+      async () => {
+
+        if (
+          audioPlayer.paused
+        ) {
+
+          try {
+
+            await audioPlayer.play();
+
+            playButton.textContent =
+              "❚❚ PAUSE";
+
+          }
+
+          catch (error) {
+
+            console.log(
+              error
+            );
+
+          }
+
+        }
+
+        else {
+
+          audioPlayer.pause();
+
+          playButton.textContent =
+            "▶ PLAY";
+
+        }
+
+      }
+    );
+
+
+    /* =====================================
+       曲時間取得
+    ====================================== */
+
+    audioPlayer.addEventListener(
+      "loadedmetadata",
+      () => {
+
+        durationText.textContent =
+          formatTime(
+            audioPlayer.duration
+          );
+
+      }
+    );
+
+
+    /* =====================================
+       再生中
+    ====================================== */
+
+    audioPlayer.addEventListener(
+      "timeupdate",
+      () => {
+
+        currentTimeText.textContent =
+          formatTime(
+            audioPlayer.currentTime
+          );
+
+
+        if (
+          audioPlayer.duration
+        ) {
+
+          progressBar.value =
+            (
+              audioPlayer.currentTime
+              /
+              audioPlayer.duration
+            )
+            * 100;
+
+        }
+
+      }
+    );
+
+
+    /* =====================================
+       再生バー操作
+    ====================================== */
+
+    progressBar.addEventListener(
+      "input",
+      () => {
+
+        if (
+          audioPlayer.duration
+        ) {
+
+          audioPlayer.currentTime =
+            (
+              progressBar.value
+              / 100
+            )
+            * audioPlayer.duration;
+
+        }
+
+      }
+    );
+
+
+    /* =====================================
+       曲終了
+    ====================================== */
+
+    audioPlayer.addEventListener(
+      "ended",
+      () => {
+
+        playButton.textContent =
+          "▶ PLAY";
+
+        progressBar.value =
+          0;
+
+        currentTimeText.textContent =
+          "0:00";
+
+      }
+    );
+
+
+    /* =====================================
+       パララックス要素
+    ====================================== */
 
     const skyDay =
       document.querySelector(
         '.sky-day'
       );
 
-
     const skySunset =
       document.querySelector(
         '.sky-sunset'
       );
-
 
     const skyNight =
       document.querySelector(
         '.sky-night'
       );
 
-
     const cloudsWrapper =
       document.querySelector(
         '.clouds-wrapper'
       );
-
 
     const backgroundWrapper =
       document.querySelector(
         '.background-wrapper'
       );
 
-
     const stageWrapper =
       document.querySelector(
         '.stage-wrapper'
       );
-
 
     const sun =
       document.querySelector(
         '.sun'
       );
 
-
     const moon =
       document.querySelector(
         '.moon'
       );
-
 
     const stars =
       document.querySelector(
         '.stars'
       );
 
-
     const parallaxArea =
       document.querySelector(
         '.parallax-area'
       );
 
-
-
-    /* ==============================
-       数値制限
-    ============================== */
 
     function clamp(
       value,
@@ -1131,26 +1834,18 @@
     }
 
 
-
-    /* ==============================
+    /* =====================================
        パララックス更新
-    ============================== */
+    ====================================== */
 
     function updateParallax() {
-
 
       const scrollY =
         window.scrollY;
 
 
-
-      /* ============================
-         パララックスの高さ
-      ============================ */
-
       const parallaxHeight =
         parallaxArea.offsetHeight;
-
 
 
       const maxParallaxScroll =
@@ -1158,15 +1853,11 @@
         - window.innerHeight;
 
 
-
-      /* ============================
-         0～1の進行度
-      ============================ */
-
       const progress =
         clamp(
 
-          scrollY /
+          scrollY
+          /
           maxParallaxScroll,
 
           0,
@@ -1176,32 +1867,12 @@
         );
 
 
-
-      /* ============================
-         昼 → 夕方
-      ============================ */
+      /* 昼 → 夕方 */
 
       const sunsetAmount =
         clamp(
 
-          progress / 0.5,
-
-          0,
-
-          1
-
-        );
-
-
-
-      /* ============================
-         夕方 → 夜
-      ============================ */
-
-      const nightAmount =
-        clamp(
-
-          (progress - 0.5)
+          progress
           / 0.5,
 
           0,
@@ -1211,14 +1882,29 @@
         );
 
 
+      /* 夕方 → 夜 */
 
-      /* ============================
-         空の透明度
-      ============================ */
+      const nightAmount =
+        clamp(
+
+          (
+            progress
+            - 0.5
+          )
+          /
+          0.5,
+
+          0,
+
+          1
+
+        );
+
+
+      /* 空 */
 
       skyDay.style.opacity =
         1 - sunsetAmount;
-
 
 
       skySunset.style.opacity =
@@ -1230,15 +1916,11 @@
           : 1 - nightAmount;
 
 
-
       skyNight.style.opacity =
         nightAmount;
 
 
-
-      /* ============================
-         雲
-      ============================ */
+      /* 雲 */
 
       cloudsWrapper.style.transform =
 
@@ -1247,15 +1929,14 @@
         )`;
 
 
-
       cloudsWrapper.style.opacity =
 
         1
-        - (
+        -
+        (
           nightAmount
           * 0.65
         );
-
 
 
       cloudsWrapper.style.filter =
@@ -1263,16 +1944,14 @@
         `brightness(
           ${
             1
-            - nightAmount
+            -
+            nightAmount
             * 0.55
           }
         )`;
 
 
-
-      /* ============================
-         遠景
-      ============================ */
+      /* 遠景 */
 
       backgroundWrapper.style.transform =
 
@@ -1281,26 +1960,22 @@
         )`;
 
 
-
       backgroundWrapper.style.filter =
 
         `brightness(
           ${
             1
-            - nightAmount
+            -
+            nightAmount
             * 0.5
           }
         )`;
 
 
-
-      /* ============================
-         ステージ
-      ============================ */
+      /* ステージ */
 
       const stageHeight =
         stageWrapper.offsetHeight;
-
 
 
       const initialTop =
@@ -1308,10 +1983,8 @@
         - stageHeight;
 
 
-
       const targetTop =
         0;
-
 
 
       const moveDistance =
@@ -1319,11 +1992,9 @@
         - initialTop;
 
 
-
       const stageMove =
         moveDistance
         * progress;
-
 
 
       stageWrapper.style.transform =
@@ -1332,12 +2003,6 @@
           ${stageMove}px
         )`;
 
-
-
-      /* ============================
-         NIGHT到達時
-         ステージ上端を画面上端へ
-      ============================ */
 
       if (
         scrollY
@@ -1353,10 +2018,7 @@
       }
 
 
-
-      /* ============================
-         太陽
-      ============================ */
+      /* 太陽 */
 
       sun.style.transform =
 
@@ -1365,15 +2027,16 @@
         )`;
 
 
-
       sun.style.opacity =
 
         clamp(
 
           1
-          - (
+          -
+          (
             (progress - 0.3)
-            / 0.3
+            /
+            0.3
           ),
 
           0,
@@ -1383,17 +2046,18 @@
         );
 
 
-
-      /* ============================
-         月
-      ============================ */
+      /* 月 */
 
       moon.style.opacity =
 
         clamp(
 
-          (progress - 0.55)
-          / 0.25,
+          (
+            progress
+            - 0.55
+          )
+          /
+          0.25,
 
           0,
 
@@ -1402,17 +2066,18 @@
         );
 
 
-
-      /* ============================
-         星
-      ============================ */
+      /* 星 */
 
       stars.style.opacity =
 
         clamp(
 
-          (progress - 0.6)
-          / 0.3,
+          (
+            progress
+            - 0.6
+          )
+          /
+          0.3,
 
           0,
 
@@ -1421,70 +2086,53 @@
         );
 
 
-
-      /* ============================
-         ARTISTSまで進んだら
-         パララックス素材を消す
-      ============================ */
+      /* ARTISTSまで進んだら
+         パララックス素材非表示 */
 
       if (
 
-        scrollY >
-
+        scrollY
+        >
         maxParallaxScroll
-        + window.innerHeight
+        +
+        window.innerHeight
         * 0.7
 
       ) {
 
-
         stageWrapper.style.opacity =
           0;
-
 
         cloudsWrapper.style.opacity =
           0;
 
-
         backgroundWrapper.style.opacity =
           0;
-
 
         sun.style.opacity =
           0;
 
-
         moon.style.opacity =
           0;
 
-
         stars.style.opacity =
           0;
-
 
       }
 
       else {
 
-
         stageWrapper.style.opacity =
           1;
 
-
       }
-
 
     }
 
 
-
-    /* ==============================
-       スクロール
-    ============================== */
-
     window.addEventListener(
 
-      'scroll',
+      "scroll",
 
       updateParallax,
 
@@ -1495,27 +2143,16 @@
     );
 
 
-
-    /* ==============================
-       画面サイズ変更
-    ============================== */
-
     window.addEventListener(
 
-      'resize',
+      "resize",
 
       updateParallax
 
     );
 
 
-
-    /* ==============================
-       初回実行
-    ============================== */
-
     updateParallax();
-
 
   </script>
 
