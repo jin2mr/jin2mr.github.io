@@ -816,7 +816,6 @@
 
     /* =====================================
        ARTISTS
-       強化版
     ===================================== */
 
     .artists-section {
@@ -865,11 +864,6 @@
 
       opacity: 0.55;
     }
-
-
-    /* =====================================
-       2列グリッド
-    ===================================== */
 
     .artists-grid {
       display: grid;
@@ -927,17 +921,11 @@
       backdrop-filter:
         blur(10px);
 
-      transform:
-        translateZ(0);
-
       transition:
         transform 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
     }
-
-
-    /* カード別アクセント */
 
     .artist-card:nth-child(1) {
       --accent:
@@ -969,9 +957,6 @@
         #89efff;
     }
 
-
-    /* 細い発光ライン */
-
     .artist-card::before {
       content: "";
 
@@ -997,7 +982,6 @@
 
       opacity: 0.75;
     }
-
 
     .artist-card:active {
       transform:
@@ -1042,14 +1026,7 @@
       height: 100%;
 
       object-fit: cover;
-
-      transition:
-        transform 0.4s ease,
-        filter 0.4s ease;
     }
-
-
-    /* 画像下部グラデーション */
 
     .artist-image::after {
       content: "";
@@ -1068,11 +1045,6 @@
           rgba(4,10,25,0.92) 100%
         );
     }
-
-
-    /* =====================================
-       出演時間
-    ===================================== */
 
     .artist-time {
       position: absolute;
@@ -1106,11 +1078,6 @@
 
       color: white;
     }
-
-
-    /* =====================================
-       ジャンルタグ
-    ===================================== */
 
     .artist-genre-tag {
       position: absolute;
@@ -1161,11 +1128,6 @@
       text-overflow: ellipsis;
     }
 
-
-    /* =====================================
-       画像上の名前
-    ===================================== */
-
     .artist-overlay {
       position: absolute;
 
@@ -1201,11 +1163,6 @@
         0 3px 10px
         rgba(0,0,0,0.75);
     }
-
-
-    /* =====================================
-       カード下部情報
-    ===================================== */
 
     .artist-info {
       position: relative;
@@ -1280,10 +1237,13 @@
 
 
     /* =====================================
-       モーダル
+       強化版モーダル
     ===================================== */
 
     .artist-modal {
+      --modal-accent:
+        #89efff;
+
       position: fixed;
 
       inset: 0;
@@ -1295,16 +1255,60 @@
       overflow-y: auto;
 
       background:
+        radial-gradient(
+          circle at 50% 0%,
+          color-mix(
+            in srgb,
+            var(--modal-accent) 18%,
+            transparent
+          ),
+          transparent 36%
+        ),
         linear-gradient(
           to bottom,
-          #0e1e3f 0%,
-          #071426 100%
+          #0d1c38 0%,
+          #071426 48%,
+          #040a15 100%
         );
+
+      -webkit-overflow-scrolling:
+        touch;
     }
 
     .artist-modal.show {
       display: block;
     }
+
+
+    /* 上部発光 */
+
+    .artist-modal::before {
+      content: "";
+
+      position: fixed;
+
+      top: -180px;
+      left: 50%;
+
+      width: 420px;
+      height: 420px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        var(--modal-accent);
+
+      filter:
+        blur(150px);
+
+      opacity: 0.13;
+
+      pointer-events: none;
+    }
+
 
     .modal-inner {
       position: relative;
@@ -1318,8 +1322,11 @@
       margin: 0 auto;
 
       padding:
-        70px 18px 80px;
+        66px 18px 90px;
     }
+
+
+    /* 閉じる */
 
     .modal-close {
       position: fixed;
@@ -1332,21 +1339,41 @@
       width: 48px;
       height: 48px;
 
-      border: none;
+      border:
+        1px solid
+        rgba(255,255,255,0.20);
 
       border-radius: 50%;
 
       background:
-        rgba(0,0,0,0.55);
+        rgba(5,10,20,0.60);
 
       color: white;
 
       font-size: 28px;
 
       cursor: pointer;
+
+      backdrop-filter:
+        blur(12px);
+
+      box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.30);
+    }
+
+
+    /* =====================================
+       モーダル画像
+    ===================================== */
+
+    .modal-hero {
+      position: relative;
     }
 
     .modal-image-wrap {
+      position: relative;
+
       width: 100%;
 
       aspect-ratio:
@@ -1354,9 +1381,41 @@
 
       overflow: hidden;
 
-      border-radius: 18px;
+      border-radius: 22px;
 
       background: #111;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+      box-shadow:
+        0 24px 55px
+        rgba(0,0,0,0.45),
+        0 0 35px
+        color-mix(
+          in srgb,
+          var(--modal-accent) 14%,
+          transparent
+        );
+    }
+
+    .modal-image-wrap::after {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent 45%,
+          rgba(4,10,20,0.08) 60%,
+          rgba(4,10,20,0.85) 100%
+        );
+
+      pointer-events: none;
     }
 
     .modal-image {
@@ -1368,124 +1427,577 @@
       object-fit: cover;
     }
 
-    .modal-name {
-      margin:
-        28px 0 5px;
 
-      font-size:
-        clamp(
-          32px,
-          8vw,
-          56px
-        );
-    }
+    /* HERO内ラベル */
 
-    .modal-alias {
-      margin-top: 8px;
+    .modal-hero-label {
+      position: absolute;
 
-      font-size: 14px;
+      left: 18px;
+      bottom: 18px;
 
-      letter-spacing: 4px;
-
-      color: #9fd7ff;
-    }
-
-    .modal-genre {
-      display: inline-block;
-
-      margin-top: 20px;
+      z-index: 3;
 
       padding:
-        7px 12px;
+        7px 11px;
+
+      border-radius:
+        999px;
 
       border:
         1px solid
-        rgba(255,255,255,0.55);
+        color-mix(
+          in srgb,
+          var(--modal-accent) 60%,
+          rgba(255,255,255,0.18)
+        );
 
-      border-radius: 999px;
+      background:
+        color-mix(
+          in srgb,
+          var(--modal-accent) 18%,
+          rgba(5,10,20,0.72)
+        );
 
-      font-size: 13px;
+      backdrop-filter:
+        blur(10px);
+
+      font-size: 9px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      color:
+        var(--modal-accent);
     }
 
-    .modal-description {
-      margin-top: 25px;
 
-      font-size: 16px;
+    /* =====================================
+       モーダル情報
+    ===================================== */
 
-      line-height: 1.9;
+    .modal-info {
+      position: relative;
 
-      white-space:
-        pre-line;
+      margin-top: 26px;
     }
 
-    .track-area {
-      margin-top: 35px;
+    .modal-kicker {
+      margin-bottom: 8px;
+
+      font-size: 10px;
+
+      font-weight: bold;
+
+      letter-spacing: 5px;
+
+      color:
+        var(--modal-accent);
+
+      opacity: 0.85;
+    }
+
+    .modal-name {
+      margin: 0;
+
+      font-size:
+        clamp(
+          38px,
+          10vw,
+          68px
+        );
+
+      line-height: 0.98;
+
+      letter-spacing: 1px;
+
+      text-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.45);
+    }
+
+    .modal-alias {
+      margin-top: 11px;
+
+      font-size: 12px;
+
+      font-weight: bold;
+
+      letter-spacing: 4px;
+
+      color:
+        rgba(255,255,255,0.58);
+    }
+
+    .modal-meta-row {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 19px;
+    }
+
+    .modal-genre {
+      display: inline-flex;
+
+      align-items: center;
+
+      min-height: 34px;
+
+      padding:
+        7px 13px;
+
+      border:
+        1px solid
+        color-mix(
+          in srgb,
+          var(--modal-accent) 65%,
+          rgba(255,255,255,0.18)
+        );
+
+      border-radius:
+        999px;
+
+      background:
+        color-mix(
+          in srgb,
+          var(--modal-accent) 13%,
+          rgba(255,255,255,0.03)
+        );
+
+      color:
+        var(--modal-accent);
+
+      font-size: 10px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+    }
+
+    .modal-time {
+      display: inline-flex;
+
+      align-items: center;
+
+      min-height: 34px;
+
+      padding:
+        7px 13px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.15);
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(255,255,255,0.04);
+
+      font-size: 10px;
+
+      font-weight: bold;
+
+      letter-spacing: 2px;
+
+      color:
+        rgba(255,255,255,0.72);
+    }
+
+
+    /* =====================================
+       STORY
+    ===================================== */
+
+    .modal-story {
+      margin-top: 28px;
 
       padding:
         22px 18px;
 
       border-radius: 18px;
 
+      border:
+        1px solid
+        rgba(255,255,255,0.09);
+
       background:
-        rgba(255,255,255,0.06);
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.055),
+          rgba(255,255,255,0.02)
+        );
+
+      backdrop-filter:
+        blur(10px);
     }
 
-    .track-label {
-      font-size: 11px;
+    .modal-story-label {
+      font-size: 9px;
+
+      font-weight: bold;
 
       letter-spacing: 4px;
 
-      opacity: 0.6;
+      color:
+        var(--modal-accent);
+    }
+
+    .modal-description {
+      margin-top: 13px;
+
+      font-size: 15px;
+
+      line-height: 1.95;
+
+      color:
+        rgba(255,255,255,0.88);
+
+      white-space:
+        pre-line;
+    }
+
+
+    /* =====================================
+       音楽プレイヤー
+    ===================================== */
+
+    .track-area {
+      position: relative;
+
+      margin-top: 26px;
+
+      padding:
+        22px 18px 19px;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+      background:
+        linear-gradient(
+          145deg,
+          color-mix(
+            in srgb,
+            var(--modal-accent) 10%,
+            rgba(255,255,255,0.04)
+          ),
+          rgba(255,255,255,0.025)
+        );
+
+      box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.25);
+
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+
+    /* 再生中 */
+
+    .track-area.playing {
+      border-color:
+        color-mix(
+          in srgb,
+          var(--modal-accent) 70%,
+          rgba(255,255,255,0.2)
+        );
+
+      box-shadow:
+        0 0 28px
+        color-mix(
+          in srgb,
+          var(--modal-accent) 24%,
+          transparent
+        ),
+        0 18px 40px
+        rgba(0,0,0,0.35);
+    }
+
+
+    /* 背景光 */
+
+    .track-area::before {
+      content: "";
+
+      position: absolute;
+
+      width: 150px;
+      height: 150px;
+
+      right: -55px;
+      top: -60px;
+
+      border-radius: 50%;
+
+      background:
+        var(--modal-accent);
+
+      filter:
+        blur(65px);
+
+      opacity: 0.12;
+
+      pointer-events: none;
+    }
+
+
+    .track-top-row {
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      justify-content:
+        space-between;
+
+      gap: 14px;
+    }
+
+    .track-label {
+      font-size: 9px;
+
+      font-weight: bold;
+
+      letter-spacing: 4px;
+
+      color:
+        var(--modal-accent);
     }
 
     .track-title {
-      margin-top: 8px;
+      margin-top: 7px;
 
-      font-size: 22px;
+      font-size:
+        clamp(
+          20px,
+          5vw,
+          28px
+        );
 
-      font-weight: bold;
+      line-height: 1.2;
+
+      font-weight: 800;
     }
 
+
+    /* 擬似イコライザー */
+
+    .mini-eq {
+      display: flex;
+
+      align-items: flex-end;
+
+      gap: 3px;
+
+      height: 28px;
+
+      margin-top: 2px;
+    }
+
+    .mini-eq span {
+      display: block;
+
+      width: 3px;
+
+      height: 8px;
+
+      border-radius: 999px;
+
+      background:
+        var(--modal-accent);
+
+      opacity: 0.5;
+    }
+
+    .track-area.playing
+    .mini-eq span:nth-child(1) {
+      animation:
+        eq1 0.7s
+        ease-in-out infinite;
+    }
+
+    .track-area.playing
+    .mini-eq span:nth-child(2) {
+      animation:
+        eq2 0.55s
+        ease-in-out infinite;
+    }
+
+    .track-area.playing
+    .mini-eq span:nth-child(3) {
+      animation:
+        eq3 0.8s
+        ease-in-out infinite;
+    }
+
+    .track-area.playing
+    .mini-eq span:nth-child(4) {
+      animation:
+        eq2 0.65s
+        ease-in-out infinite;
+    }
+
+    .track-area.playing
+    .mini-eq span:nth-child(5) {
+      animation:
+        eq1 0.6s
+        ease-in-out infinite;
+    }
+
+    @keyframes eq1 {
+
+      0%,
+      100% {
+        height: 7px;
+      }
+
+      50% {
+        height: 24px;
+      }
+
+    }
+
+    @keyframes eq2 {
+
+      0%,
+      100% {
+        height: 14px;
+      }
+
+      50% {
+        height: 27px;
+      }
+
+    }
+
+    @keyframes eq3 {
+
+      0%,
+      100% {
+        height: 22px;
+      }
+
+      50% {
+        height: 9px;
+      }
+
+    }
+
+
+    /* PLAY BUTTON */
+
     .play-button {
+      position: relative;
+
+      z-index: 2;
+
       width: 100%;
 
       margin-top: 20px;
 
       padding:
-        16px 20px;
+        15px 20px;
 
-      border: none;
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
 
-      border-radius: 999px;
+      border-radius:
+        999px;
 
-      background: white;
+      background:
+        white;
 
-      color: #071426;
+      color:
+        #071426;
 
-      font-size: 16px;
+      font-size: 14px;
 
-      font-weight: bold;
+      font-weight: 900;
+
+      letter-spacing: 3px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
     }
 
+    .play-button:active {
+      transform:
+        scale(0.97);
+    }
+
+    .track-area.playing
+    .play-button {
+      background:
+        var(--modal-accent);
+
+      color:
+        #071426;
+
+      box-shadow:
+        0 0 20px
+        color-mix(
+          in srgb,
+          var(--modal-accent) 55%,
+          transparent
+        );
+    }
+
+
+    /* PROGRESS */
+
     .progress-wrap {
-      margin-top: 15px;
+      position: relative;
+
+      z-index: 2;
+
+      margin-top: 17px;
     }
 
     .progress-bar {
       width: 100%;
+
+      accent-color:
+        var(--modal-accent);
     }
 
     .audio-time {
+      position: relative;
+
+      z-index: 2;
+
       display: flex;
 
       justify-content:
         space-between;
 
-      margin-top: 12px;
+      margin-top: 9px;
 
-      font-size: 12px;
+      font-size: 10px;
 
-      opacity: 0.65;
+      letter-spacing: 1px;
+
+      color:
+        rgba(255,255,255,0.52);
     }
 
 
@@ -1579,9 +2091,40 @@
         font-size: 7px;
       }
 
+
+      /* モーダルスマホ */
+
       .modal-inner {
         padding:
-          70px 14px 60px;
+          64px 13px 70px;
+      }
+
+      .modal-image-wrap {
+        border-radius: 17px;
+      }
+
+      .modal-name {
+        font-size: 38px;
+      }
+
+      .modal-story {
+        padding:
+          18px 15px;
+      }
+
+      .modal-description {
+        font-size: 14px;
+
+        line-height: 1.9;
+      }
+
+      .track-area {
+        padding:
+          19px 15px 17px;
+      }
+
+      .track-title {
+        font-size: 20px;
       }
 
     }
@@ -2325,7 +2868,7 @@
 
 
   <!-- =====================================
-       MODAL
+       強化版 ARTIST MODAL
   ====================================== -->
 
   <div
@@ -2345,53 +2888,117 @@
     <div class="modal-inner">
 
 
-      <div class="modal-image-wrap">
+      <!-- HERO -->
 
-        <img
-          id="modalImage"
-          class="modal-image"
-          src=""
-          alt=""
-        >
+      <div class="modal-hero">
+
+        <div class="modal-image-wrap">
+
+          <img
+            id="modalImage"
+            class="modal-image"
+            src=""
+            alt=""
+          >
+
+          <div class="modal-hero-label">
+            SUMMER FES 2026
+          </div>
+
+        </div>
 
       </div>
 
 
-      <h2
-        class="modal-name"
-        id="modalName"
-      ></h2>
+      <!-- ARTIST INFO -->
 
+      <div class="modal-info">
 
-      <div
-        class="modal-alias"
-        id="modalAlias"
-      ></div>
-
-
-      <div
-        class="modal-genre"
-        id="modalGenre"
-      ></div>
-
-
-      <div
-        class="modal-description"
-        id="modalDescription"
-      ></div>
-
-
-      <div class="track-area">
-
-        <div class="track-label">
-          TRACK
+        <div class="modal-kicker">
+          FEATURED ARTIST
         </div>
 
 
+        <h2
+          class="modal-name"
+          id="modalName"
+        ></h2>
+
+
         <div
-          class="track-title"
-          id="modalTrack"
+          class="modal-alias"
+          id="modalAlias"
         ></div>
+
+
+        <div class="modal-meta-row">
+
+          <div
+            class="modal-genre"
+            id="modalGenre"
+          ></div>
+
+          <div
+            class="modal-time"
+            id="modalTime"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- STORY -->
+
+      <div class="modal-story">
+
+        <div class="modal-story-label">
+          STORY
+        </div>
+
+        <div
+          class="modal-description"
+          id="modalDescription"
+        ></div>
+
+      </div>
+
+
+      <!-- MUSIC -->
+
+      <div
+        class="track-area"
+        id="trackArea"
+      >
+
+
+        <div class="track-top-row">
+
+          <div>
+
+            <div class="track-label">
+              FEATURED TRACK
+            </div>
+
+            <div
+              class="track-title"
+              id="modalTrack"
+            ></div>
+
+          </div>
+
+
+          <div class="mini-eq">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+          </div>
+
+        </div>
 
 
         <button
@@ -2428,6 +3035,7 @@
 
         </div>
 
+
       </div>
 
 
@@ -2463,6 +3071,12 @@
         genre:
           "DANCE POP",
 
+        time:
+          "16:30",
+
+        accent:
+          "#62ff9b",
+
         description:
           "広島県の不良高校生、幼いころ両親が離婚し、母親に育てられるが、家庭環境は荒れ気味。高校に入るとモンスターとして有名だった田楽良介（でんがく りょうすけ）と出会い、何度かの衝突の後に意気投合する。",
 
@@ -2488,6 +3102,12 @@
 
         genre:
           "DANCE POP",
+
+        time:
+          "17:15",
+
+        accent:
+          "#73b7ff",
 
         description:
           "広島県の不良高校生、無口で無愛想、喧嘩は無敗。両親は良介が産まれてすぐに離婚、父親は母親と良介を残して姿を消した。母親は寂しさからか知らない男をよく家に呼び度々トラブルとなる。腹違いの妹と弟を守るためにDV義父を意識不明にさせて警察沙汰になる。その頃から父親殺しやモンスターなどの異名が付く。",
@@ -2515,6 +3135,12 @@
         genre:
           "J-POP IDOL SONG",
 
+        time:
+          "18:00",
+
+        accent:
+          "#ff82d8",
+
         description:
           "ピンク色のツインテールに、ウサ耳が特徴的な女の子。発言は小馬鹿にするような言葉遣いが多く、生意気だが少し寂しがりやな一面もある。高飛車に見える態度は、かまってほしいという気持ちの裏返し……かも？",
 
@@ -2540,6 +3166,12 @@
 
         genre:
           "UNKNOWN",
+
+        time:
+          "18:45",
+
+        accent:
+          "#c78cff",
 
         description:
           "厳しい環境で競争率の高いお受験を乗り越えて来たインテリ系お嬢様。大学を卒業するまでは全てが順位！順位！順位！高い成績を取る事だけが評価を受ける人生だった。\n\n“人は順位の檻に飼われる家畜”\n“努力は美徳ではない、ただの飢えた競争”\n“笑顔は虚飾、正しさは毒”\n\nいつしか彼女の思考は毒に染まっていく。",
@@ -2567,6 +3199,12 @@
         genre:
           "PUNK ROCK",
 
+        time:
+          "19:30",
+
+        accent:
+          "#ff6f79",
+
         description:
           "物心付く前から家族はバラバラ。福太という腹違いの兄と母親の3人暮らしで育つ。実はもう一人兄が居るのだが、母親と福太はその事を話してはくれなかった。家にも何処にも居場所が無く、いつしかギターは麻美の“逃げ場所”になった。",
 
@@ -2592,6 +3230,12 @@
 
         genre:
           "DANCE POP",
+
+        time:
+          "20:30",
+
+        accent:
+          "#89efff",
 
         description:
           "SECRET",
@@ -2645,6 +3289,11 @@
         "modalGenre"
       );
 
+    const modalTime =
+      document.getElementById(
+        "modalTime"
+      );
+
     const modalDescription =
       document.getElementById(
         "modalDescription"
@@ -2653,6 +3302,11 @@
     const modalTrack =
       document.getElementById(
         "modalTrack"
+      );
+
+    const trackArea =
+      document.getElementById(
+        "trackArea"
       );
 
     const playButton =
@@ -2727,10 +3381,17 @@
         artists[index];
 
 
+      /* 音楽初期化 */
+
       audioPlayer.pause();
 
       audioPlayer.currentTime =
         0;
+
+
+      trackArea.classList.remove(
+        "playing"
+      );
 
 
       playButton.textContent =
@@ -2744,6 +3405,20 @@
       currentTimeText.textContent =
         "0:00";
 
+
+      durationText.textContent =
+        "0:00";
+
+
+      /* アーティストカラー */
+
+      artistModal.style.setProperty(
+        "--modal-accent",
+        artist.accent
+      );
+
+
+      /* 情報 */
 
       modalImage.src =
         artist.image;
@@ -2771,6 +3446,12 @@
         artist.genre;
 
 
+      modalTime.textContent =
+        artist.time
+        +
+        " · MAIN STAGE";
+
+
       modalDescription.textContent =
         artist.description;
 
@@ -2785,6 +3466,8 @@
 
       audioPlayer.load();
 
+
+      /* OPEN */
 
       artistModal.classList.add(
         "show"
@@ -2809,6 +3492,11 @@
 
       audioPlayer.currentTime =
         0;
+
+
+      trackArea.classList.remove(
+        "playing"
+      );
 
 
       playButton.textContent =
@@ -2838,26 +3526,10 @@
             "click",
             () => {
 
-              card.classList.add(
-                "pressed"
-              );
-
-
-              setTimeout(
-                () => {
-
-                  card.classList.remove(
-                    "pressed"
-                  );
-
-                  openArtistModal(
-                    Number(
-                      card.dataset.artist
-                    )
-                  );
-
-                },
-                120
+              openArtistModal(
+                Number(
+                  card.dataset.artist
+                )
               );
 
             }
@@ -2889,8 +3561,14 @@
 
             await audioPlayer.play();
 
+
             playButton.textContent =
               "❚❚ PAUSE";
+
+
+            trackArea.classList.add(
+              "playing"
+            );
 
           }
 
@@ -2910,8 +3588,14 @@
 
           audioPlayer.pause();
 
+
           playButton.textContent =
             "▶ PLAY";
+
+
+          trackArea.classList.remove(
+            "playing"
+          );
 
         }
 
@@ -2991,8 +3675,15 @@
         playButton.textContent =
           "▶ PLAY";
 
+
+        trackArea.classList.remove(
+          "playing"
+        );
+
+
         progressBar.value =
           0;
+
 
         currentTimeText.textContent =
           "0:00";
@@ -3100,15 +3791,11 @@
         );
 
 
-      /* =====================================
-         空
-      ====================================== */
+      /* 空 */
 
       const sunsetAmount =
         clamp(
-          progress
-          /
-          0.5,
+          progress / 0.5,
           0,
           1
         );
@@ -3144,9 +3831,7 @@
         nightAmount;
 
 
-      /* =====================================
-         雲
-      ====================================== */
+      /* 雲 */
 
       cloudsWrapper.style.transform =
         `translateY(
@@ -3174,9 +3859,7 @@
         )`;
 
 
-      /* =====================================
-         遠景
-      ====================================== */
+      /* 遠景 */
 
       backgroundWrapper.style.transform =
         `translateY(
@@ -3204,9 +3887,7 @@
         backgroundFade;
 
 
-      /* =====================================
-         ステージ
-      ====================================== */
+      /* ステージ */
 
       const stageHeight =
         stageWrapper.offsetHeight;
@@ -3234,9 +3915,7 @@
         )`;
 
 
-      /* =====================================
-         観客
-      ====================================== */
+      /* 観客 */
 
       const audiencePhase =
         clamp(
@@ -3312,9 +3991,7 @@
         )`;
 
 
-      /* =====================================
-         太陽
-      ====================================== */
+      /* 太陽 */
 
       sun.style.transform =
         `translateY(
@@ -3340,9 +4017,7 @@
         );
 
 
-      /* =====================================
-         月
-      ====================================== */
+      /* 月 */
 
       moon.style.opacity =
         clamp(
@@ -3358,9 +4033,7 @@
         );
 
 
-      /* =====================================
-         星
-      ====================================== */
+      /* 星 */
 
       stars.style.opacity =
         clamp(
@@ -3376,9 +4049,7 @@
         );
 
 
-      /* =====================================
-         ARTISTS以降
-      ====================================== */
+      /* ARTISTS以降 */
 
       if (
         scrollY
@@ -3449,4 +4120,4 @@
 
 </body>
 
-</html>
+  </html>
