@@ -434,6 +434,52 @@
 
 
     /* =====================================
+       共通 REVEAL
+    ===================================== */
+
+    .reveal-item {
+
+      opacity: 0;
+
+      transform:
+        translateY(30px);
+
+      filter:
+        blur(6px);
+
+      transition:
+        opacity 0.75s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+
+        transform 0.75s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+
+        filter 0.75s ease;
+    }
+
+    .reveal-item.reveal {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+
+      filter:
+        blur(0);
+    }
+
+
+    /* =====================================
        TIMETABLE
     ===================================== */
 
@@ -546,7 +592,76 @@
       margin-bottom: 8px;
 
       min-height: 58px;
+
+
+      /* ★登場用 */
+
+      opacity: 0;
+
+      transform:
+        translateY(28px);
+
+      filter:
+        blur(5px);
+
+      transition:
+        opacity 0.7s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+
+        transform 0.7s
+        cubic-bezier(
+          0.22,
+          1,
+          0.36,
+          1
+        ),
+
+        filter 0.7s ease;
     }
+
+    .schedule-item.reveal {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+
+      filter:
+        blur(0);
+    }
+
+
+    /* タイムテーブル各項目の遅延 */
+
+    .schedule-item:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .schedule-item:nth-child(2) {
+      transition-delay: 0.11s;
+    }
+
+    .schedule-item:nth-child(3) {
+      transition-delay: 0.17s;
+    }
+
+    .schedule-item:nth-child(4) {
+      transition-delay: 0.23s;
+    }
+
+    .schedule-item:nth-child(5) {
+      transition-delay: 0.29s;
+    }
+
+    .schedule-item:nth-child(6) {
+      transition-delay: 0.35s;
+    }
+
 
     .schedule-time {
 
@@ -804,6 +919,29 @@
     }
 
 
+    /* HEADLINER登場順 */
+
+    .headliner-small {
+      transition-delay: 0.02s;
+    }
+
+    .headliner-title {
+      transition-delay: 0.10s;
+    }
+
+    .headliner-copy {
+      transition-delay: 0.18s;
+    }
+
+    .headliner-stats {
+      transition-delay: 0.26s;
+    }
+
+    .artists-cta {
+      transition-delay: 0.34s;
+    }
+
+
     /* =====================================
        ARTISTS CTA
     ===================================== */
@@ -965,9 +1103,6 @@
 
     /* =====================================
        ARTIST CARD
-
-       初期状態は非表示
-       JSで reveal が付くと登場
     ===================================== */
 
     .artist-card {
@@ -1004,7 +1139,7 @@
         blur(10px);
 
 
-      /* ★スクロール登場用 */
+      /* スクロール登場 */
 
       opacity: 0;
 
@@ -1040,9 +1175,6 @@
         box-shadow 0.25s ease;
     }
 
-
-    /* ★画面に入ると表示 */
-
     .artist-card.reveal {
 
       opacity: 1;
@@ -1056,52 +1188,42 @@
     }
 
 
-    /* 各カードを少しずつ遅らせる */
-
     .artist-card:nth-child(1) {
       --accent: #62ff9b;
 
-      transition-delay:
-        0.00s;
+      transition-delay: 0.00s;
     }
 
     .artist-card:nth-child(2) {
       --accent: #73b7ff;
 
-      transition-delay:
-        0.10s;
+      transition-delay: 0.10s;
     }
 
     .artist-card:nth-child(3) {
       --accent: #ff82d8;
 
-      transition-delay:
-        0.06s;
+      transition-delay: 0.06s;
     }
 
     .artist-card:nth-child(4) {
       --accent: #c78cff;
 
-      transition-delay:
-        0.16s;
+      transition-delay: 0.16s;
     }
 
     .artist-card:nth-child(5) {
       --accent: #ff6f79;
 
-      transition-delay:
-        0.06s;
+      transition-delay: 0.06s;
     }
 
     .artist-card:nth-child(6) {
       --accent: #89efff;
 
-      transition-delay:
-        0.16s;
+      transition-delay: 0.16s;
     }
 
-
-    /* 下の発光ライン */
 
     .artist-card::before {
 
@@ -1131,8 +1253,6 @@
       opacity: 0.75;
     }
 
-
-    /* タップ */
 
     .artist-card.reveal:active {
 
@@ -1192,14 +1312,12 @@
         );
     }
 
-
     .artist-card:active
     .artist-image img {
 
       transform:
         scale(1.035);
     }
-
 
     .artist-image::after {
 
@@ -1538,7 +1656,7 @@
 
 
     /* =====================================
-       ★ MODAL OPEN ANIMATION
+       MODAL OPEN ANIMATION
     ===================================== */
 
     .modal-hero,
@@ -1559,8 +1677,6 @@
     }
 
 
-    /* IMAGE */
-
     .artist-modal.show
     .modal-hero {
 
@@ -1577,8 +1693,6 @@
         forwards;
     }
 
-
-    /* FEATURED ARTIST */
 
     .artist-modal.show
     .modal-kicker {
@@ -1597,8 +1711,6 @@
     }
 
 
-    /* NAME */
-
     .artist-modal.show
     .modal-name {
 
@@ -1615,8 +1727,6 @@
         forwards;
     }
 
-
-    /* ALIAS */
 
     .artist-modal.show
     .modal-alias {
@@ -1635,8 +1745,6 @@
     }
 
 
-    /* TAG */
-
     .artist-modal.show
     .modal-meta-row {
 
@@ -1654,8 +1762,6 @@
     }
 
 
-    /* STORY */
-
     .artist-modal.show
     .modal-story {
 
@@ -1672,8 +1778,6 @@
         forwards;
     }
 
-
-    /* MUSIC */
 
     .artist-modal.show
     .track-area {
@@ -1869,9 +1973,6 @@
       height: 100%;
 
       object-fit: cover;
-
-
-      /* 画像自体も軽くズーム */
 
       transform:
         scale(1.045);
@@ -2617,8 +2718,6 @@
       }
 
 
-      /* MODAL */
-
       .modal-inner {
 
         padding:
@@ -2663,12 +2762,14 @@
 
 
     /* =====================================
-       動きを減らす設定の端末
+       REDUCED MOTION
     ===================================== */
 
     @media
     (prefers-reduced-motion: reduce) {
 
+      .reveal-item,
+      .schedule-item,
       .artist-card {
 
         opacity: 1;
@@ -2828,23 +2929,30 @@
     </section>
 
 
-    <!-- SUNSET -->
+    <!-- SUNSET / TIMETABLE -->
 
     <section class="section">
 
       <div class="timetable-content">
 
-        <div class="section-eyebrow">
+
+        <div
+          class="section-eyebrow reveal-item"
+        >
           SUNSET SESSION
         </div>
 
 
-        <h2 class="timetable-title">
+        <h2
+          class="timetable-title reveal-item"
+        >
           TIMETABLE
         </h2>
 
 
-        <div class="timetable-subtitle">
+        <div
+          class="timetable-subtitle reveal-item"
+        >
           MAIN STAGE · TODAY
         </div>
 
@@ -2985,19 +3093,23 @@
     </section>
 
 
-    <!-- NIGHT -->
+    <!-- NIGHT / HEADLINER -->
 
     <section class="section">
 
       <div class="headliner-content">
 
 
-        <div class="headliner-small">
+        <div
+          class="headliner-small reveal-item"
+        >
           TONIGHT
         </div>
 
 
-        <h2 class="headliner-title">
+        <h2
+          class="headliner-title reveal-item"
+        >
 
           <span>
             HEADLINER
@@ -3006,7 +3118,9 @@
         </h2>
 
 
-        <div class="headliner-copy">
+        <div
+          class="headliner-copy reveal-item"
+        >
 
           THE NIGHT IS JUST BEGINNING.<br>
 
@@ -3015,7 +3129,9 @@
         </div>
 
 
-        <div class="headliner-stats">
+        <div
+          class="headliner-stats reveal-item"
+        >
 
 
           <div class="headliner-stat">
@@ -3062,7 +3178,7 @@
 
         <a
           href="#artists"
-          class="artists-cta"
+          class="artists-cta reveal-item"
         >
 
           MEET THE ARTISTS
@@ -4038,15 +4154,11 @@
         "0:00";
 
 
-      /* THEME COLOR */
-
       artistModal.style.setProperty(
         "--modal-accent",
         artist.accent
       );
 
-
-      /* DATA */
 
       modalImage.src =
         artist.image;
@@ -4094,8 +4206,6 @@
 
       audioPlayer.load();
 
-
-      /* OPEN */
 
       artistModal.classList.add(
         "show"
@@ -4372,17 +4482,16 @@
 
 
     /* =====================================
-       ★ ARTIST CARD
-       SCROLL REVEAL
+       ★ 共通スクロールREVEAL
     ===================================== */
 
-    const artistCards =
+    const revealTargets =
       document.querySelectorAll(
-        ".artist-card"
+        ".reveal-item, .schedule-item, .artist-card"
       );
 
 
-    const cardObserver =
+    const revealObserver =
       new IntersectionObserver(
 
         entries => {
@@ -4402,7 +4511,7 @@
                 );
 
 
-                cardObserver.unobserve(
+                revealObserver.unobserve(
                   entry.target
                 );
 
@@ -4418,27 +4527,22 @@
 
         {
 
-          /*
-            画面下から15%ほど入ったら
-            アニメーション開始
-          */
-
-          threshold: 0.15,
+          threshold: 0.14,
 
           rootMargin:
-            "0px 0px -4% 0px"
+            "0px 0px -5% 0px"
 
         }
 
       );
 
 
-    artistCards.forEach(
-      card => {
+    revealTargets.forEach(
+      target => {
 
 
-        cardObserver.observe(
-          card
+        revealObserver.observe(
+          target
         );
 
 
@@ -4561,9 +4665,7 @@
         );
 
 
-      /* =====================================
-         SKY
-      ===================================== */
+      /* SKY */
 
       const sunsetAmount =
         clamp(
@@ -4605,9 +4707,7 @@
         nightAmount;
 
 
-      /* =====================================
-         CLOUDS
-      ===================================== */
+      /* CLOUDS */
 
       cloudsWrapper.style.transform =
         `translateY(
@@ -4635,9 +4735,7 @@
         )`;
 
 
-      /* =====================================
-         BACKGROUND
-      ===================================== */
+      /* BACKGROUND */
 
       backgroundWrapper.style.transform =
         `translateY(
@@ -4665,9 +4763,7 @@
         backgroundFade;
 
 
-      /* =====================================
-         STAGE
-      ===================================== */
+      /* STAGE */
 
       const stageHeight =
         stageWrapper.offsetHeight;
@@ -4695,9 +4791,7 @@
         )`;
 
 
-      /* =====================================
-         AUDIENCE
-      ===================================== */
+      /* AUDIENCE */
 
       const audiencePhase =
         clamp(
@@ -4773,9 +4867,7 @@
         )`;
 
 
-      /* =====================================
-         SUN
-      ===================================== */
+      /* SUN */
 
       sun.style.transform =
         `translateY(
@@ -4801,9 +4893,7 @@
         );
 
 
-      /* =====================================
-         MOON
-      ===================================== */
+      /* MOON */
 
       moon.style.opacity =
         clamp(
@@ -4819,9 +4909,7 @@
         );
 
 
-      /* =====================================
-         STARS
-      ===================================== */
+      /* STARS */
 
       stars.style.opacity =
         clamp(
@@ -4837,9 +4925,7 @@
         );
 
 
-      /* =====================================
-         ARTISTS以降
-      ===================================== */
+      /* ARTISTS以降 */
 
       if (
         scrollY
@@ -4922,4 +5008,4 @@
 
 </body>
 
-  </html>
+              </html>
